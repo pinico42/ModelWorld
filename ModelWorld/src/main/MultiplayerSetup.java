@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.awt.Font;
 
+import multiplayer.Client;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
@@ -89,8 +91,6 @@ public class MultiplayerSetup {
 		    System.out.println(current.getWidth() + "x" + current.getHeight() + "x" +
 		                        current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
 		}
-		
-		//System.out.println(Display.getDesktopDisplayMode().getWidth());
 		
 		try {
 			Display.setInitialBackground(255, 255, 255);
@@ -161,27 +161,6 @@ public class MultiplayerSetup {
 		texts = newa;
 
 		int a = 5-Main.unlocked;
-		//System.out.println(a);
-		/*switch(a){
-		case 0:
-			texts = (new String[]{texts[0], texts[1], texts[2], texts[3], texts[4], texts[5]});
-			break;
-		case 1:
-			texts = (new String[]{texts[0] + " (Locked)", texts[1], texts[2], texts[3], texts[4], texts[5]});
-			break;
-		case 2:
-			texts = (new String[]{texts[0] + " (Locked)", texts[1] + " (Locked)", texts[2], texts[3], texts[4], texts[5]});
-			break;
-		case 3:
-			texts = (new String[]{texts[0] + " (Locked)", texts[1] + " (Locked)", texts[2] + " (Locked)", texts[3], texts[4], texts[5]});
-			break;
-		case 4:
-			texts = (new String[]{texts[0] + " (Locked)", texts[1] + " (Locked)", texts[2] + " (Locked)", texts[3] + " (Locked)", texts[4], texts[5]});
-			break;
-		case 5:
-			texts = (new String[]{texts[0] + " (Locked)", texts[1] + " (Locked)", texts[2] + " (Locked)", texts[3] + " (Locked)", texts[4] + " (Locked)", texts[5]});
-			break;
-		}*/
 		if(chosen == -1){
 			chosen = a;
 		}
@@ -202,6 +181,13 @@ public class MultiplayerSetup {
 			RHEIGHT = Main.RHEIGHT;
 		}
 		init_game(settings);
+		
+		try {
+			Client.main(null);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {}
+		
 	}
 	
 	public void run(boolean initi) {

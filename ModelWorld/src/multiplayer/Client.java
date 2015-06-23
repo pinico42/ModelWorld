@@ -3,33 +3,37 @@ package multiplayer;
 import java.io.*;
 import java.net.*;
 
-public class EchoClient {
+public class Client {
 	
+	public static boolean alive = false;
 	public static int number;
 	public static int game = -1;
+	public static PrintWriter out;
 	
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, Exception {
         
-        if (args.length != 0) {
-            System.err.println(
-                "Usage: java EchoClient <host name> <port number>");
-            System.exit(1);
-        }
+    	if(alive){
+    		System.out.println("Already set up");
+    		throw new Exception();
+    	}
+    	alive = true;
 
         String hostName = "benhack.ddns.net";
         int portNumber = 26656;
 
         try {
             Socket echoSocket = new Socket(hostName, portNumber);
-            PrintWriter out = new PrintWriter(echoSocket.getOutputStream(), true);
+            out = new PrintWriter(echoSocket.getOutputStream(), true);
     	    InputStream input = echoSocket.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(input));
-            BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+            //BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
         	number = Integer.parseInt(in.readLine());
         	System.out.println(number);
         	Receive receive = new Receive(input, in);
         	receive.start();
-            String userInput;
+        	out.println("game 1");
+        	System.out.println("Game selected");
+            /*String userInput;
             while ((userInput = stdIn.readLine()) != null) {
             	if(game == -1){
             		out.println(userInput);
@@ -43,7 +47,7 @@ public class EchoClient {
             		switch(game){	
             		case 0:
             			out.println(userInput);
-				break;
+            			break;
             		case 1:
             			out.println(userInput);
             			break;
@@ -69,14 +73,18 @@ public class EchoClient {
             			break;
             		}
             	}
-            }
+            }*/
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
             System.exit(1);
         } catch (IOException e) {
-            System.err.println("Couldn't get I/O for the connection to " +
-                hostName);
+            System.err.println("Couldn't get I/O for the connection to " + hostName);
             System.exit(1);
         } 
     }
+    
+    public static void send(String string){
+    	out.println(string);
+    }
+    
 }

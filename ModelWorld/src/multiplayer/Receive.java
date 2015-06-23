@@ -23,8 +23,8 @@ public class Receive extends Thread{
            	try {
            		String string = in.readLine();
            		if(string == null){break;}
-           		if(EchoClient.game != -1){
-           			switch(EchoClient.game){
+           		if(Client.game != -1){
+           			switch(Client.game){
            			case 0:
            				System.out.println("GAME 0 : "+string);
            				break;
@@ -37,8 +37,6 @@ public class Receive extends Thread{
            			continue;
            		}
            		try{
-            		//System.out.println("hi, " + string);
-            		//System.out.println("hi3, " + string.substring(0, 1));
             		if(string.substring(0, 1).equals("\f")){
             			System.out.println("Many d");
             			String filename = string.substring(1, string.length());
@@ -55,10 +53,8 @@ public class Receive extends Thread{
             			bos.write(bytes, 0, bytes.length);
             			bos.flush();
             			bos.close();
-            		} else if(Integer.parseInt(string.substring(0, 1)) != EchoClient.number){
-                		//System.out.println("hi1");
+            		} else if(Integer.parseInt(string.substring(0, 1)) != Client.number){
                 		System.out.println(string);
-                		//System.out.println("hi2");
                 	}
             	} catch(NumberFormatException e){
             		System.out.println(string);
