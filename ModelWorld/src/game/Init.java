@@ -109,6 +109,7 @@ public class Init {
         
         for(int i = 0; i != 6; i++){
         	Game.mthis.countries[i] = new Country(i);
+        	Game.mthis.countries[i].AIarmyAdd();
         }
 
 		names = new String[5];
