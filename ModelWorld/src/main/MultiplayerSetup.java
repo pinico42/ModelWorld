@@ -24,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.UnknownHostException;
 import java.awt.Font;
 
 import multiplayer.Client;
@@ -70,7 +71,7 @@ public class MultiplayerSetup {
 	public int[][] text2;
 	public String[] texts2;
 
-	public boolean run = true;
+	public boolean run = true, except = false;
 	public int mousex, mousey, translate_x, translate_y;
 	
 	@SuppressWarnings("unchecked")
@@ -182,10 +183,25 @@ public class MultiplayerSetup {
 		}
 		init_game(settings);
 		
+		if(except){
+			System.out.println("Server not up!");
+			String[] newTexts = Main.mthis.texts;
+			newTexts[1] = "Server not up";
+			Main.mthis.setupStrings(newTexts);
+			run = false;
+			except = true;
+			return;
+		}
+		
 		try {
 			Client.main(null);
 		} catch (IOException e) {
 			System.out.println("Server not up!");
+			String[] newTexts = Main.mthis.texts;
+			newTexts[1] = "Server not up";
+			Main.mthis.setupStrings(newTexts);
+			run = false;
+			except = true;
 		} catch (Exception e) {}
 		
 	}
@@ -241,7 +257,9 @@ public class MultiplayerSetup {
 		Main.RWIDTH = RWIDTH;
 		Main.RHEIGHT = RHEIGHT;
 		
-		Client.send("exit");
+		if(!except){
+			Client.send("exit");
+		}
 		
 	}
 	

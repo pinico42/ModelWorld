@@ -10,13 +10,7 @@ public class Client {
 	public static int game = -1;
 	public static PrintWriter out;
 	
-    public static void main(String[] args) throws IOException, Exception {
-        
-    	if(alive){
-    		System.out.println("Already set up");
-    		throw new Exception();
-    	}
-    	alive = true;
+    public static void main(String[] args) throws IOException, Exception, UnknownHostException {
 
         String hostName = "benhack.ddns.net";
         int portNumber = 26656;
@@ -75,11 +69,8 @@ public class Client {
             }*/
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
-            System.exit(1);
-        } catch (IOException e) {
-            System.err.println("Couldn't get I/O for the connection to " + hostName);
-            System.exit(1);
-        } 
+            //System.exit(1);
+        }
     }
     
     public static void send(String string){
