@@ -28,7 +28,6 @@ public class Client {
             BufferedReader in = new BufferedReader(new InputStreamReader(input));
             //BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
         	number = Integer.parseInt(in.readLine());
-        	System.out.println(number);
         	Receive receive = new Receive(input, in);
         	receive.start();
         	out.println("game 1");

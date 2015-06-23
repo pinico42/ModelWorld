@@ -185,7 +185,7 @@ public class MultiplayerSetup {
 		try {
 			Client.main(null);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Server not up!");
 		} catch (Exception e) {}
 		
 	}
@@ -240,6 +240,8 @@ public class MultiplayerSetup {
 		
 		Main.RWIDTH = RWIDTH;
 		Main.RHEIGHT = RHEIGHT;
+		
+		Client.send("exit");
 		
 	}
 	
