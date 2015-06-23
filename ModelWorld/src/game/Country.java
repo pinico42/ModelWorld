@@ -81,8 +81,7 @@ public class Country {
 			armyStrength = 0;
 			break;
 		}
-		army.add(new Sol(home[0], home[1], type));
-		armySize = 1;
+		armySize = 0;
 		bincome = income;
 		bpop = popularity;
 		//for(int i = 0; i != wars.length * wars[0].length; i++){

@@ -18,9 +18,6 @@ public class Sol {
 		vel = new double[]{0,0};
 		owner = by;
 		aim = new int[]{0,0};
-		Game game = Game.mthis;
-		Country country = game.countries[owner];
-		int str = country.armyStrength;
 		strength = Game.mthis.countries[owner].armyStrength;
 		health = strength;
 	}
@@ -41,12 +38,12 @@ public class Sol {
 			
 			vel[0] = (int) (scaleX * speed);
 			vel[1] = (int) (scaleY * speed);
-		}
-		
-		if(Math.abs(aim[0] - pos[0]) < 7 && Math.abs(aim[1] - pos[1]) < 7){
-			vel[0] = 0;
-			vel[1] = 0;
-			updated = false;
+			
+			if(Math.abs(aim[0] - pos[0]) < 7 && Math.abs(aim[1] - pos[1]) < 7){
+				vel[0] = 0;
+				vel[1] = 0;
+				updated = false;
+			}
 		}
 		
 		health += 0.1 + ((float)strength) / 70;

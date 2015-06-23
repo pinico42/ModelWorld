@@ -1,5 +1,7 @@
 package game;
 
+// Sol stands for soldier, obviously...
+
 public class Sol {
 	public static int idCounter = 0;
 	public float health;
@@ -15,6 +17,9 @@ public class Sol {
 		pos = new int[]{x,y};
 		vel = new double[]{0,0};
 		owner = by;
+		aim = new int[]{0,0};
+		strength = Game.mthis.countries[owner].armyStrength;
+		health = strength;
 	}
 	
 	public void setAim(int x, int y){
@@ -24,13 +29,6 @@ public class Sol {
 	}
 	
 	public void update(){
-		if(aim == null){
-			aim = new int[]{0,0};
-		}
-		if(strength == -1){
-			strength = Game.mthis.countries[owner].armyStrength;
-			health = strength;
-		}
 		if(updated){
 			double angle = (float) Math.atan2(aim[1] - pos[1], aim[0] - pos[0]);
 			double speed = 2;
@@ -40,16 +38,15 @@ public class Sol {
 			
 			vel[0] = (int) (scaleX * speed);
 			vel[1] = (int) (scaleY * speed);
-		}
-		
-		if(Math.abs(aim[0] - pos[0]) < 7 && Math.abs(aim[1] - pos[1]) < 7){
-			vel[0] = 0;
-			vel[1] = 0;
-			updated = false;
+			
+			if(Math.abs(aim[0] - pos[0]) < 7 && Math.abs(aim[1] - pos[1]) < 7){
+				vel[0] = 0;
+				vel[1] = 0;
+				updated = false;
+			}
 		}
 		
 		health += 0.1 + ((float)strength) / 70;
-		//System.out.println(((float)strength) / 70);
 		
 		if(health > 100){
 			health = 100;
