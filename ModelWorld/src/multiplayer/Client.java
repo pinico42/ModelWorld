@@ -74,7 +74,7 @@ public class Client {
     }
     
     public static void send(String string){
-    	out.println(string);
+    	out.println(number+":"+string);
     }
     
 }

@@ -195,6 +195,7 @@ public class MultiplayerSetup {
 		
 		try {
 			Client.main(null);
+			Client.send("hi");
 		} catch (IOException e) {
 			System.out.println("Server not up!");
 			String[] newTexts = Main.mthis.texts;
