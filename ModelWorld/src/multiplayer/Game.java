@@ -608,34 +608,25 @@ public class Game {
 							if(Matha.hypo(sol.pos[0] - sold.pos[0], sol.pos[1] - sold.pos[1]) < solh){
 								sol.health -= 1;
 								sold.health -= 1;
-								//System.out.println("HEY");
 								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
-									//System.out.println("GET");
 									if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
 										Country.wars[sol.owner][sold.owner] = true;
-										//System.out.println("Met");
 										Country.wars[sold.owner][sol.owner] = true;
 									}
 								}
 							}
 						}
-						if(country.type == 1){
-							System.out.println("HEY2");
-						}
+						// I think some sort of problem was here, i logged when country.type == 1
 						if(country.type != sold.owner && (Country.wars[country.type][sold.owner] || Country.wars[sold.owner][country.type])){
-							if(country.type == 1){
-								System.out.println("HEY1");
-							}
 							if(solh > Matha.hypo(country.home[0] - sold.pos[0], country.home[1] - sold.pos[1])){
-								if(country.type == 1){
-									System.out.println("HEY");
-								}
 								if(country.income > 0){
 									country.income -= 0.5;
 									country2.income += 0.5;
 								}
 								if(country.income <= 0){
 									country.die = true;
+									country2.money += country.money;
+									country.money = 0;
 									for(int[] mine: country.mines){
 										country2.mines.add(mine);
 									}

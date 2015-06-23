@@ -17,7 +17,7 @@ import static org.lwjgl.opengl.GL11.glOrtho;
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTranslatef;
-import game.Game;
+import multiplayer.Game;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -259,31 +259,14 @@ public class MultiplayerSetup {
 	
 	public void logic(){
 		
-		/*if(isKeyDown(KEY_LEFT)){
-			translate_x += 3;
-		} else if(isKeyDown(KEY_RIGHT)){
-			translate_x -= 3;
-		}
-		if(isKeyDown(KEY_DOWN)){
-			translate_y += -3;
-		} else if(isKeyDown(KEY_UP)){
-			translate_y -= -3;
-		}*/
-		if(isKeyDown(KEY_SPACE)){
-			translate_x = 0; translate_y = 0;
-		}
-		
 		Mouse.poll();
 		while(Mouse.next()){
 			if(Mouse.getEventButtonState()){
 				int eventKey = Mouse.getEventButton();
 				switch(eventKey){
 				case 0:
-					outLoop: for(int i = 0; i != text.length; i++){
+					for(int i = 0; i != text.length; i++){
 						if(mousex >= text[i][0] && mousex <= text[i][0] + Main.FONT.getWidth(texts[i]) && mousey >= text[i][1] && mousey <= text[i][1] + Main.FONT.getHeight(texts[i])){
-							if(Main.unlocked < 5-i){
-								break outLoop;
-							}
 							switch(i){
 							case 0:
 								setupStrings(new String[]{list[0] + " - ", list[1], list[2], list[3], list[4], list[5]});

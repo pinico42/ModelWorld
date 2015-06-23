@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import main.Draw;
-import main.Setup;
+import main.MultiplayerSetup;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.Rectangle;
@@ -48,8 +48,8 @@ public class Init {
 		}
 		
 		Game.FONTS = new UnicodeFont[4];
-		Game.FONTS[0] = Setup.FONT;
-		Game.FONTS[1] = Setup.FONT2;
+		Game.FONTS[0] = MultiplayerSetup.FONT;
+		Game.FONTS[1] = MultiplayerSetup.FONT2;
 		
 		Font font = new Font("Comic Sans MS", Font.BOLD, 30);
 	    UnicodeFont FONT = new UnicodeFont(font);
@@ -78,8 +78,8 @@ public class Init {
 	    }
 	    Game.FONTS[3] = FONT;
 		
-		Game.RWIDTH = Setup.RWIDTH;
-		Game.RHEIGHT = Setup.RHEIGHT;
+		Game.RWIDTH = MultiplayerSetup.RWIDTH;
+		Game.RHEIGHT = MultiplayerSetup.RHEIGHT;
 		
 		Game.theight = Game.HEIGHT / 10;
 		Game.twidth = Game.theight;
@@ -104,7 +104,7 @@ public class Init {
 		Game.mthis.colours = new boolean[Game.mthis.texts.length];
 		
         //for(int i = 0; i != Game.mthis.text.length; i++){
-        	//Game.mthis.text[i] = new int[]{(int) (Game.WIDTH / 2.3 - Setup.FONT.getWidth(Game.mthis.texts[i]) / 2), Game.HEIGHT / (Game.mthis.text.length + 1) * (i + 1) - Setup.FONT.getHeight(Game.mthis.texts[i])};
+        	//Game.mthis.text[i] = new int[]{(int) (Game.WIDTH / 2.3 - MultiplayerSetup.FONT.getWidth(Game.mthis.texts[i]) / 2), Game.HEIGHT / (Game.mthis.text.length + 1) * (i + 1) - MultiplayerSetup.FONT.getHeight(Game.mthis.texts[i])};
         //}
         
         for(int i = 0; i != 6; i++){
@@ -124,7 +124,7 @@ public class Init {
 		
 		points = new int[5][];
 		for(int i = 0; i != 5; i++){
-			points[i] = new int[]{(int) (Game.WIDTH / 2 - Setup.FONT.getWidth(names[i]) / 2), (Game.HEIGHT - dipBuf - 100) / (names.length + 1) * (i + 1) - Setup.FONT.getHeight(names[i]) + dipBuf + 100};
+			points[i] = new int[]{(int) (Game.WIDTH / 2 - MultiplayerSetup.FONT.getWidth(names[i]) / 2), (Game.HEIGHT - dipBuf - 100) / (names.length + 1) * (i + 1) - MultiplayerSetup.FONT.getHeight(names[i]) + dipBuf + 100};
 		}
 		
 		buttons = new Button[4];
@@ -154,8 +154,8 @@ public class Init {
 	@SuppressWarnings("unchecked")
 	public static void setFonts(int size){
 		main.Main.mthis.initFont(size);
-		main.Setup.FONT = main.Main.FONT;
-		main.Setup.FONT2 = main.Main.FONT2;
+		main.MultiplayerSetup.FONT = main.Main.FONT;
+		main.MultiplayerSetup.FONT2 = main.Main.FONT2;
 		Game.FONTS[0] = main.Main.FONT;
 		Game.FONTS[1] = main.Main.FONT2;
 		

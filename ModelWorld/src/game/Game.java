@@ -636,6 +636,8 @@ public class Game {
 								}
 								if(country.income <= 0){
 									country.die = true;
+									country2.money += country.money;
+									country.money = 0;
 									for(int[] mine: country.mines){
 										country2.mines.add(mine);
 									}
