@@ -22,6 +22,7 @@ public class Receive extends Thread{
 		while(run){
            	try {
            		String string = in.readLine();
+           		System.out.println(string);
            		if(string == null){break;}
            		if(Client.game != -1){
            			switch(Client.game){
@@ -65,7 +66,7 @@ public class Receive extends Thread{
 				e.printStackTrace();
 			}
 		}
-		System.exit(0);
+		//System.exit(0); SOMETHING SHOULD PROBABLY HAPPEN HERE- IT'S WHEN THE CONNECTION IS LOST
 	}
 	
 }

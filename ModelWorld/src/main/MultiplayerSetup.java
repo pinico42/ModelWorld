@@ -378,12 +378,6 @@ public class MultiplayerSetup {
 	
 	public void end(){
 		
-		
-		
 	}
-	
-	//public static void main(String[] args) {
-		//new Settings().run(true);
-	//}
 	
 }
