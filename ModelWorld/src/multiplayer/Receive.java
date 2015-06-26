@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.FileOutputStream;
 
+import main.MultiplayerSetup;
+
 public class Receive extends Thread{
 	
 	boolean run = true;
@@ -29,12 +31,18 @@ public class Receive extends Thread{
            		strings = strings[1].split(";");
            		switch(protocol){
            		case 0:
-           			try{
            			main.MultiplayerSetup.warmupTime = Double.parseDouble(strings[0]);
            			main.MultiplayerSetup.playersInGame = Integer.parseInt(strings[1]);
-           			} catch(IndexOutOfBoundsException e){
-           				System.out.println("ERROR : "+strings[0]);
+           			if(strings.length == 2){
+           				break;
            			}
+           			String[] countries = strings[2].split(",");
+           			boolean[] countries2 = new boolean[main.MultiplayerSetup.locked.length];
+           			for(int i = 0; i != countries.length; i++){
+           				countries2[i] = true;
+           			}
+           			main.MultiplayerSetup.locked = countries2;
+           			MultiplayerSetup.mthis.setupStrings(MultiplayerSetup.mthis.texts);
            			break;
            		}
            		/*if(string == null){break;}

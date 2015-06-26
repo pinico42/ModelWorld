@@ -48,30 +48,24 @@ import org.newdawn.slick.opengl.TextureLoader;
 @SuppressWarnings("unused")
 public class MultiplayerSetup {
 	
+	public static MultiplayerSetup mthis;
 	public static Game game;
-	public static UnicodeFont FONT2;
-	public static UnicodeFont FONT;
+	public static UnicodeFont FONT, FONT2;
+	public static boolean[] locked = new boolean[6];
 	public static double warmupTime = -1;
 	public static int playersInGame = 1;
-	public static int WIDTH = 1000;
-	public static int HEIGHT = 1000;
-	public static int RWIDTH;
-	public static int RHEIGHT;
-	public static int twidth;
-	public static int theight;
+	public static int WIDTH = 1000, HEIGHT = 1000;
+	public static int RWIDTH, RHEIGHT;
+	public static int twidth, theight;
 	
-	public Texture black;
-	public Texture purple;
+	public Texture black, purple;
 	public Texture[] images;
 	
 	public int chosen = -1;
 	public String[] list = {"North America", "South America", "Europe", "Africa", "Asia", "Oceania"};
-	public int[][] text;
-	public int[][] text2;
-	public String[] texts;
-	public String[] texts2;
-	public boolean[] colours;
-	public boolean[] colours2;
+	public int[][] text, text2;
+	public String[] texts, texts2;
+	public boolean[] colours, colours2;
 
 	public boolean run = true, except = false;
 	public int mousex, mousey, translate_x, translate_y;
@@ -162,6 +156,10 @@ public class MultiplayerSetup {
 	public void setupStrings(String[] newa){
 		
 		texts = newa;
+		
+		for(int i = 0; i != texts.length; i++){
+			texts[i] += (locked[i]? "(Locked)":"");
+		}
 
 		int a = 5-Main.unlocked;
 		if(chosen == -1){
@@ -209,6 +207,8 @@ public class MultiplayerSetup {
 	}
 	
 	public void run(boolean initi) {
+		
+		mthis = this;
 		
 		FONT = Main.FONT;
 		FONT2 = Main.FONT2;
@@ -278,6 +278,7 @@ public class MultiplayerSetup {
 				case 0:
 					for(int i = 0; i != text.length; i++){
 						if(mousex >= text[i][0] && mousex <= text[i][0] + Main.FONT.getWidth(texts[i]) && mousey >= text[i][1] && mousey <= text[i][1] + Main.FONT.getHeight(texts[i])){
+							if(locked[i]){break;}
 							switch(i){
 							case 0:
 								setupStrings(new String[]{list[0] + " - ", list[1], list[2], list[3], list[4], list[5]});
@@ -299,6 +300,7 @@ public class MultiplayerSetup {
 								break;
 							}
 							chosen = i;
+							Client.send(0, ""+chosen);
 						}
 					}
 					for(int i = 0; i != text2.length; i++){

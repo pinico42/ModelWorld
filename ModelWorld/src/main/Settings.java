@@ -51,6 +51,7 @@ public class Settings {
 	public static UnicodeFont FONT2;
 	public static UnicodeFont FONT;
 	public static int QUALITY = 0;
+	public static int PLAYERWAIT = 1;
 	public static int RWIDTH;
 	public static int RHEIGHT;
 	public static int twidth;
@@ -148,7 +149,7 @@ public class Settings {
 			e1.printStackTrace();
 		}
         
-        setupStrings(new String[]{"Picture Quality : " + (QUALITY == 0?"Good":"Bad"), "Full Screen : " + Boolean.toString(FULL), "Music : " + Main.SOUND});
+        setupStrings(new String[]{"Picture Quality : " + (QUALITY == 0?"Good":"Bad"), "Full Screen : " + Boolean.toString(FULL), "Music : " + Main.SOUND, "Minimum players in a room : "+PLAYERWAIT});
 		
 	}
 	
@@ -279,7 +280,7 @@ public class Settings {
 							        FONT = Main.FONT;
 							        FONT2 = Main.FONT2;
 							        Main.mthis.setupStrings(Main.mthis.texts);
-									setupStrings(new String[]{"Picture Quality: Bad", texts[1], texts[2]});
+									setupStrings(new String[]{"Picture Quality: Bad", texts[1], texts[2], texts[3]});
 							        QUALITY = 1;
 								} else {
 									WIDTH = 1000;
@@ -298,7 +299,7 @@ public class Settings {
 							        FONT = Main.FONT;
 							        FONT2 = Main.FONT2;
 							        Main.mthis.setupStrings(Main.mthis.texts);
-									setupStrings(new String[]{"Picture Quality: Good", texts[1], texts[2]});
+									setupStrings(new String[]{"Picture Quality: Good", texts[1], texts[2], texts[3]});
 							        QUALITY = 0;
 								}
 								break;
@@ -309,7 +310,7 @@ public class Settings {
 								} catch (LWJGLException e) {
 									e.printStackTrace();
 								}
-								setupStrings(new String[]{texts[0], "Full Screen : " + FULL, texts[2]});
+								setupStrings(new String[]{texts[0], "Full Screen : " + FULL, texts[2], texts[3]});
 								RWIDTH = Display.getWidth();
 					            RHEIGHT = Display.getHeight();
 
@@ -325,7 +326,11 @@ public class Settings {
 									Main.mthis.tempt.stop();
 									//Game.mthis.sounds[0].stop();
 								}
-								setupStrings(new String[]{texts[0], texts[1], "Sound : " + Main.SOUND});
+								setupStrings(new String[]{texts[0], texts[1], "Sound : " + Main.SOUND, texts[3]});
+								break;
+							case 3:
+								PLAYERWAIT++;
+								setupStrings(new String[]{texts[0], texts[1], texts[2], "Minium Players : "+PLAYERWAIT});
 								break;
 							}
 						}
