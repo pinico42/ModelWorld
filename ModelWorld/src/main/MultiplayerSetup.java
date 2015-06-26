@@ -49,10 +49,12 @@ import org.newdawn.slick.opengl.TextureLoader;
 public class MultiplayerSetup {
 	
 	public static Game game;
-	public static int WIDTH = 1000;
-	public static int HEIGHT = 1000;
 	public static UnicodeFont FONT2;
 	public static UnicodeFont FONT;
+	public static double warmupTime = -1;
+	public static int playersInGame = 1;
+	public static int WIDTH = 1000;
+	public static int HEIGHT = 1000;
 	public static int RWIDTH;
 	public static int RHEIGHT;
 	public static int twidth;
@@ -64,12 +66,12 @@ public class MultiplayerSetup {
 	
 	public int chosen = -1;
 	public String[] list = {"North America", "South America", "Europe", "Africa", "Asia", "Oceania"};
-	public boolean[] colours;
 	public int[][] text;
-	public String[] texts;
-	public boolean[] colours2;
 	public int[][] text2;
+	public String[] texts;
 	public String[] texts2;
+	public boolean[] colours;
+	public boolean[] colours2;
 
 	public boolean run = true, except = false;
 	public int mousex, mousey, translate_x, translate_y;
@@ -136,8 +138,8 @@ public class MultiplayerSetup {
 	}
 	
 	public void init_game(int[] settings){
-		texts2 = new String[]{"Back", "Next"};
-		text2 = new int[][]{{0, HEIGHT - Main.FONT.getHeight("Back")}, {WIDTH - FONT.getWidth("Next"),  HEIGHT - Main.FONT.getHeight("Back")}};
+		texts2 = new String[]{"Back"};
+		text2 = new int[][]{{0, HEIGHT - Main.FONT.getHeight("Back")}};
         colours2 = new boolean[text2.length];
 		
 		theight = HEIGHT / 10;
@@ -195,7 +197,6 @@ public class MultiplayerSetup {
 		
 		try {
 			Client.main(null);
-			Client.send("hi");
 		} catch (IOException e) {
 			System.out.println("Server not up!");
 			String[] newTexts = Main.mthis.texts;
@@ -258,13 +259,16 @@ public class MultiplayerSetup {
 		Main.RWIDTH = RWIDTH;
 		Main.RHEIGHT = RHEIGHT;
 		
-		if(!except){
-			Client.send("exit");
-		}
+		end();
 		
 	}
 	
 	public void logic(){
+		
+		if(warmupTime == 0.0){
+			game = new Game(chosen);
+			run = game.run();
+		}
 		
 		Mouse.poll();
 		while(Mouse.next()){
@@ -302,10 +306,6 @@ public class MultiplayerSetup {
 							switch(i){
 							case 0:
 								run = false;
-								break;
-							case 1:
-								game = new Game(chosen);
-								run = game.run();
 								break;
 							}
 						}
@@ -368,6 +368,9 @@ public class MultiplayerSetup {
 			FONT.drawString(text2[i][0], text2[i][1], texts2[i]);
 		}
 		
+		FONT.drawString(0, 0, ""+warmupTime);
+		String string = ""+playersInGame;
+		FONT.drawString(WIDTH-FONT.getWidth(string), 0, string);
 		//Main.FONT.drawString(0, HEIGHT - Main.FONT.getHeight("Back"), "Back");
 		
 	}
@@ -377,6 +380,10 @@ public class MultiplayerSetup {
 	}
 	
 	public void end(){
+		
+		if(!except){
+			Client.closeConnection();
+		}
 		
 	}
 	

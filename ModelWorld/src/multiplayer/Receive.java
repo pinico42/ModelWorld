@@ -22,8 +22,22 @@ public class Receive extends Thread{
 		while(run){
            	try {
            		String string = in.readLine();
+           		if(string==null){break;}
            		System.out.println(string);
-           		if(string == null){break;}
+           		String[] strings = string.split(":");
+           		int protocol = Integer.parseInt(strings[0]);
+           		strings = strings[1].split(";");
+           		switch(protocol){
+           		case 0:
+           			try{
+           			main.MultiplayerSetup.warmupTime = Double.parseDouble(strings[0]);
+           			main.MultiplayerSetup.playersInGame = Integer.parseInt(strings[1]);
+           			} catch(IndexOutOfBoundsException e){
+           				System.out.println("ERROR : "+strings[0]);
+           			}
+           			break;
+           		}
+           		/*if(string == null){break;}
            		if(Client.game != -1){
            			switch(Client.game){
            			case 0:
@@ -61,12 +75,12 @@ public class Receive extends Thread{
             		System.out.println(string);
             	} catch(NullPointerException e){
             		System.out.println(string);
-            	}
+            	}*/
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		//System.exit(0); SOMETHING SHOULD PROBABLY HAPPEN HERE- IT'S WHEN THE CONNECTION IS LOST
+		System.exit(0); //SOMETHING SHOULD PROBABLY HAPPEN HERE- IT'S WHEN THE CONNECTION IS LOST
 	}
 	
 }

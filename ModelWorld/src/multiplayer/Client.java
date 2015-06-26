@@ -73,8 +73,12 @@ public class Client {
         }
     }
     
-    public static void send(String string){
-    	out.println(number+":"+string);
+    public static void closeConnection(){
+    	out.println("exit");
+    }
+    
+    public static void send(int protocol, String string){
+    	out.println(protocol+":"+string);
     }
     
 }
