@@ -362,6 +362,7 @@ public class Country {
 		reserves = 0;
 		dens.clear();
 		army.clear();
+		temples.clear();
 		ready.clear();
 		
 	}
