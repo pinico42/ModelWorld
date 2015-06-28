@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 public class Country {
 	
-	public static int USA = 0, SA = 1, EU = 2, AF = 3, AS = 4, OC = 5, scost = 20, mcost = 50, ocost = 30, sdist = 100, mdist = 200, odist = 300;
+	public static int USA = 0, SA = 1, EU = 2, AF = 3, AS = 4, OC = 5, scost = 20, mcost = 50, ocost = 30, tcost = 25, sdist = 100, mdist = 200, odist = 300, tdist = 500;
 	public static String[] names = {"North America", "South America", "Europe", "Africa", "Asia", "Oceania"};
 	public static boolean[][] wars = new boolean[6][6];
 	
-	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>();
+	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>(), temples = new ArrayList<int[]>();
 	public ArrayList<Sol> army = new ArrayList<Sol>();
 	public int[] home = new int[2];
 	public float income, money = 0, bincome, popularity, bpop;
-	public int armyStrength = 0, armySize, reserves = 0;
-	public int type;
+	public int armyStrength = 0, armySize, reserves = 0, religion = 0;
+	public int type, nwars = 0;
 	
 	public boolean die = false;
+	private boolean alerted = false;
 	
 	public Country(int type){
 		this.type = type;
@@ -98,8 +99,31 @@ public class Country {
 		income = bincome + mines.size() * 1;
 		popularity = bpop + dens.size() * 2;
 		reserves += popularity / 5;
+		religion += temples.size() * 10;
 		for(int[] sol: ready){
 			armyAdd(sol);
+		}
+		if(religion > 200){
+			AIarmyAdd(true);
+			if(!alerted){
+				Game.mthis.texts[2] = "The Chicken Lord is granting you troops for your reverence of him";
+				Game.mthis.text[2][0] = Game.WIDTH / 2 - Game.FONTS[2].getWidth(Game.mthis.texts[2]) / 2;
+				alerted = true;
+			}
+		}
+		if(nwars > 0 && religion > 2000){
+			alerted = false;
+			Game.mthis.texts[2] = "Your enemy has been struck down by the Chicken Lord";
+			Game.mthis.text[2][0] = Game.WIDTH / 2 - Game.FONTS[2].getWidth(Game.mthis.texts[2]) / 2;
+			for(int otype = 0; otype != Game.mthis.countries.length; otype++){
+				boolean bool = wars[type][otype];
+				if(bool && !Game.mthis.countries[otype].die){
+					Game.mthis.countries[otype].die = true;
+					System.out.println("Killed that ("+otype+") guy!");
+					break;
+				}
+			}
+			religion = 0;
 		}
 		ready.clear();
 	}
@@ -141,7 +165,15 @@ public class Country {
 				e++;
 			}
 		}
+		nwars = warsn;
 		int homeGuard = 0;
+		
+		if(army.size() < 4 && money > tcost && Game.rand.nextInt(10) == 1){
+			AItempleAdd();
+			money -= tcost;
+			System.out.println("New temple builded");
+		}
+		
 		switch(type){
 		case 0:
 			if(money > scost){
@@ -283,9 +315,14 @@ public class Country {
 		}
 	}
 	
-	void AIarmyAdd(){
+	public void AIarmyAdd(){
 		armySize++;
 		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2);
+	}
+	
+	public void AIarmyAdd(boolean chicken){
+		armySize++;
+		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2, chicken);
 	}
 	
 	private void AImineAdd(){
@@ -296,8 +333,16 @@ public class Country {
 		dens.add(new int[]{home[0] + Game.rand.nextInt(odist) - odist / 2, home[1] + Game.rand.nextInt(odist) - odist / 2});
 	}
 	
+	private void AItempleAdd(){
+		temples.add(new int[]{home[0] + Game.rand.nextInt(tdist) - tdist / 2, home[1] + Game.rand.nextInt(tdist) - tdist / 2});
+	}
+	
 	public void move(float mX, float mY, int sol){
 		army.get(sol).update();
+	}
+	
+	public void armyAdd(int x, int y, boolean chicken){
+		army.add(new Sol(x, y, type, chicken));
 	}
 	
 	public void armyAdd(int x, int y){

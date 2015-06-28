@@ -56,7 +56,7 @@ public class Game {
 	public static int WIDTH = 1000, HEIGHT = 1000;
 	public static boolean run = true;
 	public static UnicodeFont[] FONTS;
-	public static int RHEIGHT, RWIDTH, theight, twidth, player = 0, sel, selsol, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, hover = -1, state = 0, statei = 0, homew = 100, homeh = 100;
+	public static int RHEIGHT, RWIDTH, theight, twidth, player = 0, sel, selsol, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, hover = -1, state = 0, statei = 0, homew = 100, homeh = 100, temw = 100, temh = 100;
 	public static long  ltime = System.currentTimeMillis(), time, last = ltime;
 	public static Game mthis;
 	public static int[] autos;
@@ -177,6 +177,11 @@ public class Game {
 								int selected = Init.selected<player?Init.selected:Init.selected+1;
 								Country.wars[player][selected] = !Country.wars[player][selected];
 								Country.wars[selected][player] = Country.wars[player][selected];
+								if(Country.wars[selected][player]){
+									countries[player].nwars++;
+								} else {
+									countries[player].nwars--;
+								}
 								break;
 							case 1:
 								autos[0] = autos[0]==0?1:0;
@@ -280,6 +285,18 @@ public class Game {
 							}
 							countries[player].money -= Country.ocost * autos[1];
 							break;
+						case 3:
+							if(countries[player].money < Country.tcost * autos[1]){break;}
+							if(Country.tdist < Math.sqrt(Math.pow(countries[player].home[0] - mousex, 2) + Math.pow(countries[player].home[1] - mousey, 2))){
+								texts[2] = "You cannot build a temple that far from base!";
+								text[2][0] = WIDTH / 2 - FONTS[2].getWidth(texts[2]) / 2;
+								state = 0;
+								break event;
+							}
+							for(int i = 0; i != autos[1]; i++){
+								countries[player].temples.add(new int[]{mousex + temw / 2, mousey + temh / 2});
+							}
+							countries[player].money -= Country.tcost * autos[1];
 						}
 						state = 0;
 						texts[2] = "";
@@ -432,6 +449,7 @@ public class Game {
 			}
 			if(tripa == 5){
 				texts[2] = "You won!";
+				text[2][0] = WIDTH / 2 - FONTS[2].getWidth(texts[2]) / 2;
 				if(!wintrip && player == 5-Main.unlocked){
 					//System.out.println("TTT" + player + " - " + (5-Main.unlocked));
 					if(Main.unlocked != 5){
@@ -473,7 +491,14 @@ public class Game {
 			}
 			Draw.renderthistex(new Rectangle(country.home[0] - homew / 2, country.home[1] - homeh / 2, homew, homeh), country.die?images[5]:images[4]);
 			for(Sol sol: country.army){
-				Draw.renderthistex(new Rectangle(sol.pos[0] - solw / 2, sol.pos[1] - solh / 2, solw, solh), images[1]);
+				int img = 1;
+				if(sol.christian){
+					img = 7;
+				}
+				Draw.renderthistex(new Rectangle(sol.pos[0] - solw / 2, sol.pos[1] - solh / 2, solw, solh), images[img]);
+			}
+			for(int[] tem: country.temples){
+				Draw.renderthistex(new Rectangle(tem[0] - temw / 2, tem[1] - temh / 2, temw, temh), images[6]);
 			}
 		}
 		
@@ -498,6 +523,8 @@ public class Game {
 			case 2:
 				Draw.renderthistex(new Rectangle(mousex, mousey, opw, oph), images[3]); 
 				break;
+			case 3:
+				Draw.renderthistex(new Rectangle(mousex, mousey, temw, temh), images[6]);
 			}
 			break;
 		case 2:
@@ -575,16 +602,16 @@ public class Game {
 			break;
 		}
 		
-		// Buttons
+		// /Buttons
 		
 		// States
 		
 		if(state == 1){
-			texts[2] = "Building a" + (statei == 0?" unit":(statei == 1?" mine":"n opium den"));
+			texts[2] = "Building a" + (statei == 0?" unit":(statei == 1?" mine":statei==2?"n opium den":" temple"));
 			text[2][0] = WIDTH / 2 - FONTS[2].getWidth(texts[2]) / 2;
 		}
 		
-		// States
+		// /States
 		
 		// Soldiers
 		
@@ -620,15 +647,15 @@ public class Game {
 							}
 						}
 						if(country.type == 1){
-							System.out.println("HEY2");
+							//System.out.println("HEY2");
 						}
 						if(country.type != sold.owner && (Country.wars[country.type][sold.owner] || Country.wars[sold.owner][country.type])){
 							if(country.type == 1){
-								System.out.println("HEY1");
+								//System.out.println("HEY1");
 							}
 							if(solh > Matha.hypo(country.home[0] - sold.pos[0], country.home[1] - sold.pos[1])){
 								if(country.type == 1){
-									System.out.println("HEY");
+									//System.out.println("HEY");
 								}
 								if(country.income > 0){
 									country.income -= 0.5;
@@ -662,7 +689,7 @@ public class Game {
 			countries[sol.owner].armySize--;
 		}
 		
-		// Soldiers
+		// /Soldiers
 		
 		if(time - last > 10000){
 			for(Country country: countries){

@@ -6,7 +6,7 @@ public class Sol {
 	public static int idCounter = 0;
 	public float health;
 	public int owner, strength = -1, id;
-	public boolean updated = false, die;
+	public boolean updated = false, die, christian = false;
 	public double[] vel;
 	public int[] pos;
 	public int[] aim;
@@ -22,8 +22,19 @@ public class Sol {
 		health = strength;
 	}
 	
+	public Sol(int x, int y, int by, boolean chicken){
+		christian = true;
+		id = idCounter;
+		idCounter++;
+		pos = new int[]{x,y};
+		vel = new double[]{0,0};
+		owner = by;
+		aim = new int[]{0,0};
+		strength = Game.mthis.countries[owner].armyStrength * 5;
+		health = strength;
+	}
+	
 	public void setAim(int x, int y){
-		//System.out.println(x + ", " + y + " - ???");
 		aim = new int[]{x - 2 + Game.rand.nextInt(4), y - 2 + Game.rand.nextInt(4)};
 		updated = true;
 	}

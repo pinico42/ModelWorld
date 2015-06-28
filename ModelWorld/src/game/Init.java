@@ -83,7 +83,8 @@ public class Init {
 		
 		Game.theight = Game.HEIGHT / 10;
 		Game.twidth = Game.theight;
-		Game.mthis.images = new Texture[6];
+		
+		Game.mthis.images = new Texture[8];
 		
 		Game.mthis.black = loadTex("black");
 		Game.mthis.purple = loadTex("purple");
@@ -93,6 +94,8 @@ public class Init {
 		Game.mthis.images[3] = loadTex("opium");
 		Game.mthis.images[4] = loadTex("house");
 		Game.mthis.images[5] = loadTex("house2");
+		Game.mthis.images[6] = loadTex("chicken");
+		Game.mthis.images[7] = loadTex("chicken2");
 
 		Game.mthis.translate_y = -100;
 		
@@ -188,10 +191,10 @@ public class Init {
 	}
 	
 	public static void renderBuilds(){
-		int mac = Math.max(Math.max(Math.max(Game.FONTS[2].getWidth("Unit"), Game.FONTS[2].getWidth("Mine")), Game.FONTS[2].getWidth("Opium Den")), Game.FONTS[2].getWidth(""));
+		int mac = Math.max(Math.max(Math.max(Math.max(Game.FONTS[2].getWidth("Unit"),Game.FONTS[2].getWidth("Temple")), Game.FONTS[2].getWidth("Mine")), Game.FONTS[2].getWidth("Opium Den")), Game.FONTS[2].getWidth(""));
 		int y = (int) (Game.mthis.translate_y + Game.FONTS[2].getHeight("Build") * 1.5);
 		int x = Game.WIDTH - Game.FONTS[2].getWidth("Menu    ") + Game.mthis.translate_x - Game.FONTS[2].getWidth("Build");
-		Draw.renderthiso(new Rectangle(x,y,mac, Game.FONTS[2].getHeight("I") * 3), 0.5f, 0.5f, 1f, 1f);
+		Draw.renderthiso(new Rectangle(x,y,mac, Game.FONTS[2].getHeight("I") * 4), 0.5f, 0.5f, 1f, 1f);
 		if(Game.mthis.mousey >= y && Game.mthis.mousey <= y + Game.FONTS[2].getHeight("Unit")){
 			Game.FONTS[3].drawString(x, y, "Unit");
 			if(org.lwjgl.input.Mouse.isButtonDown(0)){
@@ -218,6 +221,15 @@ public class Init {
 			}
 		} else {
 			Game.FONTS[2].drawString(x, y + Game.FONTS[2].getHeight("I") * 2, "Opium Den");
+		}
+		if(Game.mthis.mousey >= y + Game.FONTS[2].getHeight("I") * 3 && Game.mthis.mousey <= y + Game.FONTS[2].getHeight("Unit") + Game.FONTS[2].getHeight("I") * 3){
+			Game.FONTS[3].drawString(x, y + Game.FONTS[2].getHeight("I") * 3, "Temple");
+			if(org.lwjgl.input.Mouse.isButtonDown(0)){
+				Game.state = 1;
+				Game.statei = 3;
+			}
+		} else {
+			Game.FONTS[2].drawString(x, y + Game.FONTS[2].getHeight("I") * 3, "Temple");
 		}
 	}
 	
