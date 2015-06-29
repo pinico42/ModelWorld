@@ -171,7 +171,6 @@ public class Country {
 		if(army.size() < 4 && money > tcost && Game.rand.nextInt(10) == 1){
 			AItempleAdd();
 			money -= tcost;
-			System.out.println("New temple builded");
 		}
 		
 		switch(type){

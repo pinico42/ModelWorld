@@ -56,7 +56,7 @@ public class Game {
 	public static int WIDTH = 1000, HEIGHT = 1000;
 	public static boolean run = true;
 	public static UnicodeFont[] FONTS;
-	public static int RHEIGHT, RWIDTH, theight, twidth, player = 0, sel, selsol, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, hover = -1, state = 0, statei = 0, homew = 100, homeh = 100, temw = 100, temh = 100;
+	public static int RHEIGHT, RWIDTH, theight, twidth, player = 0, sel, selsol, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, hover = -1, state = 0, statei = 0, homew = 100, homeh = 100, temw = 100, temh = 100, lastClick = 0;
 	public static long  ltime = System.currentTimeMillis(), time, last = ltime;
 	public static Game mthis;
 	public static int[] autos;
@@ -74,6 +74,7 @@ public class Game {
 	public boolean retry = false, showbd = false, PAUSE = false, wintrip = false;
 
 	public int mousex, mousey, translate_x, translate_y, deathCount = -1;
+	private int[] doubleClick;
 	
 	public Game(int chosen){
 		player = chosen;
@@ -559,6 +560,14 @@ public class Game {
 			button.render();
 		}
 		
+		if(doubleClick != null){
+			int width = Math.abs(doubleClick[0] - mousex);
+			int height = Math.abs(doubleClick[1] - mousey);
+			int x = mousex>doubleClick[0]?doubleClick[0]:mousex, y = mousey>doubleClick[1]?doubleClick[1]:mousey;
+			Draw.renderthiso(new Rectangle(x, y, width, height), 1f, 1f, 1f, 0.4f);
+			System.out.println("Epic drawzzz "+x+" "+y+" "+width+" "+height);
+		}
+		
 	}
 	
 	public void update(){
@@ -603,6 +612,25 @@ public class Game {
 		}
 		
 		// /Buttons
+		
+		// Mouse
+		
+		if(lastClick != 0){
+			lastClick--;
+		}
+		if(Mouse.isButtonDown(0)){
+			System.out.println("Click detected "+lastClick);
+			if(lastClick == 0){
+				lastClick = 10;
+			} else if(doubleClick==null){
+				System.out.println("Double cliicicikk");
+				doubleClick = new int[]{mousex, mousey};
+			}
+		} else if(doubleClick != null){
+			doubleClick = null;
+		}
+		
+		// /Mouse
 		
 		// States
 		
