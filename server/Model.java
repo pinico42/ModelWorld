@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 
 public class Model extends Thread implements Game{
-	
+
 	public static final int nInGame = 6;
-	
+
 	public static int games = 0, clients = 0, id;
 	public int playern;
 	public static ArrayList<Spin> spins = new ArrayList<Spin>();
@@ -13,14 +13,14 @@ public class Model extends Thread implements Game{
 	public PrintWriter out;
 	public boolean runB = true, hi = false;
 	public ArrayList<String> send = new ArrayList<String>();
-	
+
 	public Model(PrintWriter out, int id){
 		this.out = out;
 		this.id = id;
 		this.playern = clients % nInGame;
 		clients++;
 	}
-	
+
 	public void run(){
 		System.out.println("Model started");
 		if(spins.size() * nInGame < clients){
@@ -50,14 +50,14 @@ public class Model extends Thread implements Game{
 		}
 		System.out.println("RUN ENDED : " + spin.nPlayers);
 	}
-	
+
 	public void updateWarmup(double time, int players, String countries){
 		String string;
-		string = "0:"+time+";"+players+";"+countries;
+		string = "2:"+time+";"+players+";"+countries;
 		System.out.println("updateWarmup " + string);
 		out.println(string);
 	}
-	
+
 	public void receive(String string){
 		send.add(string);
 		hi = true;
@@ -75,12 +75,12 @@ public class Model extends Thread implements Game{
 		System.out.println("received string "+string);
 		System.out.println("send "+send.isEmpty());
 	}
-	
+
 	public void end(){
 		runB = false;
 		spin.removePlayer(playern);
 	}
-	
+
 	public static void main(String[] args){
 		System.out.println("Model game started");
 	}

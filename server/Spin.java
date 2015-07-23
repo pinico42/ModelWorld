@@ -61,7 +61,7 @@ public class Spin extends Thread{
 		//System.out.println("Sending with code "+code);
 		String string = "";
 		switch(code){
-		case 0:
+		case 2:
 			for(int i = 0; i != players.length; i++){
 				if(players[i] == null || playersc[i] == -1){continue;}
 				string += playersc[i] + ",";
@@ -73,7 +73,7 @@ public class Spin extends Thread{
 		}
 		for(int i = 0; i != nPlayers; i++){
 			switch(code){
-			case 0:
+			case 2:
 				players[i].updateWarmup(warmup, nPlayers, string);
 				break;
 			}
@@ -88,7 +88,7 @@ public class Spin extends Thread{
 			if(warmup<0){
                 warmup = (float)0.0;
 			}
-			sendAll(0, null, null);
+			sendAll(2, null, null);
 			try{
 				Thread.sleep((long)interval);
 			} catch(InterruptedException e){}

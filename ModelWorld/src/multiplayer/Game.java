@@ -81,7 +81,7 @@ public class Game {
 	}
 	
 	public boolean run() {
-
+		
 		Game.mthis = this;
 		Init.init_game();
 		
@@ -102,7 +102,7 @@ public class Game {
 			if (Display.wasResized()) {
 	            RWIDTH = Display.getWidth();
 	            RHEIGHT = Display.getHeight();
-
+	            
 	            GL11.glViewport(0, 0, RWIDTH, RHEIGHT);
 	            GL11.glLoadIdentity();
 			}
@@ -134,7 +134,7 @@ public class Game {
 				run = false;
 				main.Main.mthis.end();
 			}
-
+			
 			glPopMatrix();
 			Display.update();
 			Display.sync(60);

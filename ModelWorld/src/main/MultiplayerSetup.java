@@ -160,7 +160,6 @@ public class MultiplayerSetup {
 		System.out.println("Setting up srings - "+tempTexts.length);
 		
 		for(int i = 0; i != tempTexts.length; i++){
-			//System.out.println("iu("+i+") = " + locked[i]);
 			tempTexts[i] += (locked[i]&&i!=chosen? "(Locked)":"");
 		}
 		
@@ -172,7 +171,6 @@ public class MultiplayerSetup {
         colours = new boolean[tempTexts.length];
 		
 		for(int i = 0; i != tempText.length; i++){
-			System.out.println("Set up thingy "+i);
         	tempText[i] = new int[]{(int) (WIDTH / 2.3 - Main.FONT.getWidth(tempTexts[i]) / 2), HEIGHT / (tempTexts.length + 1) * (i + 1) - Main.FONT.getHeight(tempTexts[i])};
         }
 		
@@ -342,19 +340,10 @@ public class MultiplayerSetup {
 		}
 
 		for(int i = 0; i != text.length; i++){
-			int tempo = 0, temp = 0;
-			String temp1 = null;
-			try{
-			tempo = text[i][0];
-			temp = text[i][1];
-			temp1 = texts[i];
 			if(mousex >= text[i][0] && mousex <= text[i][0] + FONT.getWidth(texts[i]) && mousey >= text[i][1] && mousey <= text[i][1] + FONT.getHeight(texts[i])){
 				colours[i] = true;
 			} else {
 				colours[i] = false;
-			}
-			} catch(NullPointerException e){
-				System.out.println("WAT("+i+")"+"-"+tempo+"-"+temp+"-"+temp1 +"-"+ e.getMessage());
 			}
 		}
 		
@@ -375,22 +364,6 @@ public class MultiplayerSetup {
 				FONT2.drawString(text[i][0], text[i][1], texts[i]+(i==chosen?" - ":""));
 				continue;
 			}
-			int[] tempo = text[i];
-			int idk;
-			try{
-				idk = tempo[0];
-			}catch(NullPointerException e){
-				System.out.println("Oh noooooo - "+i);
-			}
-			//System.out.println("III -- "+tempo[0]+":"+tempo[1]);
-			try{
-				idk = text[i][0];
-			}catch(NullPointerException e){
-				System.out.println("Oh ttyy - "+i);
-			}
-			int temp = text[i][0];
-			temp = text[i][1];
-			String temp1 = texts[i];
 			FONT.drawString(text[i][0], text[i][1], texts[i]+(i==chosen?" - ":""));
 		}
 		

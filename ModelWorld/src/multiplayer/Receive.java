@@ -29,7 +29,7 @@ public class Receive extends Thread{
            		int protocol = Integer.parseInt(strings[0]);
            		strings = strings[1].split(";");
            		switch(protocol){
-           		case 0:
+           		case 2:
            			main.MultiplayerSetup.warmupTime = Float.parseFloat(strings[0]);
            			main.MultiplayerSetup.playersInGame = Integer.parseInt(strings[1]);
            			if(first){
