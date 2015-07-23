@@ -7,60 +7,60 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Handler extends Thread{
-	
+
 	public static int counter = 0;
 	public static OutputStream os;
 	public static ArrayList<PrintWriter> outs = new ArrayList<PrintWriter>();
 	public static ArrayList<String> nicks = new ArrayList<String>();
 	public static ArrayList<Boolean> dead = new ArrayList<Boolean>();
-	
+
 	public int number;
 	public PrintWriter out;
 	public BufferedReader in;
 	public Socket socket;
-	
+
 	public Handler(Socket clientSocket){
-		
+
 		number = counter;
 		counter++;
-		
+
 		this.socket = clientSocket;
-	        try {
+        try {
 			os = clientSocket.getOutputStream();
-        		out = new PrintWriter(os, true);
+            out = new PrintWriter(os, true);
 			outs.add(out);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	        try {
+        try {
 			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        	
-        	out.println(number);
-        	nicks.add("");
-        	dead.add(false);
-        
+
+        out.println(number);
+        nicks.add("");
+        dead.add(false);
+
 	}
-	
+
 	public void run() {
-        String inputLine;
-	
+    String inputLine;
+
 	int i = 0;
-	
+
 	for(boolean bool: dead){
 		if(!bool){i++;}
 	}
-	
+
 	//out.println(number);
-	
+
 	//out.println("There are currently " + i + " users online.");
 	//write("User " + number + " just logged on.");
-	
+
 	int game = -1;
 	Game gameO = null;
-	
+
         try {
 		while ((inputLine = in.readLine()) != null) {
 			if(inputLine.equals("exit")){
@@ -81,7 +81,7 @@ public class Handler extends Thread{
 				gameO.receive(inputLine);
 				switch(game){
 				case 0:
-					
+
 					break;
 				}
 			}else if(inputLine.startsWith("file")){
@@ -118,7 +118,7 @@ public class Handler extends Thread{
 				write(number + (nicks.get(number).equals("")?"":" (" + nicks.get(number) + ")") + ": " + inputLine);
 			}
 			System.out.println(inputLine);
-		
+
 		}
 	} catch (IOException e) {
 		dead.set(number, true);
@@ -127,7 +127,7 @@ public class Handler extends Thread{
 		if(gameO != null){gameO.end();gameO = null;}
 	}
     }
-	
+
 	public static void write(String string){
 		for(int i = 0; i != outs.size(); i++){
 			if(!dead.get(i)){
@@ -139,6 +139,6 @@ public class Handler extends Thread{
     public static void main(String args[]) {
         (new Handler(null)).start();
     }
-	
+
 }
 

@@ -1,10 +1,8 @@
 package multiplayer;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.FileOutputStream;
 
 import main.MultiplayerSetup;
 
@@ -21,6 +19,7 @@ public class Receive extends Thread{
 	}
 	
 	public void run(){
+		boolean first = true;
 		while(run){
            	try {
            		String string = in.readLine();
@@ -31,18 +30,24 @@ public class Receive extends Thread{
            		strings = strings[1].split(";");
            		switch(protocol){
            		case 0:
-           			main.MultiplayerSetup.warmupTime = Double.parseDouble(strings[0]);
+           			main.MultiplayerSetup.warmupTime = Float.parseFloat(strings[0]);
            			main.MultiplayerSetup.playersInGame = Integer.parseInt(strings[1]);
+           			if(first){
+           				first = false;
+           				main.MultiplayerSetup.mthis.chosen = main.MultiplayerSetup.playersInGame-1;
+           				System.out.println("Set default country to country : "+(main.MultiplayerSetup.playersInGame-1));
+						Client.send(0, ""+(main.MultiplayerSetup.playersInGame-1));
+           			}
            			if(strings.length == 2){
            				break;
            			}
            			String[] countries = strings[2].split(",");
            			boolean[] countries2 = new boolean[main.MultiplayerSetup.locked.length];
            			for(int i = 0; i != countries.length; i++){
-           				countries2[i] = true;
+           				countries2[Integer.parseInt(countries[i])] = true;
            			}
            			main.MultiplayerSetup.locked = countries2;
-           			MultiplayerSetup.mthis.setupStrings(MultiplayerSetup.mthis.texts);
+           			MultiplayerSetup.mthis.setupStrings(MultiplayerSetup.mthis.list);
            			break;
            		}
            		/*if(string == null){break;}

@@ -52,7 +52,7 @@ public class MultiplayerSetup {
 	public static Game game;
 	public static UnicodeFont FONT, FONT2;
 	public static boolean[] locked = new boolean[6];
-	public static double warmupTime = -1;
+	public static float warmupTime = -1;
 	public static int playersInGame = 1;
 	public static int WIDTH = 1000, HEIGHT = 1000;
 	public static int RWIDTH, RHEIGHT;
@@ -149,28 +149,35 @@ public class MultiplayerSetup {
 			e1.printStackTrace();
 		}
         
-        setupStrings(new String[]{list[0], list[1], list[2], list[3], list[4], list[5]});
+        setupStrings(list);
 		
 	}
 	
 	public void setupStrings(String[] newa){
 		
-		texts = newa;
+		String[] tempTexts = newa.clone();
 		
-		for(int i = 0; i != texts.length; i++){
-			texts[i] += (locked[i]? "(Locked)":"");
+		System.out.println("Setting up srings - "+tempTexts.length);
+		
+		for(int i = 0; i != tempTexts.length; i++){
+			//System.out.println("iu("+i+") = " + locked[i]);
+			tempTexts[i] += (locked[i]&&i!=chosen? "(Locked)":"");
 		}
-
-		int a = 5-Main.unlocked;
+		
 		if(chosen == -1){
-			chosen = a;
+			chosen = 5-Main.unlocked;
 		}
-        text = new int[texts.length][];
-        colours = new boolean[text.length];
+		int[][] tempText = new int[tempTexts.length][];
+        //text = new int[tempTexts.length][];
+        colours = new boolean[tempTexts.length];
 		
-		for(int i = 0; i != text.length; i++){
-        	text[i] = new int[]{(int) (WIDTH / 2.3 - Main.FONT.getWidth(texts[i]) / 2), HEIGHT / (text.length + 1) * (i + 1) - Main.FONT.getHeight(texts[i])};
+		for(int i = 0; i != tempText.length; i++){
+			System.out.println("Set up thingy "+i);
+        	tempText[i] = new int[]{(int) (WIDTH / 2.3 - Main.FONT.getWidth(tempTexts[i]) / 2), HEIGHT / (tempTexts.length + 1) * (i + 1) - Main.FONT.getHeight(tempTexts[i])};
         }
+		
+		texts = tempTexts;
+		text = tempText;
 	}
 	
 	public void init(boolean initi){
@@ -279,7 +286,7 @@ public class MultiplayerSetup {
 					for(int i = 0; i != text.length; i++){
 						if(mousex >= text[i][0] && mousex <= text[i][0] + Main.FONT.getWidth(texts[i]) && mousey >= text[i][1] && mousey <= text[i][1] + Main.FONT.getHeight(texts[i])){
 							if(locked[i]){break;}
-							switch(i){
+							/*switch(i){
 							case 0:
 								setupStrings(new String[]{list[0] + " - ", list[1], list[2], list[3], list[4], list[5]});
 								break;
@@ -298,7 +305,7 @@ public class MultiplayerSetup {
 							case 5:
 								setupStrings(new String[]{list[0], list[1], list[2], list[3], list[4], list[5] + " - "});
 								break;
-							}
+							}*/
 							chosen = i;
 							Client.send(0, ""+chosen);
 						}
@@ -335,10 +342,19 @@ public class MultiplayerSetup {
 		}
 
 		for(int i = 0; i != text.length; i++){
+			int tempo = 0, temp = 0;
+			String temp1 = null;
+			try{
+			tempo = text[i][0];
+			temp = text[i][1];
+			temp1 = texts[i];
 			if(mousex >= text[i][0] && mousex <= text[i][0] + FONT.getWidth(texts[i]) && mousey >= text[i][1] && mousey <= text[i][1] + FONT.getHeight(texts[i])){
 				colours[i] = true;
 			} else {
 				colours[i] = false;
+			}
+			} catch(NullPointerException e){
+				System.out.println("WAT("+i+")"+"-"+tempo+"-"+temp+"-"+temp1 +"-"+ e.getMessage());
 			}
 		}
 		
@@ -356,13 +372,26 @@ public class MultiplayerSetup {
 		
 		for(int i = 0; i != text.length; i++){
 			if(colours[i]){
-				FONT2.drawString(text[i][0], text[i][1], texts[i]);
+				FONT2.drawString(text[i][0], text[i][1], texts[i]+(i==chosen?" - ":""));
 				continue;
+			}
+			int[] tempo = text[i];
+			int idk;
+			try{
+				idk = tempo[0];
+			}catch(NullPointerException e){
+				System.out.println("Oh noooooo - "+i);
+			}
+			//System.out.println("III -- "+tempo[0]+":"+tempo[1]);
+			try{
+				idk = text[i][0];
+			}catch(NullPointerException e){
+				System.out.println("Oh ttyy - "+i);
 			}
 			int temp = text[i][0];
 			temp = text[i][1];
 			String temp1 = texts[i];
-			FONT.drawString(text[i][0], text[i][1], texts[i]);
+			FONT.drawString(text[i][0], text[i][1], texts[i]+(i==chosen?" - ":""));
 		}
 		
 		for(int i = 0; i != text2.length; i++){
@@ -373,7 +402,7 @@ public class MultiplayerSetup {
 			FONT.drawString(text2[i][0], text2[i][1], texts2[i]);
 		}
 		
-		FONT.drawString(0, 0, ""+warmupTime);
+		FONT.drawString(0, 0, String.format("%.2f", warmupTime));
 		String string = ""+playersInGame;
 		FONT.drawString(WIDTH-FONT.getWidth(string), 0, string);
 		//Main.FONT.drawString(0, HEIGHT - Main.FONT.getHeight("Back"), "Back");

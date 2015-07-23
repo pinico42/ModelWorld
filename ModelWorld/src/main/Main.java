@@ -124,7 +124,7 @@ public class Main {
         	 displayMode = new DisplayMode(500, 500);
          }
          
-    	 //displayMode = new DisplayMode(100, 100);
+    	 displayMode = new DisplayMode(100, 100);
 		
 		try {
 			Display.setInitialBackground(255, 255, 255);
