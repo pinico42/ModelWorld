@@ -359,6 +359,9 @@ public class MultiplayerSetup {
 				FONT2.drawString(text[i][0], text[i][1], texts[i]);
 				continue;
 			}
+			int temp = text[i][0];
+			temp = text[i][1];
+			String temp1 = texts[i];
 			FONT.drawString(text[i][0], text[i][1], texts[i]);
 		}
 		
