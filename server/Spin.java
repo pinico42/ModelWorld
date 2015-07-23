@@ -88,7 +88,6 @@ public class Spin extends Thread{
 			if(warmup<0){
                 warmup = (float)0.0;
 			}
-			System.out.println(warmup + "-=-"+(warmup-interval/1000));
 			sendAll(0, null, null);
 			try{
 				Thread.sleep((long)interval);
