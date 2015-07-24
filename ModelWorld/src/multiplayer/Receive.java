@@ -51,6 +51,15 @@ public class Receive extends Thread{
            				MultiplayerSetup.mthis.setupStrings(MultiplayerSetup.mthis.list);
            			}
            			break;
+           		case 3:
+           			int rejected = Integer.parseInt(strings[0]);
+           			for(int i = 0; i != 6; i++){
+           				if(!main.MultiplayerSetup.locked[i] && i != rejected){
+           					main.MultiplayerSetup.mthis.chosen = i;
+           					Client.send(0, ""+i);
+           				}
+           			}
+           			break;
            		}
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -33,16 +33,19 @@ public class Spin extends Thread{
 		for(int i = num; i != nPlayers; i++){
             System.out.println("i : "+i+" + num : "+num+" + nPlayers : "+nPlayers);
 			players[i] = i==5?null:players[i+1];
+			if(players[i] != null){
+                players[i].playern--;
+			}
 		}
 		nPlayers--;
 	}
 
 	public void chooseCountry(int player, int num){
-		if(countries[num] != -1){return;}
+		if(countries[num] != -1){players[player].sendReject(num);return;}
 		if(playersc[player] != -1){countries[num] = -1;}
 		countries[num] = player;
 		playersc[player] = num;
-		System.out.println("Set country");
+		System.out.println("Set country for player "+player+" to "+num);
 	}
 
 	public void sendPlayer(int player, int code, int[] ints, String[] strings){

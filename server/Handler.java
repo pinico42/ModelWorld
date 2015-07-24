@@ -123,7 +123,7 @@ public class Handler extends Thread{
 		}
 	} catch (IOException e) {
 		dead.set(number, true);
-		write(number + (nicks.get(number).equals("")?"":" (" + nicks.get(number) + ")") + ": " + " thread has had a disconnection");
+		//write(number + (nicks.get(number).equals("")?"":" (" + nicks.get(number) + ")") + ": " + " thread has had a disconnection");
 		out.close();
 		if(gameO != null){gameO.end();gameO = null;}
 	}

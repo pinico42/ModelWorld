@@ -44,6 +44,7 @@ public class Model extends Thread implements Game{
 			}catch(InterruptedException e){}
 		}
 		spin.removePlayer(playern);
+		clients--;
 		if(spin.nPlayers == 0){
 			spins.remove(spins.indexOf(spin));
 			System.out.println("Removing Spin");
@@ -54,8 +55,16 @@ public class Model extends Thread implements Game{
 	public void updateWarmup(double time, int players, String countries){
 		String string;
 		string = "2:"+time+";"+players+";"+countries;
-		System.out.println("updateWarmup " + string);
+		System.out.println("updateWarmup  to "+id+ " - " + string);
 		out.println(string);
+	}
+
+	public void sendReject(int country){
+        String string;
+        string = "3:"+country;
+        System.out.println("Rejecting country choice!");
+        out.println(string);
+        spin.sendAll(2, null, null);
 	}
 
 	public void receive(String string){
