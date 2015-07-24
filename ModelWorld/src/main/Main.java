@@ -114,21 +114,19 @@ public class Main {
 		}
 
          for (int i = 0; i < modes.length; i++){
-             if (modes[i].getWidth() == RWIDTH
-             && modes[i].getHeight() == RHEIGHT
-             && modes[i].isFullscreenCapable()){
+             if (modes[i].getWidth() == RWIDTH && modes[i].getHeight() == RHEIGHT && modes[i].isFullscreenCapable()){
                     displayMode = modes[i];
                }
          }
          
          if(displayMode == null){
         	 displayMode = new DisplayMode(500, 500);
-        	 RWIDTH = 500;
-        	 RHEIGHT = 500;
          }
          
          if(DEBUG){
         	 displayMode = new DisplayMode(400, 400);
+        	 RWIDTH = 400;
+        	 RHEIGHT = 400;
          }
     	 
 		try {

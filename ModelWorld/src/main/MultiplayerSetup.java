@@ -157,7 +157,7 @@ public class MultiplayerSetup {
 		
 		String[] tempTexts = newa.clone();
 		
-		System.out.println("Setting up srings - "+tempTexts.length);
+		//System.out.println("Setting up srings - "+tempTexts.length);
 		
 		for(int i = 0; i != tempTexts.length; i++){
 			tempTexts[i] += (locked[i]&&i!=chosen? "(Locked)":"");

@@ -72,7 +72,7 @@ public class Server extends Thread {
 	public static void end(){
 		Handler.write("Server stopping, bye.");
 		run = false;
-		System.out.println("Stopping servers!");
+		System.out.println("Stopping server!");
 		System.exit(0);
 	}
 

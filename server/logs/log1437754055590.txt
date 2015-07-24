@@ -1,0 +1,62 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User 0 is switching to game 1
+game 1
+Model started
+new Spin started 0 6 1
+updateWarmup 2:10.0;1;0
+RUN STARTED 
+Choosing country
+Set country
+received string 0:0
+send false
+0:0
+Spin started
+updateWarmup 2:9.0;1;0
+Server socket started.
+User 1 is switching to game 1
+game 1
+Model started
+updateWarmup 2:9.0;2;0
+RUN STARTED 
+Choosing country
+Set country
+received string 0:1
+send false
+0:1
+updateWarmup 2:8.0;2;0,1
+updateWarmup 2:8.0;2;0,1
+updateWarmup 2:7.0;2;0,1
+updateWarmup 2:7.0;2;0,1
+updateWarmup 2:6.0;2;0,1
+updateWarmup 2:6.0;2;0,1
+Choosing country
+Set country
+received string 0:2
+send false
+0:2
+updateWarmup 2:5.0;2;2,1
+updateWarmup 2:5.0;2;2,1
+updateWarmup 2:4.0;2;2,1
+updateWarmup 2:4.0;2;2,1
+updateWarmup 2:3.0;2;2,1
+updateWarmup 2:3.0;2;2,1
+Choosing country
+received string 0:0
+send false
+0:0
+updateWarmup 2:2.0;2;2,1
+updateWarmup 2:2.0;2;2,1
+updateWarmup 2:1.0;2;2,1
+updateWarmup 2:1.0;2;2,1
+updateWarmup 2:0.0;2;2,1
+updateWarmup 2:0.0;2;2,1
+RUN ENDED : 1
+Removing Spin
+RUN ENDED : 0
+Stopping servers!

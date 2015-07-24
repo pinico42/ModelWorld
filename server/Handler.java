@@ -104,7 +104,7 @@ public class Handler extends Thread{
 			} else if(inputLine.startsWith("game")){
 				if(inputLine.length() < 6){out.println("Wrong usuage, try again");continue;}
 				game = Integer.parseInt(inputLine.substring(5));
-				System.out.println("User "+ number + " is switching to game "+game);
+				//System.out.println("User "+ number + " is switching to game "+game);
 				switch(game){
 				case 0:
 					gameO = new Echo(out);
@@ -118,7 +118,7 @@ public class Handler extends Thread{
 			} else {
 				write(number + (nicks.get(number).equals("")?"":" (" + nicks.get(number) + ")") + ": " + inputLine);
 			}
-			System.out.println(inputLine);
+			System.out.println("User input : "+inputLine);
 
 		}
 	} catch (IOException e) {
