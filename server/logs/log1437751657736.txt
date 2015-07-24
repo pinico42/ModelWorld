@@ -1,0 +1,101 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User 0 is switching to game 1
+game 1
+Model started
+new Spin started 0 6 1
+updateWarmup 2:10.0;1;0
+RUN STARTED 
+Choosing country
+Set country
+Spin started
+received string 0:0
+updateWarmup 2:9.899999618530273;1;0
+send false
+0:0
+updateWarmup 2:9.799999237060547;1;0
+updateWarmup 2:9.69999885559082;1;0
+updateWarmup 2:9.599998474121094;1;0
+updateWarmup 2:9.499998092651367;1;0
+updateWarmup 2:9.39999771118164;1;0
+updateWarmup 2:9.299997329711914;1;0
+Server socket started.
+User 1 is switching to game 1
+game 1
+Model started
+updateWarmup 2:9.299997329711914;2;0
+RUN STARTED 
+Choosing country
+Set country
+received string 0:1
+send false
+0:1
+updateWarmup 2:9.199996948242188;2;0,1
+updateWarmup 2:9.199996948242188;2;0,1
+updateWarmup 2:9.099996566772461;2;0,1
+updateWarmup 2:9.099996566772461;2;0,1
+updateWarmup 2:8.999996185302734;2;0,1
+updateWarmup 2:8.999996185302734;2;0,1
+updateWarmup 2:8.899995803833008;2;0,1
+updateWarmup 2:8.899995803833008;2;0,1
+updateWarmup 2:8.799995422363281;2;0,1
+updateWarmup 2:8.799995422363281;2;0,1
+updateWarmup 2:8.699995040893555;2;0,1
+updateWarmup 2:8.699995040893555;2;0,1
+updateWarmup 2:8.599994659423828;2;0,1
+updateWarmup 2:8.599994659423828;2;0,1
+updateWarmup 2:8.499994277954102;2;0,1
+updateWarmup 2:8.499994277954102;2;0,1
+updateWarmup 2:8.399993896484375;2;0,1
+updateWarmup 2:8.399993896484375;2;0,1
+updateWarmup 2:8.299993515014648;2;0,1
+updateWarmup 2:8.299993515014648;2;0,1
+updateWarmup 2:8.199993133544922;2;0,1
+updateWarmup 2:8.199993133544922;2;0,1
+updateWarmup 2:8.099992752075195;2;0,1
+updateWarmup 2:8.099992752075195;2;0,1
+updateWarmup 2:7.999992847442627;2;0,1
+updateWarmup 2:7.999992847442627;2;0,1
+updateWarmup 2:7.899992942810059;2;0,1
+updateWarmup 2:7.899992942810059;2;0,1
+updateWarmup 2:7.79999303817749;2;0,1
+updateWarmup 2:7.79999303817749;2;0,1
+updateWarmup 2:7.699993133544922;2;0,1
+updateWarmup 2:7.699993133544922;2;0,1
+updateWarmup 2:7.5999932289123535;2;0,1
+updateWarmup 2:7.5999932289123535;2;0,1
+updateWarmup 2:7.499993324279785;2;0,1
+updateWarmup 2:7.499993324279785;2;0,1
+updateWarmup 2:7.399993419647217;2;0,1
+updateWarmup 2:7.399993419647217;2;0,1
+updateWarmup 2:7.299993515014648;2;0,1
+updateWarmup 2:7.299993515014648;2;0,1
+updateWarmup 2:7.19999361038208;2;0,1
+updateWarmup 2:7.19999361038208;2;0,1
+updateWarmup 2:7.099993705749512;2;0,1
+updateWarmup 2:7.099993705749512;2;0,1
+updateWarmup 2:6.999993801116943;2;0,1
+updateWarmup 2:6.999993801116943;2;0,1
+updateWarmup 2:6.899993896484375;2;0,1
+updateWarmup 2:6.899993896484375;2;0,1
+updateWarmup 2:6.799993991851807;2;0,1
+updateWarmup 2:6.799993991851807;2;0,1
+updateWarmup 2:6.699994087219238;2;0,1
+updateWarmup 2:6.699994087219238;2;0,1
+removing : 0 out of 2
+Exception in thread "Thread-2" java.lang.ArrayIndexOutOfBoundsException: 7
+	at Spin.removePlayer(Spin.java:34)
+	at Model.run(Model.java:46)
+updateWarmup 2:6.59999418258667;2;0
+Exception in thread "Thread-3" java.lang.NullPointerException
+	at Spin.sendAll(Spin.java:79)
+	at Spin.run(Spin.java:93)
+Using default remove for 2
+Player removed, there are now 1 players.
+RUN ENDED : 1
+Stopping servers!

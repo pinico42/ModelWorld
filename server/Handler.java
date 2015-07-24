@@ -66,7 +66,8 @@ public class Handler extends Thread{
 			if(inputLine.equals("exit")){
 				out.println("Exiting");
 				dead.set(number, true);
-				write(number + (nicks.get(number).equals("")?"":" (" + nicks.get(number) + ")") + ": " + " thread has had a disconnection");
+				// Will screw up the game if it can't parse this input.
+				//write(number + (nicks.get(number).equals("")?"":" (" + nicks.get(number) + ")") + ": " + " thread has had a disconnection");
 				out.close();
 				gameO.end();
 				gameO = null;

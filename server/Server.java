@@ -16,6 +16,7 @@ public class Server extends Thread {
             TeeOutputStream myOut=new TeeOutputStream(System.out, fos);
             PrintStream ps = new PrintStream(myOut);
             System.setOut(ps);
+            System.setErr(ps);
         } catch (Exception e) {
             e.printStackTrace();
         }

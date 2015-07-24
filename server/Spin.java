@@ -22,15 +22,19 @@ public class Spin extends Thread{
 	}
 
 	public void removePlayer(){
+	    System.out.println("Using default remove for "+nPlayers);
 		players[nPlayers--] = null;
+		System.out.println("Player removed, there are now "+nPlayers+" players.");
 	}
 
 	public void removePlayer(int num){
 		if(num == nPlayers - 1){removePlayer();return;}
-		System.out.println("removing : "+num);
-		for(int i = num; num != nPlayers; i++){
-			players[i] = i==6?null:players[i+1];
+		System.out.println("removing : "+num+" out of "+nPlayers);
+		for(int i = num; i != nPlayers; i++){
+            System.out.println("i : "+i+" + num : "+num+" + nPlayers : "+nPlayers);
+			players[i] = i==5?null:players[i+1];
 		}
+		nPlayers--;
 	}
 
 	public void chooseCountry(int player, int num){
@@ -82,7 +86,7 @@ public class Spin extends Thread{
 
 	public void run(){
 		System.out.println("Spin started");
-		float interval = 100;
+		float interval = 1000;
 		while(warmup > 0){
 			warmup -= interval / 1000;
 			if(warmup<0){

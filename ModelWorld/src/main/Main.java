@@ -52,6 +52,7 @@ import org.newdawn.slick.util.ResourceLoader;
 @SuppressWarnings("unused")
 public class Main {
 	
+	public static final boolean DEBUG = true;
 	public static int RWIDTH, RHEIGHT, twidth, theight, unlocked;
 	public static UnicodeFont FONT, FONT2;
 	public static boolean run = true, SOUND = true;
@@ -122,10 +123,14 @@ public class Main {
          
          if(displayMode == null){
         	 displayMode = new DisplayMode(500, 500);
+        	 RWIDTH = 500;
+        	 RHEIGHT = 500;
          }
          
-    	 displayMode = new DisplayMode(100, 100);
-		
+         if(DEBUG){
+        	 displayMode = new DisplayMode(400, 400);
+         }
+    	 
 		try {
 			Display.setInitialBackground(255, 255, 255);
 			Display.setDisplayMode(displayMode);

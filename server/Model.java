@@ -78,7 +78,7 @@ public class Model extends Thread implements Game{
 
 	public void end(){
 		runB = false;
-		spin.removePlayer(playern);
+		//spin.removePlayer(playern); THIS IS ALREADY DONE AT THE END OF THE LOOP
 	}
 
 	public static void main(String[] args){

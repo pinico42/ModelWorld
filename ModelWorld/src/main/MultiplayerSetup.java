@@ -249,6 +249,12 @@ public class MultiplayerSetup {
 				break;
 			}
 			render();
+			
+			if(warmupTime == 0.0){
+				game = new Game(chosen);
+				run = game.run();
+			}
+			
 			update();
 			
 			if(Display.isCloseRequested()){
@@ -270,11 +276,6 @@ public class MultiplayerSetup {
 	
 	public void logic(){
 		
-		if(warmupTime == 0.0){
-			game = new Game(chosen);
-			run = game.run();
-		}
-		
 		Mouse.poll();
 		while(Mouse.next()){
 			if(Mouse.getEventButtonState()){
@@ -284,26 +285,6 @@ public class MultiplayerSetup {
 					for(int i = 0; i != text.length; i++){
 						if(mousex >= text[i][0] && mousex <= text[i][0] + Main.FONT.getWidth(texts[i]) && mousey >= text[i][1] && mousey <= text[i][1] + Main.FONT.getHeight(texts[i])){
 							if(locked[i]){break;}
-							/*switch(i){
-							case 0:
-								setupStrings(new String[]{list[0] + " - ", list[1], list[2], list[3], list[4], list[5]});
-								break;
-							case 1:
-								setupStrings(new String[]{list[0], list[1] + " - ", list[2], list[3], list[4], list[5]});
-								break;
-							case 2:
-								setupStrings(new String[]{list[0], list[1], list[2] + " - ", list[3], list[4], list[5]});
-								break;
-							case 3:
-								setupStrings(new String[]{list[0], list[1], list[2], list[3] + " - ", list[4], list[5]});
-								break;
-							case 4:
-								setupStrings(new String[]{list[0], list[1], list[2], list[3], list[4] + " - ", list[5]});
-								break;
-							case 5:
-								setupStrings(new String[]{list[0], list[1], list[2], list[3], list[4], list[5] + " - "});
-								break;
-							}*/
 							chosen = i;
 							Client.send(0, ""+chosen);
 						}
