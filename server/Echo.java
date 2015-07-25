@@ -2,16 +2,16 @@
 import java.util.ArrayList;
 import java.io.PrintWriter;
 
-public class Echo extends Thread implements Game{
-	
+public class Echo extends Thread implements GameI{
+
 	public PrintWriter out;
 	public boolean runB = true, hi = false;
 	public ArrayList<String> send = new ArrayList<String>();
-	
+
 	public Echo(PrintWriter out){
 		this.out = out;
 	}
-	
+
 	public void run(){
 		while(runB){
 			if(!send.isEmpty()){
@@ -22,16 +22,16 @@ public class Echo extends Thread implements Game{
 			Thread.sleep(4000);}catch(InterruptedException e){}
 		}
 	}
-	
+
 	public void receive(String string){
 		send.add(string);
 		hi = true;
 	}
-	
+
 	public void end(){
 		runB = false;
 	}
-	
+
 	public static void main(String[] args){
 		System.out.println("Echo game set up");
 	}

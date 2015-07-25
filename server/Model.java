@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.io.PrintWriter;
 
-public class Model extends Thread implements Game{
+public class Model extends Thread implements GameI{
 
 	public static final int nInGame = 6;
 

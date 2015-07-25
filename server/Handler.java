@@ -59,7 +59,7 @@ public class Handler extends Thread{
 	//write("User " + number + " just logged on.");
 
 	int game = -1;
-	Game gameO = null;
+	GameI gameO = null;
 
         try {
 		while ((inputLine = in.readLine()) != null) {
