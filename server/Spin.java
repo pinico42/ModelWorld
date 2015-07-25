@@ -1,12 +1,13 @@
 
 public class Spin extends Thread{
 
-	public Model[] players = new Model[6];
+	public Model[] players = new Model[Model.nInGame];
 	public int nPlayers = 0;
 	public float warmup = 10; //Seconds
-	public boolean runb = true;
-	public int[] countries = new int[6];
-	public int[] playersc = new int[6];
+	public boolean runb = true, gameStarted = false;
+	public int[] countries = new int[Model.nInGame];
+	public int[] playersc = new int[Model.nInGame];
+	public Game game;
 
 	public Spin(Model model){
 		addPlayer(model);
@@ -100,7 +101,18 @@ public class Spin extends Thread{
 				Thread.sleep((long)interval);
 			} catch(InterruptedException e){}
 		}
-		while(runb){}
+		gameStarted = true;
+		game = new Game(countries);
+        game.run();
+		//while(runb){}
+	}
+
+	public void end(){
+        //runb = false;
+        if(game != null){
+            game.run = false;
+            game = null;
+        }
 	}
 
 }

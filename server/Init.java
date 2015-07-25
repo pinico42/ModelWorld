@@ -1,22 +1,7 @@
 
-//import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-
-//import main.Draw;
-//import main.MultiplayerSetup;
-/*
-import org.lwjgl.opengl.Display;
-import org.lwjgl.util.Rectangle;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.UnicodeFont;
-import org.newdawn.slick.font.effects.ColorEffect;
-import org.newdawn.slick.openal.Audio;
-import org.newdawn.slick.openal.AudioLoader;
-import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;*/
 
 public class Init {
 

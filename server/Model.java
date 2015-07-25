@@ -47,9 +47,12 @@ public class Model extends Thread implements GameI{
 		clients--;
 		if(spin.nPlayers == 0){
 			spins.remove(spins.indexOf(spin));
-			System.out.println("Removing Spin");
-		}
-		System.out.println("RUN ENDED : " + spin.nPlayers);
+			spin.end();
+			spin = null;
+			System.out.println("RUN ENDED, Removing Spin");
+		} else
+            System.out.println("RUN ENDED : " + spin.nPlayers);
+        }
 	}
 
 	public void updateWarmup(double time, int players, String countries){

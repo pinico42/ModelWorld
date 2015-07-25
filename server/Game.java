@@ -1,22 +1,4 @@
 
-/*import static org.lwjgl.input.Keyboard.*;
-import static org.lwjgl.opengl.GL11.GL_BLEND;
-import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
-import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
-import static org.lwjgl.opengl.GL11.GL_PROJECTION;
-import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.glBlendFunc;
-import static org.lwjgl.opengl.GL11.glClear;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
-import static org.lwjgl.opengl.GL11.glMatrixMode;
-import static org.lwjgl.opengl.GL11.glOrtho;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glTranslatef;*/
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,50 +8,33 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Font;
 
-//import main.Draw;
-//import main.Main;
-//import main.Setup;
-
-/*import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.openal.AL;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.Rectangle;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.UnicodeFont;
-import org.newdawn.slick.font.effects.ColorEffect;
-import org.newdawn.slick.openal.Audio;
-import org.newdawn.slick.openal.SoundStore;
-import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;*/
-
 @SuppressWarnings("unused")
 public class Game {
 
 	public static final Random rand = new Random();
-	public static int WIDTH = 1000, HEIGHT = 1000;
-	public static boolean run = true;
-	public static int  theight, twidth, player = 0, sel, selsol, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, hover = -1, state = 0, statei = 0, homew = 100, homeh = 100;
-	public static long  ltime = System.currentTimeMillis(), time, last = ltime;
+	public static final int WIDTH = 1000, HEIGHT = 1000;
+	public static int theight, twidth, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, state = 0, statei = 0, homew = 100, homeh = 100;
+	public long  ltime = System.currentTimeMillis(), time, last = ltime;
+	public boolean run = true;
 	public static Game mthis;
-	public static int[] autos;
+	//public static int[] autos;
 
 	public Country[] countries = new Country[6];
 
 	public boolean retry = false, showbd = false, PAUSE = false, wintrip = false;
+	public ArrayList<Integer> players = new ArrayList<Integer>();
 
 	public int deathCount = -1;
 
-	public Game(int chosen){
-		player = chosen;
-		sel = chosen;
+	public Game(int[] tplayers){
+        for(int i = 0; i != tplayers.length; i++){
+            if(tplayers[i] != -1){
+                players.add(tplayers[i]);
+            }
+        }
 	}
 
-	public boolean run() {
+	public void run() {
 
 		Game.mthis = this;
 		Init.init_game();
@@ -97,8 +62,6 @@ public class Game {
 
 		}
 
-		return retry;
-
 	}
 
 	public void logic(){
@@ -112,15 +75,8 @@ public class Game {
 		ArrayList<Sol> rsols = new ArrayList<Sol>();
 
 		for(Country country: countries){
-			if(country.type != player){
+			if(!players.contains(country.type)){
 				country.AI();
-			} else {
-				if(autos[0]==1){
-					while(countries[player].reserves > 0){
-						countries[player].AIarmyAdd();
-						countries[player].reserves--;
-					}
-				}
 			}
 			for(Sol sol: country.army){
 				for(Country country2: countries){
@@ -130,10 +86,11 @@ public class Game {
 								sol.health -= 1;
 								sold.health -= 1;
 								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
-									if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
+                                    // I don't remember what this logic does so i just deleted it.
+									//if((!players.contains(sol.owner) && !players.contains(sold.owner)) || Matha.hypo((players.contains(sol.owner)?sol:sold).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((players.contains(sol.owner)?sold:sol).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sold:sol).pos[1] - countries[player].home[1])){
 										Country.wars[sol.owner][sold.owner] = true;
 										Country.wars[sold.owner][sol.owner] = true;
-									}
+									//}
 								}
 							}
 						}
