@@ -666,11 +666,12 @@ public class Game {
 								//System.out.println("HEY");
 								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
 									//System.out.println("GET");
-									if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
+									// I MANTAIN THIS IS USELESS <-- WATHCH OUT
+									//if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
 										Country.wars[sol.owner][sold.owner] = true;
 										//System.out.println("Met");
 										Country.wars[sold.owner][sol.owner] = true;
-									}
+									//}
 								}
 							}
 						}

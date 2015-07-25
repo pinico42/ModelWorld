@@ -609,10 +609,11 @@ public class Game {
 								sol.health -= 1;
 								sold.health -= 1;
 								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
-									if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
+									// WHAT WAS THIS MEANT TO ACHIEVE?!? <-- WATCH OUT
+									//if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
 										Country.wars[sol.owner][sold.owner] = true;
 										Country.wars[sold.owner][sol.owner] = true;
-									}
+									//}
 								}
 							}
 						}
