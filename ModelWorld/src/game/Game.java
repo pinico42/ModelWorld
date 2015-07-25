@@ -723,7 +723,7 @@ public class Game {
 			for(Country country: countries){
 				country.update();
 			}
-			last = time;
+			last += 10000;
 		}
 		
 		if(isKeyDown(KEY_LEFT) || mousex - translate_x < WIDTH / 10 && mousey - translate_y > 100){

@@ -105,7 +105,7 @@ public class Country {
 		}
 		if(religion > 200){
 			AIarmyAdd(true);
-			if(!alerted){
+			if(!alerted && type == Game.player){
 				Game.mthis.texts[2] = "The Chicken Lord is granting you troops for your reverence of him";
 				Game.mthis.text[2][0] = Game.WIDTH / 2 - Game.FONTS[2].getWidth(Game.mthis.texts[2]) / 2;
 				alerted = true;

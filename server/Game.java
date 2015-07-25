@@ -62,7 +62,7 @@ public class Game {
 
 	public boolean retry = false, showbd = false, PAUSE = false, wintrip = false;
 
-	public int mousex, mousey, translate_x, translate_y, deathCount = -1;
+	public int deathCount = -1;
 
 	public Game(int chosen){
 		player = chosen;
@@ -178,7 +178,7 @@ public class Game {
 			for(Country country: countries){
 				country.update();
 			}
-			last = time;
+			last += 10000;
 		}
 
 		for(Country country: countries){
