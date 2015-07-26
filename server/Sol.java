@@ -5,17 +5,16 @@ public class Sol {
 
     // It needs some sort of owner to account for the need to be non static in all this.
     public Country cOwner;
-	public int idCounter = 0;
 	public float health;
 	public int owner, strength = -1, id;
 	public boolean updated = false, die;
 	public double[] vel;
 	public int[] pos;
-	public int[] aim;
+	private int[] aim;
 
 	public Sol(int x, int y, int by, Country Owner){
-		id = idCounter;
-		idCounter++;
+		id = Owner.owner.idCounter;
+		Owner.owner.idCounter++;
 		pos = new int[]{x,y};
 		vel = new double[]{0,0};
 		owner = by;
@@ -27,7 +26,9 @@ public class Sol {
 
 	public void setAim(int x, int y){
 		//System.out.println(x + ", " + y + " - ???");
-		aim = new int[]{x - 2 + Game.rand.nextInt(4), y - 2 + Game.rand.nextInt(4)};
+		//System.out.println("Setting aim");
+		cOwner.owner.spin.sendAll(10, new int[]{2, x, y, id}, null);
+		aim = new int[]{x /*- 2 + Game.rand.nextInt(4)*/, y /*- 2 + Game.rand.nextInt(4)*/};
 		updated = true;
 	}
 
@@ -57,6 +58,7 @@ public class Sol {
 
 		if(health <= 0){
 			die = true;
+			cOwner.owner.spin.sendAll(10, new int[]{1, id}, null);
 		}
 
 		pos[0] += vel[0];

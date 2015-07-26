@@ -1,8 +1,13 @@
 package multiplayer;
 
+import java.util.ArrayList;
+
 // Sol stands for soldier, obviously...
 
 public class Sol {
+	
+	public static ArrayList<Sol> sols = new ArrayList<Sol>();
+	
 	public static int idCounter = 0;
 	public float health;
 	public int owner, strength = -1, id;
@@ -20,6 +25,7 @@ public class Sol {
 		aim = new int[]{0,0};
 		strength = Game.mthis.countries[owner].armyStrength;
 		health = strength;
+		sols.add(this);
 	}
 	
 	public void setAim(int x, int y){
@@ -53,7 +59,7 @@ public class Sol {
 		}
 		
 		if(health <= 0){
-			die = true;
+			//die = true;
 		}
 
 		pos[0] += vel[0];

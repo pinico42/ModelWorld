@@ -109,13 +109,26 @@ public class Country {
 		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2);
 	}
 	
+	public void AIarmyAdd(int x, int y, int id){
+		if(id != Sol.idCounter){
+			System.out.println(id+":"+Sol.idCounter+"OHHHHH NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 1233245");
+		}
+		armySize++;
+		armyAdd(x,y);
+		money -= scost;
+	}
+	
 	public void AImineAdd(int x, int y){
-		mines.add(new int[]{x, y});
+		synchronized(mines){
+			mines.add(new int[]{x, y});
+		}
 		money -= mcost;
 	}
 	
 	public void AIopiumAdd(int x, int y){
-		dens.add(new int[]{x, y});
+		synchronized(dens){
+			dens.add(new int[]{x, y});
+		}
 		money -= ocost;
 	}
 	

@@ -1,0 +1,101 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 0 - 2:10.0;1;0
+RUN STARTED 
+Spin started
+updateWarmup  to 0 - 2:9.5;1;
+0 choosing country
+Set country for player 0 to 0
+received string 0:0
+send false
+User input : 0:0
+updateWarmup  to 0 - 2:9.0;1;0
+updateWarmup  to 0 - 2:8.5;1;0
+updateWarmup  to 0 - 2:8.0;1;0
+updateWarmup  to 0 - 2:7.5;1;0
+updateWarmup  to 0 - 2:7.0;1;0
+updateWarmup  to 0 - 2:6.5;1;0
+updateWarmup  to 0 - 2:6.0;1;0
+updateWarmup  to 0 - 2:5.5;1;0
+updateWarmup  to 0 - 2:5.0;1;0
+updateWarmup  to 0 - 2:4.5;1;0
+updateWarmup  to 0 - 2:4.0;1;0
+updateWarmup  to 0 - 2:3.5;1;0
+updateWarmup  to 0 - 2:3.0;1;0
+updateWarmup  to 0 - 2:2.5;1;0
+updateWarmup  to 0 - 2:2.0;1;0
+updateWarmup  to 0 - 2:1.5;1;0
+updateWarmup  to 0 - 2:1.0;1;0
+updateWarmup  to 0 - 2:0.5;1;0
+updateWarmup  to 0 - 2:0.0;1;0
+Game starting
+New opium house added.
+Updating building with: [11:1;1;703;890;1]
+New opium house added.
+Updating building with: [11:1;1;705;791;1]
+New opium house added.
+Updating building with: [11:1;1;1421;156;2]
+New opium house added.
+Updating building with: [11:1;1;1268;304;2]
+New mine added
+Updating building with: [11:0;1;1266;620;3]
+Adding an unit
+Updating unit with : [10:0;1813;275;0;4]
+New opium house added.
+Updating building with: [11:1;1;2247;917;5]
+New mine added
+Updating building with: [11:0;1;1852;279;4]
+New opium house added.
+Updating building with: [11:1;1;1245;130;2]
+New opium house added.
+Updating building with: [11:1;1;1747;166;4]
+Adding an unit
+Updating unit with : [10:0;625;881;1;1]
+Adding an unit
+Updating unit with : [10:0;1812;286;2;4]
+New opium house added.
+Updating building with: [11:1;1;1714;295;4]
+New mine added
+Updating building with: [11:0;1;1220;662;3]
+New mine added
+Updating building with: [11:0;1;1752;229;4]
+New mine added
+Updating building with: [11:0;1;1834;202;4]
+New opium house added.
+Updating building with: [11:1;1;1329;587;3]
+Adding an unit
+Updating unit with : [10:0;1279;607;3;3]
+New mine added
+Updating building with: [11:0;1;1202;498;3]
+New opium house added.
+Updating building with: [11:1;1;1931;408;4]
+Adding an unit
+Updating unit with : [10:0;1252;619;4;3]
+New mine added
+Updating building with: [11:0;1;1255;579;3]
+Adding an unit
+Updating unit with : [10:0;1189;609;5;3]
+Adding an unit
+Updating unit with : [10:0;1809;270;6;4]
+Adding an unit
+Updating unit with : [10:0;2156;948;7;5]
+Adding an unit
+Updating unit with : [10:0;605;874;8;1]
+Adding an unit
+Updating unit with : [10:0;1215;562;9;3]
+Adding an unit
+Updating unit with : [10:0;2177;896;10;5]
+Adding an unit
+Updating unit with : [10:0;1754;256;11;4]
+Using default remove for 1
+Player removed, there are now 0 players.
+RUN ENDED, Removing Spin
+Stopping server!

@@ -209,7 +209,7 @@ public class MultiplayerSetup {
 			except = true;
 		} catch (Exception e) {}
 		
-		game = new Game(chosen);
+		game = new Game();
 		Init.init_game();
 		
 	}
@@ -254,6 +254,7 @@ public class MultiplayerSetup {
 			render();
 			
 			if(warmupTime == 0.0){
+				game.setChosen(chosen);
 				run = game.run();
 			}
 			

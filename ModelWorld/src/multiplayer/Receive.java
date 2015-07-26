@@ -3,7 +3,6 @@ package multiplayer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import main.MultiplayerSetup;
 
@@ -23,6 +22,7 @@ public class Receive extends Thread{
 		boolean first = true;
 		while(run){
            	try {
+           		int country, action, id, x, y;
            		String string = in.readLine();
            		if(string==null){break;}
            		System.out.println(string);
@@ -63,12 +63,38 @@ public class Receive extends Thread{
            				}
            			}
            			break;
+           		case 10:
+           			action = Integer.parseInt(strings[0]);
+           			switch(action){
+           			case 0:
+               			x = Integer.parseInt(strings[1]);
+               			y = Integer.parseInt(strings[2]);
+               			id = Integer.parseInt(strings[3]);
+               			country = Integer.parseInt(strings[4]);
+           				System.out.println("Adding an AI unit");
+           				Game.mthis.countries[country].AIarmyAdd(x, y, id);
+           				break;
+           			case 1:
+           				id = Integer.parseInt(strings[1]);
+           				System.out.println("Removing an unit");
+           				Sol.sols.remove(id);
+           				break;
+           			case 2:
+               			x = Integer.parseInt(strings[1]);
+               			y = Integer.parseInt(strings[2]);
+               			id = Integer.parseInt(strings[3]);
+           				System.out.println("Setting aim of "+id);
+           				Sol sol = Sol.sols.get(id);
+           				sol.setAim(x, y);
+           				break;
+           			}
+           			break;
            		case 11:
            			System.out.println("Received new build : "+string);
            			int building = Integer.parseInt(strings[0]);
-           			int country = Integer.parseInt(strings[4]);
-           			int x = Integer.parseInt(strings[2]);
-           			int y = Integer.parseInt(strings[3]);
+           			country = Integer.parseInt(strings[4]);
+           			x = Integer.parseInt(strings[2]);
+           			y = Integer.parseInt(strings[3]);
            			if(Integer.parseInt(strings[1]) == 1){
            				switch(building){
            				case 0:
@@ -92,6 +118,22 @@ public class Receive extends Thread{
            		case 12:
            			for(int i = 0; i != 6; i++){
            				Game.mthis.countries[i].update();
+           			}
+           			break;
+           		case 13:
+           			action = Integer.parseInt(strings[0]);
+           			country = Integer.parseInt(strings[1]);
+           			switch(action){
+           			case 0:
+           				Game.mthis.countries[country].die = true;
+           				Game.mthis.countries[country].money = 0;
+           				Game.mthis.countries[country].mines.clear();
+           				Game.mthis.countries[country].dens.clear();
+           				break;
+           			case 1:
+           				int money = Integer.parseInt(strings[2]);
+           				Game.mthis.countries[country].money += money;
+           				break;
            			}
            			break;
            		}

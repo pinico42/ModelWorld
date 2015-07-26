@@ -18,6 +18,7 @@ public class Game {
     public Spin spin;
 
 	public long  ltime = System.currentTimeMillis(), time, last = ltime;
+	public int idCounter = 0;
 	public boolean run = true;
 
 	public boolean[][] wars;
@@ -114,23 +115,21 @@ public class Game {
 						// I think some sort of problem was here, i logged when country.type == 1
 						if(country.type != sold.owner && (wars[country.type][sold.owner] || wars[sold.owner][country.type])){
 							if(solh > Matha.hypo(country.home[0] - sold.pos[0], country.home[1] - sold.pos[1])){
-								if(country.income > 0){
-									country.income -= 0.5;
-									country2.income += 0.5;
+							    spin.sendAll(13, new int[]{0, country.type}, null);
+                                country.die = true;
+								country2.money += country.money;
+								spin.sendAll(13, new int[]{1, country2.type, (int)country.money}, null);
+								//country.money = 0; MOVED TO COUNTRY DIE CODE
+								for(int[] mine: country.mines){
+                                    spin.sendAll(11, new int[]{0, 1, mine[0], mine[1], country2.type}, null);
+									country2.mines.add(mine);
 								}
-								if(country.income <= 0){
-									country.die = true;
-									country2.money += country.money;
-									country.money = 0;
-									for(int[] mine: country.mines){
-										country2.mines.add(mine);
-									}
-									for(int[] mine: country.dens){
-										country2.dens.add(mine);
-									}
-									country.mines.clear();
-									country.dens.clear();
+								for(int[] mine: country.dens){
+                                    spin.sendAll(11, new int[]{1, 1, mine[0], mine[1], country2.type}, null);
+									country2.dens.add(mine);
 								}
+								country.mines.clear();
+								country.dens.clear();
 							}
 						}
 					}

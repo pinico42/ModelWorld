@@ -264,8 +264,7 @@ public class Country {
 			//System.out.println(type + " is attacking");
 			for(int i = 5; i != army.size(); i++){
 				if(!army.get(i).updated){
-					army.get(i).aim = new int[]{owner.countries[warsa[(i-5) % warsn]].home[0] - 10 + Game.rand.nextInt(20), owner.countries[warsa[(i-5) % warsn]].home[1] - 10 + Game.rand.nextInt(20)};
-					army.get(i).updated = true;
+					army.get(i).setAim(owner.countries[warsa[(i-5) % warsn]].home[0] - 10 + Game.rand.nextInt(20), owner.countries[warsa[(i-5) % warsn]].home[1] - 10 + Game.rand.nextInt(20));
 				}
 			}
 		}
@@ -287,19 +286,22 @@ public class Country {
 	}
 
 	void AIarmyAdd(){
+	    //System.out.println("Adding an unit");
 		armySize++;
-		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2);
+		int x = home[0] + Game.rand.nextInt(sdist) - sdist / 2, y = home[1] + Game.rand.nextInt(sdist) - sdist / 2;
+		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type}, null);
+		armyAdd(x, y);
 	}
 
 	private void AImineAdd(){
-	    System.out.println("New mine added");
+	    //System.out.println("New mine added");
 	    int[] location = new int[]{home[0] + Game.rand.nextInt(mdist) - mdist / 2, home[1] + Game.rand.nextInt(mdist) - mdist / 2};
 	    owner.spin.sendAll(11, new int[]{0, 1, location[0], location[1], type}, null);
 		mines.add(location);
 	}
 
 	private void AIopiumAdd(){
-	    System.out.println("New opium house added.");
+	    //System.out.println("New opium house added.");
 	    int[] location = new int[]{home[0] + Game.rand.nextInt(odist) - odist / 2, home[1] + Game.rand.nextInt(odist) - odist / 2};
 	    owner.spin.sendAll(11, new int[]{1, 1, location[0], location[1], type}, null);
 		dens.add(location);

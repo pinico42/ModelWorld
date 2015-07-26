@@ -78,6 +78,7 @@ public class Spin extends Thread{
                 string = string.substring(0,string.length()-1);
 			}
 			break;
+        case 10:
         case 11:
             string += code+":";
             for(int i = 0; i != ints.length; i++){
@@ -90,8 +91,12 @@ public class Spin extends Thread{
 			case 2:
 				players[i].updateWarmup(warmup, nPlayers, string);
 				break;
+            case 10:
+                //System.out.println("Updating unit with : ["+string+"]");
+                players[i].send(string);
+                break;
             case 11:
-                System.out.println("Updating building with: ["+string+"]");
+                //System.out.println("Updating building with: ["+string+"]");
                 players[i].send(string);
                 break;
             case 12:

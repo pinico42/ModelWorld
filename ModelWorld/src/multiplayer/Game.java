@@ -75,10 +75,13 @@ public class Game {
 
 	public int mousex, mousey, translate_x, translate_y, deathCount = -1;
 	
-	public Game(int chosen){
+	public Game(){
+		Game.mthis = this;
+	}
+	
+	public void setChosen(int chosen){
 		player = chosen;
 		sel = chosen;
-		Game.mthis = this;
 	}
 	
 	public boolean run() {
@@ -618,7 +621,7 @@ public class Game {
 							}
 						}
 						// I think some sort of problem was here, i logged when country.type == 1
-						if(country.type != sold.owner && (Country.wars[country.type][sold.owner] || Country.wars[sold.owner][country.type])){
+						/*if(country.type != sold.owner && (Country.wars[country.type][sold.owner] || Country.wars[sold.owner][country.type])){
 							if(solh > Matha.hypo(country.home[0] - sold.pos[0], country.home[1] - sold.pos[1])){
 								if(country.income > 0){
 									country.income -= 0.5;
@@ -638,7 +641,7 @@ public class Game {
 									country.dens.clear();
 								}
 							}
-						}
+						}*/
 					}
 				}
 				if(sol.die){
