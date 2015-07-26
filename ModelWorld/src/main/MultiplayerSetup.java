@@ -52,7 +52,7 @@ public class MultiplayerSetup {
 	public static Game game;
 	public static UnicodeFont FONT, FONT2;
 	public static boolean[] locked = new boolean[6];
-	public static float warmupTime = -1;
+	public static float warmupTime;
 	public static int playersInGame = 1;
 	public static int WIDTH = 1000, HEIGHT = 1000;
 	public static int RWIDTH, RHEIGHT;
@@ -85,8 +85,7 @@ public class MultiplayerSetup {
 		 
 		for (int i=0;i<modes.length;i++) {
 		    DisplayMode current = modes[i];
-		    System.out.println(current.getWidth() + "x" + current.getHeight() + "x" +
-		                        current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
+		    System.out.println(current.getWidth() + "x" + current.getHeight() + "x" + current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
 		}
 		
 		try {
@@ -179,6 +178,7 @@ public class MultiplayerSetup {
 	}
 	
 	public void init(boolean initi){
+		warmupTime = -1;
 		int[] settings = IOHandle.getSettings();
 		if(initi){
 			init_LWJGL(settings);

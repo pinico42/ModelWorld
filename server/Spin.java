@@ -42,7 +42,7 @@ public class Spin extends Thread{
 	}
 
 	public void chooseCountry(int player, int num){
-		if(countries[num] != -1){players[player].sendReject(num);return;}
+		if(countries[num] != -1 && countries[num] != player){players[player].sendReject(num);return;}
 		if(playersc[player] != -1){countries[num] = -1;}
 		countries[num] = player;
 		playersc[player] = num;
@@ -90,7 +90,7 @@ public class Spin extends Thread{
 
 	public void run(){
 		System.out.println("Spin started");
-		float interval = 1000;
+		float interval = 5000;
 		while(warmup > 0){
 			warmup -= interval / 1000;
 			if(warmup<0){

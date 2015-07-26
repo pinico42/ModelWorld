@@ -86,7 +86,7 @@ public class Game {
 								sol.health -= 1;
 								sold.health -= 1;
 								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
-                                    // I don't remember what this logic does so i just deleted it.
+                                    // I don't remember what this logic does so i just deleted it. <-- WATCH OUT
 									//if((!players.contains(sol.owner) && !players.contains(sold.owner)) || Matha.hypo((players.contains(sol.owner)?sol:sold).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((players.contains(sol.owner)?sold:sol).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sold:sol).pos[1] - countries[player].home[1])){
 										Country.wars[sol.owner][sold.owner] = true;
 										Country.wars[sold.owner][sol.owner] = true;

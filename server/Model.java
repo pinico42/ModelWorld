@@ -50,7 +50,7 @@ public class Model extends Thread implements GameI{
 			spin.end();
 			spin = null;
 			System.out.println("RUN ENDED, Removing Spin");
-		} else
+		} else {
             System.out.println("RUN ENDED : " + spin.nPlayers);
         }
 	}
@@ -65,7 +65,7 @@ public class Model extends Thread implements GameI{
 	public void sendReject(int country){
         String string;
         string = "3:"+country;
-        System.out.println("Rejecting country choice!");
+        System.out.println(id + "rejecting country choice!");
         out.println(string);
         spin.sendAll(2, null, null);
 	}
@@ -77,7 +77,7 @@ public class Model extends Thread implements GameI{
 		int protocol = Integer.parseInt(strings[0]);
 		switch(protocol){
 		case 0:
-			System.out.println("Choosing country");
+			System.out.println(playern +" choosing country");
 			spin.chooseCountry(playern, Integer.parseInt(strings[1]));
 			break;
 		case 1:

@@ -53,10 +53,12 @@ public class Receive extends Thread{
            			break;
            		case 3:
            			int rejected = Integer.parseInt(strings[0]);
+           			System.out.println("Rejected for "+rejected);
            			for(int i = 0; i != 6; i++){
            				if(!main.MultiplayerSetup.locked[i] && i != rejected){
            					main.MultiplayerSetup.mthis.chosen = i;
            					Client.send(0, ""+i);
+           					break;
            				}
            			}
            			break;
