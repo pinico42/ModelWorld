@@ -8,7 +8,7 @@ public class Country {
 	public static String[] names = {"North America", "South America", "Europe", "Africa", "Asia", "Oceania"};
 	public static boolean[][] wars = new boolean[6][6];
 	
-	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>();
+	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>(), add = new ArrayList<int[]>(), remove = new ArrayList<int[]>();
 	public ArrayList<Sol> army = new ArrayList<Sol>();
 	public int[] home = new int[2];
 	public float income, money = 0, bincome, popularity, bpop;
@@ -105,6 +105,7 @@ public class Country {
 	}
 	
 	void AIarmyAdd(){
+		System.out.println("Is this really being used");
 		armySize++;
 		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2);
 	}
@@ -116,6 +117,15 @@ public class Country {
 		armySize++;
 		armyAdd(x,y);
 		money -= scost;
+	}
+	
+	public void AIRarmyAdd(int x, int y, int id){
+		if(id != Sol.idCounter){
+			System.out.println(id+":"+Sol.idCounter+"OHHHHH NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 1233245");
+		}
+		armySize++;
+		armyAdd(x,y);
+		reserves--;
 	}
 	
 	public void AImineAdd(int x, int y){

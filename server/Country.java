@@ -10,7 +10,7 @@ public class Country {
 
 	//public boolean[][] owner.wars = new boolean[6][6];
 
-	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>();
+	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>(), add = new ArrayList<int[]>(), remove = new ArrayList<int[]>();
 	public ArrayList<Sol> army = new ArrayList<Sol>();
 	public int[] home = new int[2];
 	public float income, money = 0, bincome, popularity, bpop;
@@ -270,7 +270,7 @@ public class Country {
 		}
 		if(warsn != 0){
 			while(reserves > 0){
-				AIarmyAdd();
+				AIRarmyAdd();
 				reserves--;
 			}
 		}
@@ -285,10 +285,25 @@ public class Country {
 		}
 	}
 
+    void AIRarmyAdd(){
+	    //System.out.println("Adding an unit");
+		armySize++;
+		int x = home[0] + Game.rand.nextInt(sdist) - sdist / 2, y = home[1] + Game.rand.nextInt(sdist) - sdist / 2;
+		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type, 1}, null);
+		armyAdd(x, y);
+	}
+
 	void AIarmyAdd(){
 	    //System.out.println("Adding an unit");
 		armySize++;
 		int x = home[0] + Game.rand.nextInt(sdist) - sdist / 2, y = home[1] + Game.rand.nextInt(sdist) - sdist / 2;
+		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type}, null);
+		armyAdd(x, y);
+	}
+
+	void AIarmyAdd(int x, int y){
+	    //System.out.println("Adding an unit");
+		armySize++;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type}, null);
 		armyAdd(x, y);
 	}
@@ -300,9 +315,23 @@ public class Country {
 		mines.add(location);
 	}
 
+	public void AImineAdd(int x, int y){
+	    //System.out.println("New mine added");
+	    int[] location = new int[]{x,y};
+	    owner.spin.sendAll(11, new int[]{0, 1, location[0], location[1], type}, null);
+		mines.add(location);
+	}
+
 	private void AIopiumAdd(){
 	    //System.out.println("New opium house added.");
 	    int[] location = new int[]{home[0] + Game.rand.nextInt(odist) - odist / 2, home[1] + Game.rand.nextInt(odist) - odist / 2};
+	    owner.spin.sendAll(11, new int[]{1, 1, location[0], location[1], type}, null);
+		dens.add(location);
+	}
+
+	public void AIopiumAdd(int x, int y){
+	    //System.out.println("New opium house added.");
+	    int[] location = new int[]{x,y};
 	    owner.spin.sendAll(11, new int[]{1, 1, location[0], location[1], type}, null);
 		dens.add(location);
 	}

@@ -75,10 +75,12 @@ public class Model extends Thread implements GameI{
 	}
 
 	public void receive(String string){
+	    int subpro, x, y, id, country;
 		send.add(string);
 		hi = true;
 		String[] strings = string.split(":");
 		int protocol = Integer.parseInt(strings[0]);
+		strings = strings[1].split(";");
 		switch(protocol){
 		case 0:
 			System.out.println(playern +" choosing country");
@@ -87,6 +89,45 @@ public class Model extends Thread implements GameI{
 		case 1:
 			this.end();
 			break;
+        case 10:
+            subpro = Integer.parseInt(strings[0]);
+            switch(subpro){
+            case 0:
+                x = Integer.parseInt(strings[1]);
+                y = Integer.parseInt(strings[2]);
+                id = Integer.parseInt(strings[3]);
+                country = Integer.parseInt(strings[4]);
+                synchronized(spin.game.countries[country].add){
+                    spin.game.countries[country].add.add(new int[]{0, x, y, country, id});
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            }
+            break;
+        case 11:
+            subpro = Integer.parseInt(strings[0]);
+            x = Integer.parseInt(strings[2]);
+            y = Integer.parseInt(strings[3]);
+            country = Integer.parseInt(strings[4]);
+            if(Integer.parseInt(strings[1]) == 1){
+                switch(subpro){
+                case 0:
+                    spin.game.countries[country].mines.add(new int[]{x, y});
+                    break;
+                case 1:
+                    spin.game.countries[country].dens.add(new int[]{x, y});
+                    break;
+                case 2:
+                    break;
+                }
+            } else {
+
+            }
+
+            break;
 		}
 		System.out.println("received string "+string);
 		System.out.println("send "+send.isEmpty());

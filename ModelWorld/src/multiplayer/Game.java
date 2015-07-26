@@ -253,7 +253,8 @@ public class Game {
 							}
 							countries[player].armySize += autos[1];
 							for(int i = 0; i != autos[1]; i++){
-								countries[player].armyAdd(new int[]{mousex + solw / 2, mousey + solh / 2});
+								Client.send(10, "0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player);
+								//countries[player].armyAdd(new int[]{mousex + solw / 2, mousey + solh / 2});
 							}
 							countries[player].money -= Country.scost * autos[1];
 							break;
@@ -266,7 +267,8 @@ public class Game {
 								break event;
 							}
 							for(int i = 0; i != autos[1]; i++){
-								countries[player].mines.add(new int[]{mousex + minw / 2, mousey + minh / 2});
+								Client.send(11, "0;"+(mousex+minw/2)+";"+(mousey+minh/2)+";"+player);
+								//countries[player].mines.add(new int[]{mousex + minw / 2, mousey + minh / 2});
 							}
 							countries[player].money -= Country.mcost * autos[1];
 							break;
@@ -279,7 +281,8 @@ public class Game {
 								break event;
 							}
 							for(int i = 0; i != autos[1]; i++){
-								countries[player].dens.add(new int[]{mousex + opw / 2, mousey + oph / 2});
+								Client.send(11, "1;"+(mousex+opw/2)+";"+(mousey+oph/2)+";"+player);
+								//countries[player].dens.add(new int[]{mousex + opw / 2, mousey + oph / 2});
 							}
 							countries[player].money -= Country.ocost * autos[1];
 							break;
@@ -468,15 +471,21 @@ public class Game {
 		Draw.renderthistex(new Rectangle(0,0, SWIDTH, SHEIGHT), images[0]);
 		
 		for(Country country: countries){
-			for(int[] mine: country.mines){
-				Draw.renderthistex(new Rectangle(mine[0] - minw / 2, mine[1] - minh / 2, minw, minh), images[2]);
+			synchronized(country.mines){
+				for(int[] mine: country.mines){
+					Draw.renderthistex(new Rectangle(mine[0] - minw / 2, mine[1] - minh / 2, minw, minh), images[2]);
+				}
 			}
-			for(int[] den: country.dens){
-				Draw.renderthistex(new Rectangle(den[0] - opw / 2, den[1] - oph / 2, opw, oph), images[3]);
+			synchronized(country.dens){
+				for(int[] den: country.dens){
+					Draw.renderthistex(new Rectangle(den[0] - opw / 2, den[1] - oph / 2, opw, oph), images[3]);
+				}
 			}
 			Draw.renderthistex(new Rectangle(country.home[0] - homew / 2, country.home[1] - homeh / 2, homew, homeh), country.die?images[5]:images[4]);
-			for(Sol sol: country.army){
-				Draw.renderthistex(new Rectangle(sol.pos[0] - solw / 2, sol.pos[1] - solh / 2, solw, solh), images[1]);
+			synchronized(country.army){
+				for(Sol sol: country.army){
+					Draw.renderthistex(new Rectangle(sol.pos[0] - solw / 2, sol.pos[1] - solh / 2, solw, solh), images[1]);
+				}
 			}
 		}
 		
@@ -689,6 +698,36 @@ public class Game {
 		}
 		
 		for(Country country: countries){
+			synchronized(country.add){
+				for(int[] ints: country.add){
+					switch(ints[0]){
+					case 0:
+						country.AIarmyAdd(ints[1], ints[2], ints[3]);
+						break;
+					case 1:
+						Sol.sols.get(ints[3]).setAim(ints[1], ints[2]);
+						break;
+					case 2:
+						country.AIRarmyAdd(ints[1], ints[2], ints[3]);
+						break;
+					}
+				}
+				country.add.clear();
+			}
+			synchronized(country.remove){
+				for(int[] ints: country.remove){
+					switch(ints[0]){
+					case 0:
+						country.army.remove(Sol.sols.get(ints[1]));
+						break;
+					case 1:
+						break;
+					case 2:
+						break;
+					}
+				}
+				country.remove.clear();
+			}
 			for(Sol sol: country.army){
 				sol.update();
 			}

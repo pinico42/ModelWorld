@@ -23,9 +23,10 @@ public class Receive extends Thread{
 		while(run){
            	try {
            		int country, action, id, x, y;
+           		Sol sol;
            		String string = in.readLine();
            		if(string==null){break;}
-           		System.out.println(string);
+           		//System.out.println(string);
            		String[] strings = string.split(":");
            		int protocol = Integer.parseInt(strings[0]);
            		strings = strings[1].split(";");
@@ -36,7 +37,7 @@ public class Receive extends Thread{
            			if(first){
            				first = false;
            				main.MultiplayerSetup.mthis.chosen = main.MultiplayerSetup.playersInGame-1;
-           				System.out.println("Set default country to country : "+(main.MultiplayerSetup.playersInGame-1));
+           				//System.out.println("Set default country to country : "+(main.MultiplayerSetup.playersInGame-1));
 						Client.send(0, ""+(main.MultiplayerSetup.playersInGame-1));
            			}
            			if(strings.length == 2){
@@ -71,26 +72,41 @@ public class Receive extends Thread{
                			y = Integer.parseInt(strings[2]);
                			id = Integer.parseInt(strings[3]);
                			country = Integer.parseInt(strings[4]);
-           				System.out.println("Adding an AI unit");
-           				Game.mthis.countries[country].AIarmyAdd(x, y, id);
+               			int reserve = 0;
+           				//System.out.println("Adding an AI unit");
+               			if(strings.length == 6){
+               				reserve = 2;
+               			} else {
+               				System.out.println(strings.length);
+               			}
+               			synchronized(Game.mthis.countries[country].ready){
+               				System.out.println("Putting it in the queue");
+               				Game.mthis.countries[country].add.add(new int[]{reserve, x, y, id});
+               			}
            				break;
            			case 1:
            				id = Integer.parseInt(strings[1]);
            				System.out.println("Removing an unit");
-           				Sol.sols.remove(id);
+           				sol = Sol.sols.get(id);
+           				synchronized(Game.mthis.countries[sol.owner].remove){
+           					Game.mthis.countries[sol.owner].remove.add(new int[]{0, id});
+           				}
            				break;
            			case 2:
                			x = Integer.parseInt(strings[1]);
                			y = Integer.parseInt(strings[2]);
                			id = Integer.parseInt(strings[3]);
-           				System.out.println("Setting aim of "+id);
-           				Sol sol = Sol.sols.get(id);
-           				sol.setAim(x, y);
+           				//System.out.println("Setting aim of "+id);
+           				sol = Sol.sols.get(id);
+               			synchronized(Game.mthis.countries[sol.owner].add){
+               				Game.mthis.countries[sol.owner].add.add(new int[]{1, x, y, id});
+               			}
+           				//sol.setAim(x, y);
            				break;
            			}
            			break;
            		case 11:
-           			System.out.println("Received new build : "+string);
+           			//System.out.println("Received new build : "+string);
            			int building = Integer.parseInt(strings[0]);
            			country = Integer.parseInt(strings[4]);
            			x = Integer.parseInt(strings[2]);
@@ -98,19 +114,44 @@ public class Receive extends Thread{
            			if(Integer.parseInt(strings[1]) == 1){
            				switch(building){
            				case 0:
-           					System.out.println("Building a mine");
+           					//System.out.println("Building a mine");
            					Game.mthis.countries[country].AImineAdd(x, y);
            					break;
            				case 1:
-           					System.out.println("Building an opium den");
+           					//System.out.println("Building an opium den");
            					Game.mthis.countries[country].AIopiumAdd(x, y);
            					break;
            				}
            			} else {
+           				int[] toRemove;
            				switch(building){
            				case 0:
+           					toRemove = null;
+           					synchronized(Game.mthis.countries[country].mines){
+           						for(int[] mine: Game.mthis.countries[country].mines){
+           							if(mine[0] == x && mine[1] == y){
+           								toRemove = mine;
+           							}
+           						}
+               					if(toRemove == null){
+               						System.out.println("No such thing?!?");
+               					}
+               					Game.mthis.countries[country].mines.remove(toRemove);
+           					}
            					break;
            				case 1:
+           					toRemove = null;
+           					synchronized(Game.mthis.countries[country].mines){
+           						for(int[] mine: Game.mthis.countries[country].dens){
+           							if(mine[0] == x && mine[1] == y){
+           								toRemove = mine;
+           							}
+           						}
+               					if(toRemove == null){
+               						System.out.println("No such thing?!?");
+               					}
+               					Game.mthis.countries[country].mines.remove(toRemove);
+           					}
            					break;
            				}
            			}

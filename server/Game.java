@@ -156,6 +156,24 @@ public class Game {
 		}
 
 		for(Country country: countries){
+            synchronized(country.add){
+                for(int[] ints: country.add){
+                    switch(ints[0]){
+                    case 0:
+                        countries[ints[3]].AIarmyAdd();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    }
+                }
+            }
+            synchronized(country.remove){
+                for(int[] ints: country.remove){
+
+                }
+            }
 			for(Sol sol: country.army){
 				sol.update();
 			}
