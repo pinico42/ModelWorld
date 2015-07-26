@@ -59,3 +59,4 @@ RUN ENDED : 1
 Using default remove for 1
 Player removed, there are now 0 players.
 RUN ENDED, Removing Spin
+Stopping server!

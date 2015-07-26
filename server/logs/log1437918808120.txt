@@ -1,0 +1,95 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 0 - 2:10.0;1;0
+RUN STARTED 
+Spin started
+updateWarmup  to 0 - 2:9.5;1;
+0 choosing country
+Set country for player 0 to 0
+received string 0:0
+send false
+User input : 0:0
+updateWarmup  to 0 - 2:9.0;1;0
+updateWarmup  to 0 - 2:8.5;1;0
+updateWarmup  to 0 - 2:8.0;1;0
+updateWarmup  to 0 - 2:7.5;1;0
+updateWarmup  to 0 - 2:7.0;1;0
+updateWarmup  to 0 - 2:6.5;1;0
+updateWarmup  to 0 - 2:6.0;1;0
+updateWarmup  to 0 - 2:5.5;1;0
+updateWarmup  to 0 - 2:5.0;1;0
+updateWarmup  to 0 - 2:4.5;1;0
+updateWarmup  to 0 - 2:4.0;1;0
+updateWarmup  to 0 - 2:3.5;1;0
+updateWarmup  to 0 - 2:3.0;1;0
+updateWarmup  to 0 - 2:2.5;1;0
+updateWarmup  to 0 - 2:2.0;1;0
+updateWarmup  to 0 - 2:1.5;1;0
+updateWarmup  to 0 - 2:1.0;1;0
+updateWarmup  to 0 - 2:0.5;1;0
+updateWarmup  to 0 - 2:0.0;1;0
+Game starting
+New opium house added.
+Updating building with: [11:1;1;1673;367;4]
+New opium house added.
+Updating building with: [11:1;1;500;816;1]
+New opium house added.
+Updating building with: [11:1;1;1762;352;4]
+New mine added
+Updating building with: [11:0;1;1382;210;2]
+New opium house added.
+Updating building with: [11:1;1;1125;710;3]
+New opium house added.
+Updating building with: [11:1;1;488;905;1]
+New opium house added.
+Updating building with: [11:1;1;2094;936;5]
+New mine added
+Updating building with: [11:0;1;1230;674;3]
+New mine added
+Updating building with: [11:0;1;1751;284;4]
+New opium house added.
+Updating building with: [11:1;1;1669;329;4]
+New mine added
+Updating building with: [11:0;1;1749;212;4]
+New opium house added.
+Updating building with: [11:1;1;1096;724;3]
+New mine added
+Updating building with: [11:0;1;1698;203;4]
+New mine added
+Updating building with: [11:0;1;1765;304;4]
+New opium house added.
+Updating building with: [11:1;1;1371;560;3]
+New opium house added.
+Updating building with: [11:1;1;1316;463;3]
+New mine added
+Updating building with: [11:0;1;1149;548;3]
+New opium house added.
+Updating building with: [11:1;1;1136;514;3]
+WOW
+Server socket started.
+User input : game 1
+Model started
+updateWarmup  to 1 - 2:0.0;2;0
+RUN STARTED 
+1 choosing country
+Set country for player 1 to 1
+received string 0:1
+send false
+User input : 0:1
+Using default remove for 2
+Player removed, there are now 1 players.
+RUN ENDED : 1
+WOW
+WOW
+Using default remove for 1
+Player removed, there are now 0 players.
+RUN ENDED, Removing Spin
+Stopping server!

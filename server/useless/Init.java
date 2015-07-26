@@ -1,4 +1,6 @@
 
+// I've removed this files use due to it's reliance on the static variable mthis, and it's near complete uselessness due to lack of graphics
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

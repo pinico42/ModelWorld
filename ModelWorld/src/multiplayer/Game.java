@@ -78,12 +78,12 @@ public class Game {
 	public Game(int chosen){
 		player = chosen;
 		sel = chosen;
+		Game.mthis = this;
 	}
 	
 	public boolean run() {
 		
-		Game.mthis = this;
-		Init.init_game();
+		//Init.init_game();
 		
 		sounds[0].playAsMusic(1.0f, 1.0f, true);
 		
@@ -592,7 +592,7 @@ public class Game {
 		
 		for(Country country: countries){
 			if(country.type != player){
-				country.AI();
+				//country.AI();
 			} else {
 				if(autos[0]==1){
 					while(countries[player].reserves > 0){
@@ -654,12 +654,12 @@ public class Game {
 		
 		// Soldiers
 		
-		if(time - last > 10000){
-			for(Country country: countries){
-				country.update();
-			}
-			last += 10000;
-		}
+		//if(time - last > 10000){
+		//	for(Country country: countries){
+		//		country.update();
+		//	}
+		//	last += 10000;
+		//}
 		
 		if(isKeyDown(KEY_LEFT) || mousex - translate_x < WIDTH / 10 && mousey - translate_y > 100){
 			translate_x -= 3;

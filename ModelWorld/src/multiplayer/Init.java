@@ -110,6 +110,8 @@ public class Init {
         for(int i = 0; i != 6; i++){
         	Game.mthis.countries[i] = new Country(i);
         }
+        
+        System.out.println("Created countries");
 
 		names = new String[5];
 		Game.mthis.dcolours = new boolean[names.length];

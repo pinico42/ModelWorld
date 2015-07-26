@@ -104,7 +104,47 @@ public class Country {
 		ready.clear();
 	}
 	
-	public void AI(){
+	void AIarmyAdd(){
+		armySize++;
+		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2);
+	}
+	
+	public void AImineAdd(int x, int y){
+		mines.add(new int[]{x, y});
+		money -= mcost;
+	}
+	
+	public void AIopiumAdd(int x, int y){
+		dens.add(new int[]{x, y});
+		money -= ocost;
+	}
+	
+	public void move(float mX, float mY, int sol){
+		army.get(sol).update();
+	}
+	
+	public void armyAdd(int x, int y){
+		army.add(new Sol(x, y, type));
+	}
+	
+	public void armyAdd(int[] arr){
+		army.add(new Sol(arr[0], arr[1], type));
+	}
+
+	public void clear() {
+		money = 0;
+		armySize = 0;
+		armyStrength = 0;
+		income = 0;
+		bpop = 0;
+		reserves = 0;
+		dens.clear();
+		army.clear();
+		ready.clear();
+		
+	}
+	
+	/*public void AI(){
 		if(die){
 			armyStrength = 0;
 			armySize = 0;
@@ -281,44 +321,6 @@ public class Country {
 				wars[chosen][type] = true;
 			}
 		}
-	}
-	
-	void AIarmyAdd(){
-		armySize++;
-		armyAdd(home[0] + Game.rand.nextInt(sdist) - sdist / 2, home[1] + Game.rand.nextInt(sdist) - sdist / 2);
-	}
-	
-	private void AImineAdd(){
-		mines.add(new int[]{home[0] + Game.rand.nextInt(mdist) - mdist / 2, home[1] + Game.rand.nextInt(mdist) - mdist / 2});
-	}
-	
-	private void AIopiumAdd(){
-		dens.add(new int[]{home[0] + Game.rand.nextInt(odist) - odist / 2, home[1] + Game.rand.nextInt(odist) - odist / 2});
-	}
-	
-	public void move(float mX, float mY, int sol){
-		army.get(sol).update();
-	}
-	
-	public void armyAdd(int x, int y){
-		army.add(new Sol(x, y, type));
-	}
-	
-	public void armyAdd(int[] arr){
-		army.add(new Sol(arr[0], arr[1], type));
-	}
-
-	public void clear() {
-		money = 0;
-		armySize = 0;
-		armyStrength = 0;
-		income = 0;
-		bpop = 0;
-		reserves = 0;
-		dens.clear();
-		army.clear();
-		ready.clear();
-		
-	}
+	}*/
 		
 }

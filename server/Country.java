@@ -3,9 +3,12 @@ import java.util.ArrayList;
 
 public class Country {
 
+    public Game owner;
+
 	public static int USA = 0, SA = 1, EU = 2, AF = 3, AS = 4, OC = 5, scost = 20, mcost = 50, ocost = 30, sdist = 100, mdist = 200, odist = 300;
 	public static String[] names = {"North America", "South America", "Europe", "Africa", "Asia", "Oceania"};
-	public static boolean[][] wars = new boolean[6][6];
+
+	//public boolean[][] owner.wars = new boolean[6][6];
 
 	public ArrayList<int[]> mines = new ArrayList<int[]>(), dens = new ArrayList<int[]>(), ready = new ArrayList<int[]>();
 	public ArrayList<Sol> army = new ArrayList<Sol>();
@@ -16,7 +19,7 @@ public class Country {
 
 	public boolean die = false;
 
-	public Country(int type){
+	public Country(int type, Game mthis){
 		this.type = type;
 		switch(type){
 		case 5:
@@ -83,8 +86,9 @@ public class Country {
 		armySize = 0;
 		bincome = income;
 		bpop = popularity;
-		//for(int i = 0; i != wars.length * wars[0].length; i++){
-		//	wars[i / wars.length][i % wars[0].length] = true;
+		owner = mthis;
+		//for(int i = 0; i != owner.wars.length * owner.wars[0].length; i++){
+		//	owner.wars[i / owner.wars.length][i % owner.wars[0].length] = true;
 		//}
 	}
 
@@ -118,11 +122,11 @@ public class Country {
 		boolean[] warsw = new boolean[6];
 		int warsn = 0;
 		for(int i = 0; i != names.length; i++){
-			if(wars[i][i]){
-				wars[i][i] = false;
+			if(owner.wars[i][i]){
+				owner.wars[i][i] = false;
 			}
-			if(wars[type][i] || wars[i][type]){
-				if(Game.mthis.countries[i].die){
+			if(owner.wars[type][i] || owner.wars[i][type]){
+				if(owner.countries[i].die){
 					continue;
 				}
 				warsw[i] = true;
@@ -132,8 +136,8 @@ public class Country {
 		int[] warsa = new int[warsn];
 		int e = 0;
 		for(int i = 0; i != names.length; i++){
-			if(wars[type][i] || wars[i][type]){
-				if(Game.mthis.countries[i].die){
+			if(owner.wars[type][i] || owner.wars[i][type]){
+				if(owner.countries[i].die){
 					continue;
 				}
 				warsa[e] = i;
@@ -260,7 +264,7 @@ public class Country {
 			//System.out.println(type + " is attacking");
 			for(int i = 5; i != army.size(); i++){
 				if(!army.get(i).updated){
-					army.get(i).aim = new int[]{Game.mthis.countries[warsa[(i-5) % warsn]].home[0] - 10 + Game.rand.nextInt(20), Game.mthis.countries[warsa[(i-5) % warsn]].home[1] - 10 + Game.rand.nextInt(20)};
+					army.get(i).aim = new int[]{owner.countries[warsa[(i-5) % warsn]].home[0] - 10 + Game.rand.nextInt(20), owner.countries[warsa[(i-5) % warsn]].home[1] - 10 + Game.rand.nextInt(20)};
 					army.get(i).updated = true;
 				}
 			}
@@ -276,8 +280,8 @@ public class Country {
 				System.out.println("WOW");
 				int chosen = Game.rand.nextInt(5);
 				chosen = chosen<type?chosen:chosen+1;
-				wars[type][chosen] = true;
-				wars[chosen][type] = true;
+				owner.wars[type][chosen] = true;
+				owner.wars[chosen][type] = true;
 			}
 		}
 	}
@@ -288,11 +292,17 @@ public class Country {
 	}
 
 	private void AImineAdd(){
-		mines.add(new int[]{home[0] + Game.rand.nextInt(mdist) - mdist / 2, home[1] + Game.rand.nextInt(mdist) - mdist / 2});
+	    System.out.println("New mine added");
+	    int[] location = new int[]{home[0] + Game.rand.nextInt(mdist) - mdist / 2, home[1] + Game.rand.nextInt(mdist) - mdist / 2};
+	    owner.spin.sendAll(11, new int[]{0, 1, location[0], location[1], type}, null);
+		mines.add(location);
 	}
 
 	private void AIopiumAdd(){
-		dens.add(new int[]{home[0] + Game.rand.nextInt(odist) - odist / 2, home[1] + Game.rand.nextInt(odist) - odist / 2});
+	    System.out.println("New opium house added.");
+	    int[] location = new int[]{home[0] + Game.rand.nextInt(odist) - odist / 2, home[1] + Game.rand.nextInt(odist) - odist / 2};
+	    owner.spin.sendAll(11, new int[]{1, 1, location[0], location[1], type}, null);
+		dens.add(location);
 	}
 
 	public void move(float mX, float mY, int sol){
@@ -300,11 +310,11 @@ public class Country {
 	}
 
 	public void armyAdd(int x, int y){
-		army.add(new Sol(x, y, type));
+		army.add(new Sol(x, y, type, this));
 	}
 
 	public void armyAdd(int[] arr){
-		army.add(new Sol(arr[0], arr[1], type));
+		army.add(new Sol(arr[0], arr[1], type, this));
 	}
 
 	public void clear() {

@@ -18,6 +18,8 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import multiplayer.Game;
+import multiplayer.Init;
+import multiplayer.Client;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,8 +28,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.UnknownHostException;
 import java.awt.Font;
-
-import multiplayer.Client;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
@@ -209,6 +209,9 @@ public class MultiplayerSetup {
 			except = true;
 		} catch (Exception e) {}
 		
+		game = new Game(chosen);
+		Init.init_game();
+		
 	}
 	
 	public void run(boolean initi) {
@@ -251,7 +254,6 @@ public class MultiplayerSetup {
 			render();
 			
 			if(warmupTime == 0.0){
-				game = new Game(chosen);
 				run = game.run();
 			}
 			

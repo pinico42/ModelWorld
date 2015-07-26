@@ -2,7 +2,10 @@
 // Sol stands for soldier, obviously...
 
 public class Sol {
-	public static int idCounter = 0;
+
+    // It needs some sort of owner to account for the need to be non static in all this.
+    public Country cOwner;
+	public int idCounter = 0;
 	public float health;
 	public int owner, strength = -1, id;
 	public boolean updated = false, die;
@@ -10,15 +13,16 @@ public class Sol {
 	public int[] pos;
 	public int[] aim;
 
-	public Sol(int x, int y, int by){
+	public Sol(int x, int y, int by, Country Owner){
 		id = idCounter;
 		idCounter++;
 		pos = new int[]{x,y};
 		vel = new double[]{0,0};
 		owner = by;
 		aim = new int[]{0,0};
-		strength = Game.mthis.countries[owner].armyStrength;
+		strength = Owner.armyStrength;
 		health = strength;
+		cOwner = Owner;
 	}
 
 	public void setAim(int x, int y){

@@ -3,6 +3,7 @@ package multiplayer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import main.MultiplayerSetup;
 
@@ -60,6 +61,37 @@ public class Receive extends Thread{
            					Client.send(0, ""+i);
            					break;
            				}
+           			}
+           			break;
+           		case 11:
+           			System.out.println("Received new build : "+string);
+           			int building = Integer.parseInt(strings[0]);
+           			int country = Integer.parseInt(strings[4]);
+           			int x = Integer.parseInt(strings[2]);
+           			int y = Integer.parseInt(strings[3]);
+           			if(Integer.parseInt(strings[1]) == 1){
+           				switch(building){
+           				case 0:
+           					System.out.println("Building a mine");
+           					Game.mthis.countries[country].AImineAdd(x, y);
+           					break;
+           				case 1:
+           					System.out.println("Building an opium den");
+           					Game.mthis.countries[country].AIopiumAdd(x, y);
+           					break;
+           				}
+           			} else {
+           				switch(building){
+           				case 0:
+           					break;
+           				case 1:
+           					break;
+           				}
+           			}
+           			break;
+           		case 12:
+           			for(int i = 0; i != 6; i++){
+           				Game.mthis.countries[i].update();
            			}
            			break;
            		}

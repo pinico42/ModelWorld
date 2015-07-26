@@ -78,19 +78,32 @@ public class Spin extends Thread{
                 string = string.substring(0,string.length()-1);
 			}
 			break;
+        case 11:
+            string += code+":";
+            for(int i = 0; i != ints.length; i++){
+                string += ints[i]+(i==ints.length-1?"":";");
+            }
+            break;
 		}
 		for(int i = 0; i != nPlayers; i++){
 			switch(code){
 			case 2:
 				players[i].updateWarmup(warmup, nPlayers, string);
 				break;
+            case 11:
+                System.out.println("Updating building with: ["+string+"]");
+                players[i].send(string);
+                break;
+            case 12:
+                players[i].send("12:;");
+                break;
 			}
 		}
 	}
 
 	public void run(){
 		System.out.println("Spin started");
-		float interval = 5000;
+		float interval = 500;
 		while(warmup > 0){
 			warmup -= interval / 1000;
 			if(warmup<0){
@@ -102,7 +115,7 @@ public class Spin extends Thread{
 			} catch(InterruptedException e){}
 		}
 		gameStarted = true;
-		game = new Game(countries);
+		game = new Game(countries, this);
         game.run();
 		//while(runb){}
 	}

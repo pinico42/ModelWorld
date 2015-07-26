@@ -9,8 +9,8 @@ public class Model extends Thread implements GameI{
 	public static int games = 0, clients = 0, id;
 	public int playern;
 	public static ArrayList<Spin> spins = new ArrayList<Spin>();
-	public Spin spin;
-	public PrintWriter out;
+	private Spin spin;
+	private PrintWriter out;
 	public boolean runB = true, hi = false;
 	public ArrayList<String> send = new ArrayList<String>();
 
@@ -68,6 +68,10 @@ public class Model extends Thread implements GameI{
         System.out.println(id + "rejecting country choice!");
         out.println(string);
         spin.sendAll(2, null, null);
+	}
+
+	public void send(String string){
+        out.println(string);
 	}
 
 	public void receive(String string){

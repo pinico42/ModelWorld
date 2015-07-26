@@ -14,10 +14,16 @@ public class Game {
 	public static final Random rand = new Random();
 	public static final int WIDTH = 1000, HEIGHT = 1000;
 	public static int theight, twidth, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, state = 0, statei = 0, homew = 100, homeh = 100;
+
+    public Spin spin;
+
 	public long  ltime = System.currentTimeMillis(), time, last = ltime;
 	public boolean run = true;
-	public static Game mthis;
-	//public static int[] autos;
+
+	public boolean[][] wars;
+
+	// This was a cheat I should never have used...
+	//public static Game mthis;
 
 	public Country[] countries = new Country[6];
 
@@ -26,31 +32,38 @@ public class Game {
 
 	public int deathCount = -1;
 
-	public Game(int[] tplayers){
+	public Game(int[] tplayers, Spin tspin){
         for(int i = 0; i != tplayers.length; i++){
             if(tplayers[i] != -1){
                 players.add(tplayers[i]);
             }
         }
+        spin = tspin;
+	}
+
+	public void init(){
+        for(int i = 0; i != 6; i++){
+            countries[i] = new Country(i, this);
+        }
+		wars = new boolean[6][6];
 	}
 
 	public void run() {
 
-		Game.mthis = this;
-		Init.init_game();
+		init();
 
 		run = true;
+
+        System.out.println("Game starting");
 
 		while (run) {
 
 			time = System.currentTimeMillis();
 
-
 			logic();
 			if(!run){
 				break;
 			}
-			//render();
 
 			update();
 
@@ -62,6 +75,8 @@ public class Game {
 
 		}
 
+		finish();
+
 	}
 
 	public void logic(){
@@ -69,6 +84,8 @@ public class Game {
 	}
 
 	public void update(){
+
+        //System.out.println("Update called");
 
 		// Soldiers
 
@@ -85,17 +102,17 @@ public class Game {
 							if(Matha.hypo(sol.pos[0] - sold.pos[0], sol.pos[1] - sold.pos[1]) < solh){
 								sol.health -= 1;
 								sold.health -= 1;
-								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
+								if(!(wars[sol.owner][sold.owner] || wars[sold.owner][sol.owner])){
                                     // I don't remember what this logic does so i just deleted it. <-- WATCH OUT
 									//if((!players.contains(sol.owner) && !players.contains(sold.owner)) || Matha.hypo((players.contains(sol.owner)?sol:sold).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((players.contains(sol.owner)?sold:sol).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sold:sol).pos[1] - countries[player].home[1])){
-										Country.wars[sol.owner][sold.owner] = true;
-										Country.wars[sold.owner][sol.owner] = true;
+										wars[sol.owner][sold.owner] = true;
+										wars[sold.owner][sol.owner] = true;
 									//}
 								}
 							}
 						}
 						// I think some sort of problem was here, i logged when country.type == 1
-						if(country.type != sold.owner && (Country.wars[country.type][sold.owner] || Country.wars[sold.owner][country.type])){
+						if(country.type != sold.owner && (wars[country.type][sold.owner] || wars[sold.owner][country.type])){
 							if(solh > Matha.hypo(country.home[0] - sold.pos[0], country.home[1] - sold.pos[1])){
 								if(country.income > 0){
 									country.income -= 0.5;
@@ -132,6 +149,7 @@ public class Game {
 		// Soldiers
 
 		if(time - last > 10000){
+            spin.sendAll(12, null, null);
 			for(Country country: countries){
 				country.update();
 			}
@@ -146,8 +164,12 @@ public class Game {
 
 	}
 
-	public void end(){
+    private void finish(){
 
+    }
+
+	public void end(){
+        run = false;
 	}
 
 }
