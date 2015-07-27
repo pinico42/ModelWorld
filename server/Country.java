@@ -286,7 +286,6 @@ public class Country {
 	}
 
     void AIRarmyAdd(){
-	    //System.out.println("Adding an unit");
 		armySize++;
 		int x = home[0] + Game.rand.nextInt(sdist) - sdist / 2, y = home[1] + Game.rand.nextInt(sdist) - sdist / 2;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type, 1}, null);
@@ -294,7 +293,6 @@ public class Country {
 	}
 
 	void AIarmyAdd(){
-	    //System.out.println("Adding an unit");
 		armySize++;
 		int x = home[0] + Game.rand.nextInt(sdist) - sdist / 2, y = home[1] + Game.rand.nextInt(sdist) - sdist / 2;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type}, null);
@@ -302,21 +300,24 @@ public class Country {
 	}
 
 	void AIarmyAdd(int x, int y){
-	    //System.out.println("Adding an unit");
 		armySize++;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type}, null);
 		armyAdd(x, y);
 	}
 
+	void AIRarmyAdd(int x, int y){
+		armySize++;
+		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type, 1}, null);
+		armyAdd(x, y);
+	}
+
 	private void AImineAdd(){
-	    //System.out.println("New mine added");
 	    int[] location = new int[]{home[0] + Game.rand.nextInt(mdist) - mdist / 2, home[1] + Game.rand.nextInt(mdist) - mdist / 2};
 	    owner.spin.sendAll(11, new int[]{0, 1, location[0], location[1], type}, null);
 		mines.add(location);
 	}
 
 	public void AImineAdd(int x, int y){
-	    //System.out.println("New mine added");
 	    int[] location = new int[]{x,y};
 	    owner.spin.sendAll(11, new int[]{0, 1, location[0], location[1], type}, null);
 		mines.add(location);

@@ -16,6 +16,7 @@ public class Game {
 	public static int theight, twidth, solw = 40, solh = 100, minw = 100, minh = 100, opw = 100, oph = 100, state = 0, statei = 0, homew = 100, homeh = 100;
 
     public Spin spin;
+    public ArrayList<Sol> Sols = new ArrayList<Sol>();
 
 	public long  ltime = System.currentTimeMillis(), time, last = ltime;
 	public int idCounter = 0;
@@ -160,20 +161,25 @@ public class Game {
                 for(int[] ints: country.add){
                     switch(ints[0]){
                     case 0:
-                        countries[ints[3]].AIarmyAdd();
+                        countries[ints[3]].AIarmyAdd(ints[1], ints[2]);
                         break;
                     case 1:
+                        Sol sol = Sols.get(ints[3]);
+                        sol.setAim(ints[1], ints[2]);
                         break;
                     case 2:
+                        countries[ints[3]].AIRarmyAdd(ints[1], ints[2]);
                         break;
                     }
                 }
             }
+            country.add.clear();
             synchronized(country.remove){
                 for(int[] ints: country.remove){
 
                 }
             }
+            country.remove.clear();
 			for(Sol sol: country.army){
 				sol.update();
 			}

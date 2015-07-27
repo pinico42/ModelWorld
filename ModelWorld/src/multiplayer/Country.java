@@ -104,6 +104,8 @@ public class Country {
 		ready.clear();
 	}
 	
+
+	@Deprecated
 	void AIarmyAdd(){
 		System.out.println("Is this really being used");
 		armySize++;

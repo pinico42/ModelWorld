@@ -29,6 +29,7 @@ import java.awt.Font;
 
 import main.Draw;
 import main.Main;
+import main.MultiplayerSetup;
 import main.Setup;
 
 import org.lwjgl.LWJGLException;
@@ -86,7 +87,8 @@ public class Game {
 	
 	public boolean run() {
 		
-		//Init.init_game();
+		RWIDTH = MultiplayerSetup.RWIDTH;
+		RHEIGHT = MultiplayerSetup.RHEIGHT;
 		
 		sounds[0].playAsMusic(1.0f, 1.0f, true);
 		
@@ -254,7 +256,7 @@ public class Game {
 							//countries[player].armySize += autos[1];
 							for(int i = 0; i != autos[1]; i++){
 								Client.send(10, "0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player);
-								System.out.println("0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player + " sent");
+								//System.out.println("0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player + " sent");
 								//countries[player].armyAdd(new int[]{mousex + solw / 2, mousey + solh / 2});
 							}
 							//countries[player].money -= Country.scost * autos[1];
@@ -308,7 +310,9 @@ public class Game {
 					case 3:
 						if(autos[2] == 1){
 							try{
-								countries[player].army.get(selsol).setAim(mousex, mousey);
+								//countries[player].army.get(selsol).setAim(mousex, mousey);
+								Sol selSol = countries[player].army.get(selsol);
+								Client.send(10, "2;"+selSol.pos[0]+";"+selSol.pos[1]+";"+selSol.id);
 							} catch (IndexOutOfBoundsException e){
 								texts[2] = "That soldier died!";
 							}
@@ -609,8 +613,7 @@ public class Game {
 			} else {
 				if(autos[0]==1){
 					while(countries[player].reserves > 0){
-						countries[player].AIarmyAdd();
-						countries[player].reserves--;
+						Client.send(10, "0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player+";1");
 					}
 				}
 			}

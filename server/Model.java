@@ -75,7 +75,7 @@ public class Model extends Thread implements GameI{
 	}
 
 	public void receive(String string){
-	    int subpro, x, y, id, country;
+	    int subpro, x, y, id, country, reserve;
 		send.add(string);
 		hi = true;
 		String[] strings = string.split(":");
@@ -97,13 +97,25 @@ public class Model extends Thread implements GameI{
                 y = Integer.parseInt(strings[2]);
                 id = Integer.parseInt(strings[3]);
                 country = Integer.parseInt(strings[4]);
+                if(strings.length == 6){
+                    reserve = 2;
+                } else {
+                    reserve = 0;
+                }
                 synchronized(spin.game.countries[country].add){
-                    spin.game.countries[country].add.add(new int[]{0, x, y, country, id});
+                    spin.game.countries[country].add.add(new int[]{reserve, x, y, country, id});
                 }
                 break;
             case 1:
+                // This should never be sent. The server is fully in charge of destroying soldiers.
                 break;
             case 2:
+                x = Integer.parseInt(strings[1]);
+                y = Integer.parseInt(strings[2]);
+                id = Integer.parseInt(strings[3]);
+                synchronized(spin.game.countries[0].add){
+                    spin.game.countries[0].add.add(new int[]{1, x, y, id});
+                }
                 break;
             }
             break;

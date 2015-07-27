@@ -22,11 +22,11 @@ public class Sol {
 		strength = Owner.armyStrength;
 		health = strength;
 		cOwner = Owner;
+		cOwner.owner.Sols.add(this);
 	}
 
 	public void setAim(int x, int y){
-		//System.out.println(x + ", " + y + " - ???");
-		//System.out.println("Setting aim");
+		System.out.println("Setting aim of thing");
 		cOwner.owner.spin.sendAll(10, new int[]{2, x, y, id}, null);
 		aim = new int[]{x /*- 2 + Game.rand.nextInt(4)*/, y /*- 2 + Game.rand.nextInt(4)*/};
 		updated = true;

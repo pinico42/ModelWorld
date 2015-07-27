@@ -157,3 +157,4 @@ User input : 10:0;322;353;7;0
 Using default remove for 1
 Player removed, there are now 0 players.
 RUN ENDED, Removing Spin
+Stopping server!

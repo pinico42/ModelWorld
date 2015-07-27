@@ -23,7 +23,7 @@ public class Receive extends Thread{
 		while(run){
            	try {
            		int country, action, id, x, y;
-           		Sol sol;
+           		//Sol sol;
            		String string = in.readLine();
            		if(string==null){break;}
            		//System.out.println(string);
@@ -89,6 +89,7 @@ public class Receive extends Thread{
            				}
            				break;
            			case 2:
+           				System.out.println("Setting aim");
                			x = Integer.parseInt(strings[1]);
                			y = Integer.parseInt(strings[2]);
                			id = Integer.parseInt(strings[3]);
