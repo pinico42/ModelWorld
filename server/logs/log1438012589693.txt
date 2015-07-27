@@ -37,4 +37,14 @@ updateWarmup  to 0 - 2:0.5;1;
 updateWarmup  to 0 - 2:0.0;1;
 Game starting
 WOW
+WOW
+Server socket started.
+User input : game 1
+Model started
+updateWarmup  to 1 - 2:0.0;2;
+RUN STARTED 
+1 choosing country
+Exception in thread "Thread-4" java.lang.ArrayIndexOutOfBoundsException: 1
+	at Model.receive(Model.java:87)
+	at Handler.run(Handler.java:82)
 Stopping server!

@@ -73,33 +73,28 @@ public class Receive extends Thread{
                			id = Integer.parseInt(strings[3]);
                			country = Integer.parseInt(strings[4]);
                			int reserve = 0;
-           				//System.out.println("Adding an AI unit");
                			if(strings.length == 6){
                				reserve = 2;
-               			} else {
-               				System.out.println(strings.length);
                			}
-               			synchronized(Game.mthis.countries[country].ready){
-               				System.out.println("Putting it in the queue");
+               			synchronized(Game.mthis.countries[country].add){
                				Game.mthis.countries[country].add.add(new int[]{reserve, x, y, id});
                			}
            				break;
            			case 1:
            				id = Integer.parseInt(strings[1]);
            				System.out.println("Removing an unit");
-           				sol = Sol.sols.get(id);
-           				synchronized(Game.mthis.countries[sol.owner].remove){
-           					Game.mthis.countries[sol.owner].remove.add(new int[]{0, id});
+           				//sol = Sol.sols.get(id);
+           				synchronized(Game.mthis.countries[0].remove){
+           					Game.mthis.countries[0].remove.add(new int[]{0, id});
            				}
            				break;
            			case 2:
                			x = Integer.parseInt(strings[1]);
                			y = Integer.parseInt(strings[2]);
                			id = Integer.parseInt(strings[3]);
-           				//System.out.println("Setting aim of "+id);
-           				sol = Sol.sols.get(id);
-               			synchronized(Game.mthis.countries[sol.owner].add){
-               				Game.mthis.countries[sol.owner].add.add(new int[]{1, x, y, id});
+           				//sol = Sol.sols.get(id);
+               			synchronized(Game.mthis.countries[0].add){
+               				Game.mthis.countries[0].add.add(new int[]{1, x, y, id});
                			}
            				//sol.setAim(x, y);
            				break;
@@ -179,6 +174,8 @@ public class Receive extends Thread{
            			break;
            		}
 			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (IndexOutOfBoundsException e){
 				e.printStackTrace();
 			}
 		}

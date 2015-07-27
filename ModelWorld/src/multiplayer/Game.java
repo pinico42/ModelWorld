@@ -251,12 +251,13 @@ public class Game {
 								state = 0;
 								break event;
 							}
-							countries[player].armySize += autos[1];
+							//countries[player].armySize += autos[1];
 							for(int i = 0; i != autos[1]; i++){
 								Client.send(10, "0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player);
+								System.out.println("0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player + " sent");
 								//countries[player].armyAdd(new int[]{mousex + solw / 2, mousey + solh / 2});
 							}
-							countries[player].money -= Country.scost * autos[1];
+							//countries[player].money -= Country.scost * autos[1];
 							break;
 						case 1:
 							if(countries[player].money < Country.mcost * autos[1]){break;}
@@ -267,10 +268,10 @@ public class Game {
 								break event;
 							}
 							for(int i = 0; i != autos[1]; i++){
-								Client.send(11, "0;"+(mousex+minw/2)+";"+(mousey+minh/2)+";"+player);
+								Client.send(11, "0;1;"+(mousex+minw/2)+";"+(mousey+minh/2)+";"+player);
 								//countries[player].mines.add(new int[]{mousex + minw / 2, mousey + minh / 2});
 							}
-							countries[player].money -= Country.mcost * autos[1];
+							//countries[player].money -= Country.mcost * autos[1];
 							break;
 						case 2:
 							if(countries[player].money < Country.ocost * autos[1]){break;}
@@ -281,10 +282,10 @@ public class Game {
 								break event;
 							}
 							for(int i = 0; i != autos[1]; i++){
-								Client.send(11, "1;"+(mousex+opw/2)+";"+(mousey+oph/2)+";"+player);
+								Client.send(11, "1;1;"+(mousex+opw/2)+";"+(mousey+oph/2)+";"+player);
 								//countries[player].dens.add(new int[]{mousex + opw / 2, mousey + oph / 2});
-							}
-							countries[player].money -= Country.ocost * autos[1];
+							}//
+							//countries[player].money -= Country.ocost * autos[1];
 							break;
 						}
 						state = 0;
@@ -718,7 +719,7 @@ public class Game {
 				for(int[] ints: country.remove){
 					switch(ints[0]){
 					case 0:
-						country.army.remove(Sol.sols.get(ints[1]));
+						countries[Sol.sols.get(ints[1]).owner].army.remove(Sol.sols.get(ints[1]));
 						break;
 					case 1:
 						break;

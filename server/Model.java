@@ -84,7 +84,7 @@ public class Model extends Thread implements GameI{
 		switch(protocol){
 		case 0:
 			System.out.println(playern +" choosing country");
-			spin.chooseCountry(playern, Integer.parseInt(strings[1]));
+			spin.chooseCountry(playern, Integer.parseInt(strings[0]));
 			break;
 		case 1:
 			this.end();
@@ -115,10 +115,10 @@ public class Model extends Thread implements GameI{
             if(Integer.parseInt(strings[1]) == 1){
                 switch(subpro){
                 case 0:
-                    spin.game.countries[country].mines.add(new int[]{x, y});
+                    spin.game.countries[country].AImineAdd(x, y);
                     break;
                 case 1:
-                    spin.game.countries[country].dens.add(new int[]{x, y});
+                    spin.game.countries[country].AIopiumAdd(x, y);
                     break;
                 case 2:
                     break;
