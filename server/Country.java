@@ -261,8 +261,7 @@ public class Country {
 		}
 
 		if(warsn != 0 && army.size() > homeGuard && army.size() > 5){
-			//System.out.println(type + " is attacking");
-			for(int i = 5; i != army.size(); i++){
+			for(int i = homeGuard; i != army.size(); i++){
 				if(!army.get(i).updated){
 					army.get(i).setAim(owner.countries[warsa[(i-5) % warsn]].home[0] - 10 + Game.rand.nextInt(20), owner.countries[warsa[(i-5) % warsn]].home[1] - 10 + Game.rand.nextInt(20));
 				}
@@ -271,7 +270,6 @@ public class Country {
 		if(warsn != 0){
 			while(reserves > 0){
 				AIRarmyAdd();
-				reserves--;
 			}
 		}
 		if(warsn < armyStrength / 3){
@@ -286,6 +284,8 @@ public class Country {
 	}
 
     void AIRarmyAdd(){
+        if(reserves<=0){return;}
+        reserves--;
 		armySize++;
 		int x = home[0] + Game.rand.nextInt(sdist) - sdist / 2, y = home[1] + Game.rand.nextInt(sdist) - sdist / 2;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type, 1}, null);
@@ -300,12 +300,15 @@ public class Country {
 	}
 
 	void AIarmyAdd(int x, int y){
+	    money -= scost;
 		armySize++;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type}, null);
 		armyAdd(x, y);
 	}
 
 	void AIRarmyAdd(int x, int y){
+        if(reserves<=0){return;}
+        reserves--;
 		armySize++;
 		owner.spin.sendAll(10, new int[]{0, x, y, owner.idCounter, type, 1}, null);
 		armyAdd(x, y);

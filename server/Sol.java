@@ -52,11 +52,18 @@ public class Sol {
 
 		health += 0.1 + ((float)strength) / 70;
 
+        if(owner == 0){
+            //System.out.println("Health : "+health);
+        }
+
 		if(health > 100){
 			health = 100;
 		}
 
 		if(health <= 0){
+            if(owner == 0){
+                System.out.println("Killing...");
+            }
 			die = true;
 			cOwner.owner.spin.sendAll(10, new int[]{1, id}, null);
 		}

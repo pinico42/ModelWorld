@@ -92,9 +92,6 @@ public class Spin extends Thread{
 				players[i].updateWarmup(warmup, nPlayers, string);
 				break;
             case 10:
-                //System.out.println("Updating unit with : ["+string+"]");
-                players[i].send(string);
-                break;
             case 11:
                 //System.out.println("Updating building with: ["+string+"]");
                 players[i].send(string);

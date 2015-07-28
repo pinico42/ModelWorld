@@ -82,17 +82,17 @@ public class Receive extends Thread{
            				break;
            			case 1:
            				id = Integer.parseInt(strings[1]);
-           				System.out.println("Removing an unit");
+           				System.out.println("Removing unit "+id);
            				//sol = Sol.sols.get(id);
            				synchronized(Game.mthis.countries[0].remove){
            					Game.mthis.countries[0].remove.add(new int[]{0, id});
            				}
            				break;
            			case 2:
-           				System.out.println("Setting aim");
                			x = Integer.parseInt(strings[1]);
                			y = Integer.parseInt(strings[2]);
                			id = Integer.parseInt(strings[3]);
+           				//System.out.println("Setting aim (for ID : "+id+") to "+x+", "+y);
            				//sol = Sol.sols.get(id);
                			synchronized(Game.mthis.countries[0].add){
                				Game.mthis.countries[0].add.add(new int[]{1, x, y, id});

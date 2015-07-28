@@ -104,7 +104,6 @@ public class Country {
 		ready.clear();
 	}
 	
-
 	@Deprecated
 	void AIarmyAdd(){
 		System.out.println("Is this really being used");
@@ -122,6 +121,9 @@ public class Country {
 	}
 	
 	public void AIRarmyAdd(int x, int y, int id){
+		if(reserves <= 0){
+			return;
+		}
 		if(id != Sol.idCounter){
 			System.out.println(id+":"+Sol.idCounter+"OHHHHH NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 1233245");
 		}

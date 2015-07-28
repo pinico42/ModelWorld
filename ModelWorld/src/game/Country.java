@@ -290,7 +290,7 @@ public class Country {
 		
 		if(warsn != 0 && army.size() > homeGuard && army.size() > 5){
 			//System.out.println(type + " is attacking");
-			for(int i = 5; i != army.size(); i++){
+			for(int i = homeGuard; i != army.size(); i++){
 				if(!army.get(i).updated){
 					army.get(i).aim = new int[]{Game.mthis.countries[warsa[(i-5) % warsn]].home[0] - 10 + Game.rand.nextInt(20), Game.mthis.countries[warsa[(i-5) % warsn]].home[1] - 10 + Game.rand.nextInt(20)};
 					army.get(i).updated = true;

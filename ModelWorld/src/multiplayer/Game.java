@@ -312,7 +312,7 @@ public class Game {
 							try{
 								//countries[player].army.get(selsol).setAim(mousex, mousey);
 								Sol selSol = countries[player].army.get(selsol);
-								Client.send(10, "2;"+selSol.pos[0]+";"+selSol.pos[1]+";"+selSol.id);
+								Client.send(10, "2;"+mousex+";"+mousey+";"+selSol.id);
 							} catch (IndexOutOfBoundsException e){
 								texts[2] = "That soldier died!";
 							}
@@ -612,8 +612,8 @@ public class Game {
 				//country.AI();
 			} else {
 				if(autos[0]==1){
-					while(countries[player].reserves > 0){
-						Client.send(10, "0;"+(mousex+solw/2)+";"+(mousey+solh/2)+";"+Sol.idCounter+";"+player+";1");
+					for(int i = 0; i != country.reserves; i++){
+						Client.send(10, "0;"+(countries[player].home[0]+rand.nextInt(Country.sdist)-Country.sdist/2)+";"+(countries[player].home[1]+rand.nextInt(Country.sdist)-Country.sdist/2)+";"+Sol.idCounter+";"+player+";1");
 					}
 				}
 			}
@@ -670,13 +670,6 @@ public class Game {
 		
 		// Soldiers
 		
-		//if(time - last > 10000){
-		//	for(Country country: countries){
-		//		country.update();
-		//	}
-		//	last += 10000;
-		//}
-		
 		if(isKeyDown(KEY_LEFT) || mousex - translate_x < WIDTH / 10 && mousey - translate_y > 100){
 			translate_x -= 3;
 		} else if(isKeyDown(KEY_RIGHT) || mousex - translate_x > WIDTH - WIDTH / 10 && mousey - translate_y > 100){
@@ -703,12 +696,17 @@ public class Game {
 		
 		for(Country country: countries){
 			synchronized(country.add){
+				ArrayList<int[]> passOn = new ArrayList<int[]>();
 				for(int[] ints: country.add){
 					switch(ints[0]){
 					case 0:
 						country.AIarmyAdd(ints[1], ints[2], ints[3]);
 						break;
 					case 1:
+						if(Sol.sols.size() <= ints[3]){
+							passOn.add(ints);
+							break;
+						}
 						Sol.sols.get(ints[3]).setAim(ints[1], ints[2]);
 						break;
 					case 2:
@@ -716,7 +714,7 @@ public class Game {
 						break;
 					}
 				}
-				country.add.clear();
+				country.add = passOn;
 			}
 			synchronized(country.remove){
 				for(int[] ints: country.remove){

@@ -87,8 +87,6 @@ public class Game {
 
 	public void update(){
 
-        //System.out.println("Update called");
-
 		// Soldiers
 
 		ArrayList<Sol> rsols = new ArrayList<Sol>();
@@ -142,6 +140,10 @@ public class Game {
 		}
 
 		for(Sol sol: rsols){
+            if(sol.owner == 0){
+                System.out.println("Removing sol");
+            }
+            spin.sendAll(10, new int[]{1, sol.id}, null);
 			countries[sol.owner].army.remove(sol);
 			countries[sol.owner].armySize--;
 		}

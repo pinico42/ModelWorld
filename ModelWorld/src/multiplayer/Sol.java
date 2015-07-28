@@ -18,6 +18,9 @@ public class Sol {
 	
 	public Sol(int x, int y, int by){
 		id = idCounter;
+		if(by == 0){
+			System.out.println("Created "+id);
+		}
 		idCounter++;
 		pos = new int[]{x,y};
 		vel = new double[]{0,0};
