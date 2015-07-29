@@ -27,6 +27,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.UnknownHostException;
+import java.util.HashMap;
 import java.awt.Font;
 
 import org.lwjgl.LWJGLException;
@@ -198,10 +199,10 @@ public class MultiplayerSetup {
 			return;
 		}
 		
-		
+		HashMap<String, String> msettings = IOHandle.getMultiSettings();
 		
 		try {
-			Client.main(null);
+			Client.main(msettings);
 		} catch (IOException e) {
 			System.out.println("Server not up!");
 			String[] newTexts = Main.mthis.texts;

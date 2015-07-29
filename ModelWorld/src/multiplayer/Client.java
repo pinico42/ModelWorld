@@ -2,6 +2,7 @@ package multiplayer;
 
 import java.io.*;
 import java.net.*;
+import java.util.HashMap;
 
 public class Client {
 	
@@ -10,10 +11,10 @@ public class Client {
 	public static int game = -1;
 	public static PrintWriter out;
 	
-    public static void main(String[] args) throws IOException, Exception, UnknownHostException {
+    public static void main(HashMap<String, String> msettings) throws IOException, Exception, UnknownHostException {
 
-        String hostName = args[0];
-        int portNumber = 26656;
+        String hostName = msettings.get("host");
+        int portNumber = Integer.parseInt(msettings.get("port"));
 
         try {
             Socket echoSocket = new Socket(hostName, portNumber);

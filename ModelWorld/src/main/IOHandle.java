@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 
@@ -86,15 +85,20 @@ public class IOHandle {
 		} catch (FileNotFoundException e) {
 			System.out.println("Failure!");
 		}
-    	String[] keys = new String[]{};
+    	if(settings.equals("")){
+    		return answers;
+    	}
+    	String[] keys = new String[]{"host", "port"};
     	String[] pairs = settings.split(";");
     	for(int i = 0; i != pairs.length; i++){
-    		String[] pair = pairs[i].split(":");
+    		System.out.println(pairs[i].trim().equals(""));
+    		String[] pair = pairs[i].trim().split(":");
     		boolean trip = false;
     		for(String key: keys){
     			if(pair[0].equals(key)){trip=true;}
     		}
-    		if(!trip){System.out.println("Unrecognized key!");return null;}
+    		if(!trip){System.out.println("Unrecognized key - "+pair[0]+":"+pair[1]+"!");return null;}
+    		answers.put(pair[0], pair[1]);
     	}
     	return answers;
     }
@@ -325,13 +329,13 @@ public class IOHandle {
 		
 	}*/
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		
 		/*for(Tilee tile : getLevel(64,48, "res/Text").values()){
 			System.out.println(tile.x);
 		}
 		System.out.println(getLevel(64,48, "res/Text").size());
-		System.out.println(18 * 48);*/
+		System.out.println(18 * 48);
 		int[] bob = new int[3];
 		bob[0] = 1;
 		bob[1] = 0;
@@ -341,6 +345,6 @@ public class IOHandle {
 		//	System.out.println(i);
 		//}
 		
-	}
+	}*/
 	
 }
