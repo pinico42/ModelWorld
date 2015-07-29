@@ -69,11 +69,7 @@ public class Game {
 
 			update();
 
-            try{
-                Thread.sleep((long)(1000/60));
-            } catch(InterruptedException e){
-                System.out.println("Since when has there ever been one of these?!?");
-            }
+            try{Thread.sleep((long)(1000/60));}catch(InterruptedException e){System.out.println("Since when has there ever been one of these?!?");}
 
 		}
 
@@ -90,6 +86,7 @@ public class Game {
 		// Soldiers
 
 		ArrayList<Sol> rsols = new ArrayList<Sol>();
+		ArrayList<Integer> killOff = new ArrayList<Integer>();
 
 		for(Country country: countries){
 			if(!players.contains(country.type)){
@@ -102,17 +99,21 @@ public class Game {
 							if(Matha.hypo(sol.pos[0] - sold.pos[0], sol.pos[1] - sold.pos[1]) < solh){
 								sol.health -= 1;
 								sold.health -= 1;
-								if(!(wars[sol.owner][sold.owner] || wars[sold.owner][sol.owner])){
+								if(sol.owner == 0 || sold.owner == 0){
+                                    //System.out.println("Hurt");
+								}
+								if(!atWar(sol.owner, sold.owner)){
                                     // I don't remember what this logic does so i just deleted it. <-- WATCH OUT
 									//if((!players.contains(sol.owner) && !players.contains(sold.owner)) || Matha.hypo((players.contains(sol.owner)?sol:sold).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((players.contains(sol.owner)?sold:sol).pos[0] - countries[player].home[0], (players.contains(sol.owner)?sold:sol).pos[1] - countries[player].home[1])){
-										wars[sol.owner][sold.owner] = true;
-										wars[sold.owner][sol.owner] = true;
+										//wars[sol.owner][sold.owner] = true;
+										//wars[sold.owner][sol.owner] = true;
+										setWar(sol.owner, sold.owner, true);
 									//}
 								}
 							}
 						}
 						// I think some sort of problem was here, i logged when country.type == 1
-						if(country.type != sold.owner && (wars[country.type][sold.owner] || wars[sold.owner][country.type])){
+						if(!country.die && country.type != sold.owner && atWar(country.type, country2.type)){
 							if(solh > Matha.hypo(country.home[0] - sold.pos[0], country.home[1] - sold.pos[1])){
 							    spin.sendAll(13, new int[]{0, country.type}, null);
                                 country.die = true;
@@ -129,6 +130,8 @@ public class Game {
 								}
 								country.mines.clear();
 								country.dens.clear();
+								killOff.add(country.type);
+								System.out.println("Killing "+country.type);
 							}
 						}
 					}
@@ -137,6 +140,10 @@ public class Game {
 					rsols.add(sol);
 				}
 			}
+		}
+
+		for(int country: killOff){
+            countries[country].army.clear();
 		}
 
 		for(Sol sol: rsols){
@@ -188,6 +195,16 @@ public class Game {
 		}
 
 	}
+
+    public void setWar(int country, int country2, boolean atWar){
+        spin.sendAll(14, new int[]{atWar?1:0, country, country2}, null);
+        wars[country][country2] = atWar;
+        wars[country2][country] = atWar;
+    }
+
+    public boolean atWar(int country, int country2){
+        return wars[country2][country] || wars[country][country2];
+    }
 
     private void finish(){
 

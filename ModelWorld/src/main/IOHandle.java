@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -74,6 +76,27 @@ public class IOHandle {
     	scan.close();
     	return answers;
     	
+    }
+    
+    public static HashMap<String, String> getMultiSettings(){
+    	HashMap<String, String> answers = new HashMap<String, String>();
+    	String settings = null;
+    	try {
+			settings = slurp(new FileInputStream("res/multiplayer.settings"));
+		} catch (FileNotFoundException e) {
+			System.out.println("Failure!");
+		}
+    	String[] keys = new String[]{};
+    	String[] pairs = settings.split(";");
+    	for(int i = 0; i != pairs.length; i++){
+    		String[] pair = pairs[i].split(":");
+    		boolean trip = false;
+    		for(String key: keys){
+    			if(pair[0].equals(key)){trip=true;}
+    		}
+    		if(!trip){System.out.println("Unrecognized key!");return null;}
+    	}
+    	return answers;
     }
     
     public static void writeSettings(int[] settings){

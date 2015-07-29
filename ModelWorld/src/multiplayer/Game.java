@@ -180,8 +180,9 @@ public class Game {
 							switch(button.id){
 							case 0:
 								int selected = Init.selected<player?Init.selected:Init.selected+1;
-								Country.wars[player][selected] = !Country.wars[player][selected];
-								Country.wars[selected][player] = Country.wars[player][selected];
+								Client.send(14, (!Country.wars[player][selected]?1:0)+";"+player+";"+selected);
+								//Country.wars[player][selected] = !Country.wars[player][selected];
+								//Country.wars[selected][player] = Country.wars[player][selected];
 								break;
 							case 1:
 								autos[0] = autos[0]==0?1:0;
@@ -319,12 +320,18 @@ public class Game {
 						} else {
 							if(autos[2] == 11){
 								for(int i = 0; i != countries[player].armySize;i++){
-									countries[player].army.get(i).setAim(mousex, mousey);
+									//countries[player].army.get(i).setAim(mousex, mousey);
+									if(i > countries[player].army.size()-1){
+										System.out.println("IndexError : "+i+";"+countries[player].army.size());
+										break;
+									}
+									Client.send(10, "2;"+mousex+";"+mousey+";"+countries[player].army.get(i).id);
 								}
 							} else {
 								for(int i = 0; i != autos[2];i++){
 									try{
-										countries[player].army.get(i).setAim(mousex, mousey);
+										//countries[player].army.get(i).setAim(mousex, mousey);
+										Client.send(10, "2;"+mousex+";"+mousey+";"+countries[player].army.get(i).id);
 									} catch (IndexOutOfBoundsException e){
 										texts[2] = "Not enough soldiers";
 									}
@@ -624,13 +631,13 @@ public class Game {
 							if(Matha.hypo(sol.pos[0] - sold.pos[0], sol.pos[1] - sold.pos[1]) < solh){
 								sol.health -= 1;
 								sold.health -= 1;
-								if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
+								//if(!(Country.wars[sol.owner][sold.owner] || Country.wars[sold.owner][sol.owner])){
 									// WHAT WAS THIS MEANT TO ACHIEVE?!? <-- WATCH OUT
 									//if((sol.owner != player && sold.owner != player) || Matha.hypo((sol.owner==player?sol:sold).pos[0] - countries[player].home[0], (sol.owner==player?sol:sold).pos[1] - countries[player].home[1]) < Matha.hypo((sol.owner==player?sold:sol).pos[0] - countries[player].home[0], (sol.owner==player?sold:sol).pos[1] - countries[player].home[1])){
-										Country.wars[sol.owner][sold.owner] = true;
-										Country.wars[sold.owner][sol.owner] = true;
+										//Country.wars[sol.owner][sold.owner] = true;
+										//Country.wars[sold.owner][sol.owner] = true;
 									//}
-								}
+								//}
 							}
 						}
 						// I think some sort of problem was here, i logged when country.type == 1
@@ -717,9 +724,14 @@ public class Game {
 				country.add = passOn;
 			}
 			synchronized(country.remove){
+				ArrayList<int[]> passOn = new ArrayList<int[]>();
 				for(int[] ints: country.remove){
 					switch(ints[0]){
 					case 0:
+						if(Sol.sols.size()-1<ints[1]){
+							passOn.add(ints);
+							break;
+						}
 						countries[Sol.sols.get(ints[1]).owner].army.remove(Sol.sols.get(ints[1]));
 						break;
 					case 1:
@@ -728,7 +740,7 @@ public class Game {
 						break;
 					}
 				}
-				country.remove.clear();
+				country.remove = passOn;
 			}
 			for(Sol sol: country.army){
 				sol.update();
@@ -747,6 +759,12 @@ public class Game {
 		for(Texture tex:images){
 			tex.release();
 			tex = null;
+		}
+		
+		Sol.sols.clear();
+		
+		for(Country country: countries){
+			country.clear();
 		}
 		
 	}

@@ -60,10 +60,6 @@ public class Sol {
 		if(health > 100){
 			health = 100;
 		}
-		
-		if(health <= 0){
-			//die = true;
-		}
 
 		pos[0] += vel[0];
 		pos[1] += vel[1];

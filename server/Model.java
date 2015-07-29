@@ -75,7 +75,7 @@ public class Model extends Thread implements GameI{
 	}
 
 	public void receive(String string){
-	    int subpro, x, y, id, country, reserve;
+	    int subpro, x, y, id, country, country2, reserve;
 		send.add(string);
 		hi = true;
 		String[] strings = string.split(":");
@@ -136,13 +136,17 @@ public class Model extends Thread implements GameI{
                     break;
                 }
             } else {
-
+                System.out.println("Nothing has been programmed to happen here");
             }
-
+            break;
+        case 14:
+            subpro = Integer.parseInt(strings[0]);
+            country = Integer.parseInt(strings[1]);
+            country2 = Integer.parseInt(strings[2]);
+            spin.game.setWar(country, country2, subpro==1);
             break;
 		}
 		System.out.println("received string "+string);
-		System.out.println("send "+send.isEmpty());
 	}
 
 	public void end(){

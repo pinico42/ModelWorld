@@ -1,0 +1,788 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 0 - 2:10.0;1;0
+RUN STARTED 
+0 choosing country
+Spin started
+Set country for player 0 to 0
+updateWarmup  to 0 - 2:9.5;1;0
+received string 0:0
+send false
+User input : 0:0
+updateWarmup  to 0 - 2:9.0;1;0
+updateWarmup  to 0 - 2:8.5;1;0
+updateWarmup  to 0 - 2:8.0;1;0
+updateWarmup  to 0 - 2:7.5;1;0
+updateWarmup  to 0 - 2:7.0;1;0
+updateWarmup  to 0 - 2:6.5;1;0
+updateWarmup  to 0 - 2:6.0;1;0
+updateWarmup  to 0 - 2:5.5;1;0
+updateWarmup  to 0 - 2:5.0;1;0
+updateWarmup  to 0 - 2:4.5;1;0
+updateWarmup  to 0 - 2:4.0;1;0
+updateWarmup  to 0 - 2:3.5;1;0
+updateWarmup  to 0 - 2:3.0;1;0
+updateWarmup  to 0 - 2:2.5;1;0
+updateWarmup  to 0 - 2:2.0;1;0
+updateWarmup  to 0 - 2:1.5;1;0
+updateWarmup  to 0 - 2:1.0;1;0
+updateWarmup  to 0 - 2:0.5;1;0
+updateWarmup  to 0 - 2:0.0;1;0
+Game starting
+received string 10:0;209;319;10;0;1
+send false
+User input : 10:0;209;319;10;0;1
+received string 10:0;286;292;10;0;1
+send false
+User input : 10:0;286;292;10;0;1
+received string 10:0;208;303;10;0;1
+send false
+User input : 10:0;208;303;10;0;1
+received string 10:0;224;243;10;0;1
+send false
+User input : 10:0;224;243;10;0;1
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;267;316;13;0
+send false
+User input : 10:0;267;316;13;0
+received string 10:0;286;241;23;0;1
+send false
+User input : 10:0;286;241;23;0;1
+received string 10:0;236;297;23;0;1
+send false
+User input : 10:0;236;297;23;0;1
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:0;272;326;24;0
+send false
+User input : 10:0;272;326;24;0
+received string 10:2;652;890;10
+send false
+User input : 10:2;652;890;10
+Setting aim of thing
+received string 10:2;652;890;11
+send false
+User input : 10:2;652;890;11
+received string 10:2;652;890;13
+send false
+User input : 10:2;652;890;13
+received string 10:2;652;890;14
+send false
+User input : 10:2;652;890;14
+received string 10:2;652;890;15
+send false
+Setting aim of thing
+User input : 10:2;652;890;15
+Setting aim of thing
+Setting aim of thing
+received string 10:2;652;890;16
+send false
+User input : 10:2;652;890;16
+received string 10:2;652;890;17
+send false
+User input : 10:2;652;890;17
+received string 10:2;652;890;18
+send false
+User input : 10:2;652;890;18
+Setting aim of thing
+Setting aim of thing
+received string 10:2;652;890;19
+send false
+User input : 10:2;652;890;19
+received string 10:2;652;890;20
+send false
+User input : 10:2;652;890;20
+received string 10:2;652;890;21
+send false
+User input : 10:2;652;890;21
+received string 10:2;652;890;22
+send false
+User input : 10:2;652;890;22
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;652;890;23
+send false
+User input : 10:2;652;890;23
+received string 10:2;652;890;24
+send false
+User input : 10:2;652;890;24
+received string 10:2;652;890;25
+send false
+User input : 10:2;652;890;25
+Setting aim of thing
+Setting aim of thing
+received string 10:2;652;890;26
+send false
+User input : 10:2;652;890;26
+received string 10:2;652;890;27
+send false
+User input : 10:2;652;890;27
+received string 10:2;652;890;28
+send false
+User input : 10:2;652;890;28
+received string 10:2;652;890;29
+Setting aim of thing
+send false
+Setting aim of thing
+User input : 10:2;652;890;29
+Setting aim of thing
+received string 10:2;652;890;30
+send false
+User input : 10:2;652;890;30
+received string 10:2;652;890;31
+send false
+User input : 10:2;652;890;31
+received string 10:2;652;890;32
+send false
+User input : 10:2;652;890;32
+received string 10:2;652;890;33
+send false
+User input : 10:2;652;890;33
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;374;444;10
+send false
+User input : 10:2;374;444;10
+Setting aim of thing
+received string 10:2;374;444;11
+send false
+User input : 10:2;374;444;11
+received string 10:2;374;444;13
+send false
+User input : 10:2;374;444;13
+received string 10:2;374;444;14
+send false
+User input : 10:2;374;444;14
+received string 10:2;374;444;15
+send false
+User input : 10:2;374;444;15
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;374;444;16
+send false
+User input : 10:2;374;444;16
+received string 10:2;374;444;17
+send false
+User input : 10:2;374;444;17
+received string 10:2;374;444;18
+send false
+User input : 10:2;374;444;18
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;374;444;19
+send false
+User input : 10:2;374;444;19
+received string 10:2;374;444;20
+send false
+User input : 10:2;374;444;20
+received string 10:2;374;444;21
+send false
+User input : 10:2;374;444;21
+received string 10:2;374;444;22
+send false
+User input : 10:2;374;444;22
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;374;444;23
+send false
+User input : 10:2;374;444;23
+received string 10:2;374;444;24
+send false
+User input : 10:2;374;444;24
+received string 10:2;374;444;25
+send false
+User input : 10:2;374;444;25
+received string 10:2;374;444;26
+send false
+User input : 10:2;374;444;26
+received string 10:2;374;444;27
+send false
+User input : 10:2;374;444;27
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;374;444;28
+send false
+User input : 10:2;374;444;28
+received string 10:2;374;444;29
+send false
+User input : 10:2;374;444;29
+received string 10:2;374;444;30
+send false
+User input : 10:2;374;444;30
+received string 10:2;374;444;31
+send false
+User input : 10:2;374;444;31
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;374;444;32
+send false
+User input : 10:2;374;444;32
+received string 10:2;374;444;33
+send false
+User input : 10:2;374;444;33
+Setting aim of thing
+received string 10:2;386;444;10
+send false
+User input : 10:2;386;444;10
+received string 10:2;386;444;11
+send false
+User input : 10:2;386;444;11
+Setting aim of thing
+Setting aim of thing
+received string 10:2;386;444;13
+send false
+User input : 10:2;386;444;13
+received string 10:2;386;444;14
+send false
+User input : 10:2;386;444;14
+received string 10:2;386;444;15
+send false
+User input : 10:2;386;444;15
+received string 10:2;386;444;16
+send false
+User input : 10:2;386;444;16
+received string 10:2;386;444;17
+send false
+User input : 10:2;386;444;17
+received string 10:2;386;444;18
+send false
+User input : 10:2;386;444;18
+received string 10:2;386;444;19
+send false
+User input : 10:2;386;444;19
+received string 10:2;386;444;20
+send false
+User input : 10:2;386;444;20
+received string 10:2;386;444;21
+send false
+User input : 10:2;386;444;21
+received string 10:2;386;444;22
+send false
+User input : 10:2;386;444;22
+received string 10:2;386;444;23
+send false
+User input : 10:2;386;444;23
+received string 10:2;386;444;24
+send false
+User input : 10:2;386;444;24
+received string 10:2;386;444;25
+send false
+User input : 10:2;386;444;25
+received string 10:2;386;444;26
+send false
+User input : 10:2;386;444;26
+received string 10:2;386;444;27
+send false
+User input : 10:2;386;444;27
+received string 10:2;386;444;28
+send false
+User input : 10:2;386;444;28
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;386;444;29
+send false
+User input : 10:2;386;444;29
+received string 10:2;386;444;30
+send false
+User input : 10:2;386;444;30
+received string 10:2;386;444;31
+send false
+User input : 10:2;386;444;31
+received string 10:2;386;444;32
+send false
+User input : 10:2;386;444;32
+received string 10:2;386;444;33
+send false
+User input : 10:2;386;444;33
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;386;444;10
+send false
+User input : 10:2;386;444;10
+received string 10:2;386;444;11
+send false
+User input : 10:2;386;444;11
+received string 10:2;386;444;13
+send false
+User input : 10:2;386;444;13
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;386;444;14
+send false
+User input : 10:2;386;444;14
+received string 10:2;386;444;15
+send false
+User input : 10:2;386;444;15
+received string 10:2;386;444;16
+send false
+User input : 10:2;386;444;16
+received string 10:2;386;444;17
+send false
+User input : 10:2;386;444;17
+received string 10:2;386;444;18
+send false
+User input : 10:2;386;444;18
+received string 10:2;386;444;19
+send false
+User input : 10:2;386;444;19
+received string 10:2;386;444;20
+send false
+User input : 10:2;386;444;20
+received string 10:2;386;444;21
+send false
+User input : 10:2;386;444;21
+received string 10:2;386;444;22
+send false
+User input : 10:2;386;444;22
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;386;444;23
+send false
+User input : 10:2;386;444;23
+received string 10:2;386;444;24
+send false
+User input : 10:2;386;444;24
+received string 10:2;386;444;25
+send false
+User input : 10:2;386;444;25
+received string 10:2;386;444;26
+send false
+User input : 10:2;386;444;26
+received string 10:2;386;444;27
+send false
+User input : 10:2;386;444;27
+received string 10:2;386;444;28
+send false
+User input : 10:2;386;444;28
+received string 10:2;386;444;29
+send false
+User input : 10:2;386;444;29
+received string 10:2;386;444;30
+send false
+User input : 10:2;386;444;30
+received string 10:2;386;444;31
+send false
+Setting aim of thing
+User input : 10:2;386;444;31
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;386;444;32
+send false
+User input : 10:2;386;444;32
+received string 10:2;386;444;33
+send false
+User input : 10:2;386;444;33
+Setting aim of thing
+Setting aim of thing
+received string 10:0;254;315;34;0;1
+send false
+User input : 10:0;254;315;34;0;1
+received string 10:0;231;300;34;0;1
+send false
+User input : 10:0;231;300;34;0;1
+received string 10:2;654;852;10
+send false
+User input : 10:2;654;852;10
+received string 10:2;654;852;11
+send false
+User input : 10:2;654;852;11
+received string 10:2;654;852;13
+send false
+User input : 10:2;654;852;13
+received string 10:2;654;852;14
+send false
+User input : 10:2;654;852;14
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;654;852;15
+send false
+User input : 10:2;654;852;15
+received string 10:2;654;852;16
+send false
+User input : 10:2;654;852;16
+received string 10:2;654;852;17
+send false
+User input : 10:2;654;852;17
+received string 10:2;654;852;18
+send false
+User input : 10:2;654;852;18
+received string 10:2;654;852;19
+send false
+User input : 10:2;654;852;19
+received string 10:2;654;852;20
+send false
+User input : 10:2;654;852;20
+received string 10:2;654;852;21
+send false
+User input : 10:2;654;852;21
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;654;852;22
+send false
+User input : 10:2;654;852;22
+received string 10:2;654;852;23
+send false
+User input : 10:2;654;852;23
+received string 10:2;654;852;24
+send false
+User input : 10:2;654;852;24
+received string 10:2;654;852;25
+send false
+User input : 10:2;654;852;25
+received string 10:2;654;852;26
+send false
+User input : 10:2;654;852;26
+received string 10:2;654;852;27
+send false
+User input : 10:2;654;852;27
+received string 10:2;654;852;28
+send false
+User input : 10:2;654;852;28
+received string 10:2;654;852;29
+send false
+User input : 10:2;654;852;29
+received string 10:2;654;852;30
+Setting aim of thing
+send false
+User input : 10:2;654;852;30
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;654;852;31
+send false
+User input : 10:2;654;852;31
+received string 10:2;654;852;32
+send false
+User input : 10:2;654;852;32
+received string 10:2;654;852;33
+send false
+User input : 10:2;654;852;33
+received string 10:2;654;852;34
+send false
+User input : 10:2;654;852;34
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;644;869;10
+send false
+User input : 10:2;644;869;10
+received string 10:2;644;869;11
+send false
+User input : 10:2;644;869;11
+received string 10:2;644;869;13
+send false
+User input : 10:2;644;869;13
+received string 10:2;644;869;14
+send false
+User input : 10:2;644;869;14
+received string 10:2;644;869;15
+send false
+User input : 10:2;644;869;15
+received string 10:2;644;869;16
+send false
+User input : 10:2;644;869;16
+received string 10:2;644;869;17
+send false
+User input : 10:2;644;869;17
+received string 10:2;644;869;18
+send false
+User input : 10:2;644;869;18
+received string 10:2;644;869;19
+send false
+User input : 10:2;644;869;19
+received string 10:2;644;869;20
+send false
+User input : 10:2;644;869;20
+received string 10:2;644;869;21
+send false
+User input : 10:2;644;869;21
+received string 10:2;644;869;22
+send false
+User input : 10:2;644;869;22
+received string 10:2;644;869;23
+send false
+Setting aim of thing
+User input : 10:2;644;869;23
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;644;869;24
+send false
+User input : 10:2;644;869;24
+received string 10:2;644;869;25
+send false
+User input : 10:2;644;869;25
+received string 10:2;644;869;26
+send false
+User input : 10:2;644;869;26
+received string 10:2;644;869;27
+send false
+User input : 10:2;644;869;27
+received string 10:2;644;869;28
+send false
+User input : 10:2;644;869;28
+received string 10:2;644;869;29
+send false
+User input : 10:2;644;869;29
+received string 10:2;644;869;30
+send false
+User input : 10:2;644;869;30
+received string 10:2;644;869;31
+send false
+User input : 10:2;644;869;31
+received string 10:2;644;869;32
+send false
+User input : 10:2;644;869;32
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;644;869;33
+send false
+User input : 10:2;644;869;33
+received string 10:2;644;869;34
+send false
+User input : 10:2;644;869;34
+Setting aim of thing
+Setting aim of thing
+Killing 1
+received string 10:2;549;495;10
+send false
+User input : 10:2;549;495;10
+received string 10:2;549;495;11
+send false
+User input : 10:2;549;495;11
+received string 10:2;549;495;13
+send false
+User input : 10:2;549;495;13
+received string 10:2;549;495;14
+send false
+Setting aim of thing
+User input : 10:2;549;495;14
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;549;495;15
+send false
+User input : 10:2;549;495;15
+received string 10:2;549;495;16
+send false
+User input : 10:2;549;495;16
+received string 10:2;549;495;17
+send false
+User input : 10:2;549;495;17
+received string 10:2;549;495;18
+send false
+User input : 10:2;549;495;18
+received string 10:2;549;495;19
+send false
+User input : 10:2;549;495;19
+received string 10:2;549;495;20
+send false
+User input : 10:2;549;495;20
+received string 10:2;549;495;21
+send false
+User input : 10:2;549;495;21
+received string 10:2;549;495;22
+send false
+User input : 10:2;549;495;22
+received string 10:2;549;495;23
+send false
+User input : 10:2;549;495;23
+received string 10:2;549;495;24
+send false
+Setting aim of thing
+User input : 10:2;549;495;24
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;549;495;25
+send false
+User input : 10:2;549;495;25
+received string 10:2;549;495;26
+send false
+User input : 10:2;549;495;26
+received string 10:2;549;495;27
+send false
+User input : 10:2;549;495;27
+received string 10:2;549;495;28
+send false
+User input : 10:2;549;495;28
+received string 10:2;549;495;29
+send false
+User input : 10:2;549;495;29
+received string 10:2;549;495;30
+send false
+User input : 10:2;549;495;30
+received string 10:2;549;495;31
+send false
+User input : 10:2;549;495;31
+received string 10:2;549;495;32
+send false
+User input : 10:2;549;495;32
+received string 10:2;549;495;33
+send false
+User input : 10:2;549;495;33
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;549;495;34
+send false
+User input : 10:2;549;495;34
+Setting aim of thing
+received string 10:0;233;269;47;0;1
+send false
+User input : 10:0;233;269;47;0;1
+received string 10:0;235;305;47;0;1
+send false
+User input : 10:0;235;305;47;0;1
+received string 10:0;290;293;49;0;1
+send false
+User input : 10:0;290;293;49;0;1
+received string 10:0;208;323;49;0;1
+send false
+User input : 10:0;208;323;49;0;1
+received string 10:0;290;283;50;0;1
+send false
+User input : 10:0;290;283;50;0;1
+received string 10:0;222;320;50;0;1
+send false
+User input : 10:0;222;320;50;0;1
+Using default remove for 1
+Player removed, there are now 0 players.
+RUN ENDED, Removing Spin
+Stopping server!

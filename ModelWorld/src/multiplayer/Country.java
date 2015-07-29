@@ -125,7 +125,7 @@ public class Country {
 			return;
 		}
 		if(id != Sol.idCounter){
-			System.out.println(id+":"+Sol.idCounter+"OHHHHH NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 1233245");
+			System.out.println(id+":"+Sol.idCounter+"ROHHHHH NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 1233245");
 		}
 		armySize++;
 		armyAdd(x,y);
@@ -157,7 +157,7 @@ public class Country {
 	public void armyAdd(int[] arr){
 		army.add(new Sol(arr[0], arr[1], type));
 	}
-
+	
 	public void clear() {
 		money = 0;
 		armySize = 0;
@@ -168,7 +168,6 @@ public class Country {
 		dens.clear();
 		army.clear();
 		ready.clear();
-		
 	}
 	
 	/*public void AI(){

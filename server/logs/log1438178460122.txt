@@ -1,0 +1,75 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 0 - 2:10.0;1;0
+RUN STARTED 
+0 choosing country
+Set country for player 0 to 0
+received string 0:0
+Spin started
+send false
+updateWarmup  to 0 - 2:9.5;1;0
+User input : 0:0
+updateWarmup  to 0 - 2:9.0;1;0
+updateWarmup  to 0 - 2:8.5;1;0
+updateWarmup  to 0 - 2:8.0;1;0
+updateWarmup  to 0 - 2:7.5;1;0
+updateWarmup  to 0 - 2:7.0;1;0
+updateWarmup  to 0 - 2:6.5;1;0
+updateWarmup  to 0 - 2:6.0;1;0
+updateWarmup  to 0 - 2:5.5;1;0
+updateWarmup  to 0 - 2:5.0;1;0
+updateWarmup  to 0 - 2:4.5;1;0
+updateWarmup  to 0 - 2:4.0;1;0
+updateWarmup  to 0 - 2:3.5;1;0
+updateWarmup  to 0 - 2:3.0;1;0
+updateWarmup  to 0 - 2:2.5;1;0
+updateWarmup  to 0 - 2:2.0;1;0
+updateWarmup  to 0 - 2:1.5;1;0
+updateWarmup  to 0 - 2:1.0;1;0
+updateWarmup  to 0 - 2:0.5;1;0
+updateWarmup  to 0 - 2:0.0;1;0
+Game starting
+Using default remove for 1
+Player removed, there are now 0 players.
+RUN ENDED, Removing Spin
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 1 - 2:10.0;1;0
+0 choosing country
+Exception in thread "Thread-4" RUN STARTED 
+Spin started
+java.lang.NullPointerException
+	at Model.receive(Model.java:87)
+	at Handler.run(Handler.java:82)
+updateWarmup  to 1 - 2:9.5;1;
+updateWarmup  to 1 - 2:9.0;1;
+updateWarmup  to 1 - 2:8.5;1;
+updateWarmup  to 1 - 2:8.0;1;
+updateWarmup  to 1 - 2:7.5;1;
+updateWarmup  to 1 - 2:7.0;1;
+updateWarmup  to 1 - 2:6.5;1;
+updateWarmup  to 1 - 2:6.0;1;
+updateWarmup  to 1 - 2:5.5;1;
+updateWarmup  to 1 - 2:5.0;1;
+updateWarmup  to 1 - 2:4.5;1;
+updateWarmup  to 1 - 2:4.0;1;
+updateWarmup  to 1 - 2:3.5;1;
+updateWarmup  to 1 - 2:3.0;1;
+updateWarmup  to 1 - 2:2.5;1;
+updateWarmup  to 1 - 2:2.0;1;
+updateWarmup  to 1 - 2:1.5;1;
+updateWarmup  to 1 - 2:1.0;1;
+updateWarmup  to 1 - 2:0.5;1;
+updateWarmup  to 1 - 2:0.0;1;
+Game starting
+Stopping server!

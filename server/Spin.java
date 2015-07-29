@@ -80,6 +80,8 @@ public class Spin extends Thread{
 			break;
         case 10:
         case 11:
+        case 13:
+        case 14:
             string += code+":";
             for(int i = 0; i != ints.length; i++){
                 string += ints[i]+(i==ints.length-1?"":";");
@@ -93,6 +95,8 @@ public class Spin extends Thread{
 				break;
             case 10:
             case 11:
+            case 13:
+            case 14:
                 //System.out.println("Updating building with: ["+string+"]");
                 players[i].send(string);
                 break;

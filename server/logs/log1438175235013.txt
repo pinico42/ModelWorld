@@ -1,0 +1,65 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 0 - 2:10.0;1;0
+RUN STARTED 
+Spin started
+updateWarmup  to 0 - 2:9.5;1;
+0 choosing country
+Set country for player 0 to 0
+received string 0:0
+send false
+User input : 0:0
+updateWarmup  to 0 - 2:9.0;1;0
+updateWarmup  to 0 - 2:8.5;1;0
+updateWarmup  to 0 - 2:8.0;1;0
+updateWarmup  to 0 - 2:7.5;1;0
+updateWarmup  to 0 - 2:7.0;1;0
+updateWarmup  to 0 - 2:6.5;1;0
+updateWarmup  to 0 - 2:6.0;1;0
+updateWarmup  to 0 - 2:5.5;1;0
+updateWarmup  to 0 - 2:5.0;1;0
+updateWarmup  to 0 - 2:4.5;1;0
+updateWarmup  to 0 - 2:4.0;1;0
+updateWarmup  to 0 - 2:3.5;1;0
+updateWarmup  to 0 - 2:3.0;1;0
+updateWarmup  to 0 - 2:2.5;1;0
+updateWarmup  to 0 - 2:2.0;1;0
+updateWarmup  to 0 - 2:1.5;1;0
+updateWarmup  to 0 - 2:1.0;1;0
+updateWarmup  to 0 - 2:0.5;1;0
+updateWarmup  to 0 - 2:0.0;1;0
+Game starting
+received string 10:0;309;348;7;0
+send false
+User input : 10:0;309;348;7;0
+received string 10:2;609;824;7
+send false
+User input : 10:2;609;824;7
+Setting aim of thing
+received string 10:0;309;337;8;0
+send false
+User input : 10:0;309;337;8;0
+received string 10:0;272;336;11;0
+send false
+User input : 10:0;272;336;11;0
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Killing 1
+received string 10:2;606;832;8
+send false
+Setting aim of thing
+User input : 10:2;606;832;8
+received string 10:2;597;841;11
+send false
+Setting aim of thing
+User input : 10:2;597;841;11
+Stopping server!

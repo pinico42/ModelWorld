@@ -52,7 +52,7 @@ public class Sol {
 
 		health += 0.1 + ((float)strength) / 70;
 
-        if(owner == 0){
+        if(owner == 0 && health < 50){
             //System.out.println("Health : "+health);
         }
 

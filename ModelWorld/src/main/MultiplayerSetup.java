@@ -198,6 +198,8 @@ public class MultiplayerSetup {
 			return;
 		}
 		
+		
+		
 		try {
 			Client.main(null);
 		} catch (IOException e) {

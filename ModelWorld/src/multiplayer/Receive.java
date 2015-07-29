@@ -82,7 +82,7 @@ public class Receive extends Thread{
            				break;
            			case 1:
            				id = Integer.parseInt(strings[1]);
-           				System.out.println("Removing unit "+id);
+           				//System.out.println("Removing unit "+id);
            				//sol = Sol.sols.get(id);
            				synchronized(Game.mthis.countries[0].remove){
            					Game.mthis.countries[0].remove.add(new int[]{0, id});
@@ -166,12 +166,21 @@ public class Receive extends Thread{
            				Game.mthis.countries[country].money = 0;
            				Game.mthis.countries[country].mines.clear();
            				Game.mthis.countries[country].dens.clear();
+           				Game.mthis.countries[country].army.clear();
            				break;
            			case 1:
            				int money = Integer.parseInt(strings[2]);
            				Game.mthis.countries[country].money += money;
            				break;
            			}
+           			break;
+           		case 14:
+           			System.out.println("Setting a war");
+           			action = Integer.parseInt(strings[0]);
+           			country = Integer.parseInt(strings[1]);
+           			int country2 = Integer.parseInt(strings[2]);
+           			Country.wars[country][country2] = action==1;
+           			Country.wars[country2][country] = action==1;
            			break;
            		}
 			} catch (IOException e) {

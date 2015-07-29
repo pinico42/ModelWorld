@@ -12,7 +12,7 @@ public class Client {
 	
     public static void main(String[] args) throws IOException, Exception, UnknownHostException {
 
-        String hostName = "0.0.0.0";
+        String hostName = args[0];
         int portNumber = 26656;
 
         try {

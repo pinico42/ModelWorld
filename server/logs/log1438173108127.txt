@@ -1,0 +1,1270 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Model game started
+Game classes set up
+Server socket started.
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 0 - 2:10.0;1;0
+RUN STARTED 
+Spin started
+updateWarmup  to 0 - 2:9.5;1;
+0 choosing country
+Set country for player 0 to 0
+received string 0:0
+send false
+User input : 0:0
+updateWarmup  to 0 - 2:9.0;1;0
+updateWarmup  to 0 - 2:8.5;1;0
+updateWarmup  to 0 - 2:8.0;1;0
+updateWarmup  to 0 - 2:7.5;1;0
+updateWarmup  to 0 - 2:7.0;1;0
+updateWarmup  to 0 - 2:6.5;1;0
+updateWarmup  to 0 - 2:6.0;1;0
+updateWarmup  to 0 - 2:5.5;1;0
+updateWarmup  to 0 - 2:5.0;1;0
+updateWarmup  to 0 - 2:4.5;1;0
+updateWarmup  to 0 - 2:4.0;1;0
+updateWarmup  to 0 - 2:3.5;1;0
+updateWarmup  to 0 - 2:3.0;1;0
+updateWarmup  to 0 - 2:2.5;1;0
+updateWarmup  to 0 - 2:2.0;1;0
+updateWarmup  to 0 - 2:1.5;1;0
+updateWarmup  to 0 - 2:1.0;1;0
+updateWarmup  to 0 - 2:0.5;1;0
+updateWarmup  to 0 - 2:0.0;1;0
+Game starting
+received string 10:0;287;316;8;0
+send false
+User input : 10:0;287;316;8;0
+Health : 10.242857
+Health : 10.485714
+Health : 10.728571
+Health : 10.971428
+Health : 11.214285
+Health : 11.457142
+Health : 11.699999
+Health : 11.942856
+Health : 12.185713
+Health : 12.42857
+Health : 12.671427
+Health : 12.914284
+Health : 13.157141
+Health : 13.399998
+Health : 13.642855
+Health : 13.885712
+Health : 14.128569
+Health : 14.371426
+Health : 14.614283
+Health : 14.85714
+Health : 15.099997
+Health : 15.342854
+Health : 15.585711
+Health : 15.8285675
+Health : 16.071424
+Health : 16.314281
+Health : 16.557138
+Health : 16.799995
+Health : 17.042852
+Health : 17.28571
+Health : 17.528566
+Health : 17.771423
+Health : 18.01428
+Health : 18.257137
+Health : 18.499994
+Health : 18.742851
+Health : 18.985708
+Health : 19.228565
+Health : 19.471422
+Health : 19.71428
+Health : 19.957136
+Health : 20.199993
+Health : 20.44285
+Health : 20.685707
+Health : 20.928564
+Health : 21.171421
+Health : 21.414278
+Health : 21.657135
+Health : 21.899992
+Health : 22.142849
+Health : 22.385706
+Health : 22.628563
+Health : 22.87142
+Health : 23.114277
+Health : 23.357134
+Health : 23.59999
+Health : 23.842848
+Health : 24.085705
+Health : 24.328562
+Health : 24.571419
+Health : 24.814276
+Health : 25.057133
+Health : 25.29999
+Health : 25.542847
+Health : 25.785704
+Health : 26.02856
+Health : 26.271418
+Health : 26.514275
+Health : 26.757132
+Health : 26.999989
+Health : 27.242846
+Health : 27.485703
+Health : 27.72856
+Health : 27.971416
+Health : 28.214273
+Health : 28.45713
+Health : 28.699987
+Health : 28.942844
+Health : 29.185701
+Health : 29.428558
+Health : 29.671415
+Health : 29.914272
+Health : 30.15713
+Health : 30.399986
+Health : 30.642843
+Health : 30.8857
+Health : 31.128557
+Health : 31.371414
+Health : 31.614271
+Health : 31.857128
+Health : 32.099987
+Health : 32.342846
+Health : 32.585705
+Health : 32.828564
+Health : 33.071423
+Health : 33.31428
+Health : 33.55714
+Health : 33.8
+Health : 34.04286
+Health : 34.285717
+Health : 34.528576
+Health : 34.771435
+Health : 35.014294
+Health : 35.257153
+Health : 35.50001
+Health : 35.74287
+Health : 35.98573
+Health : 36.22859
+Health : 36.471447
+Health : 36.714306
+Health : 36.957165
+Health : 37.200024
+Health : 37.442883
+Health : 37.68574
+Health : 37.9286
+Health : 38.17146
+Health : 38.414318
+Health : 38.657177
+received string 10:2;602;841;8
+send false
+User input : 10:2;602;841;8
+Setting aim of thing
+Health : 38.900036
+Health : 39.142895
+Health : 39.385754
+Health : 39.628613
+Health : 39.87147
+Health : 40.11433
+Health : 40.35719
+Health : 40.600048
+Health : 40.842907
+Health : 41.085766
+Health : 41.328625
+Health : 41.571484
+Health : 41.814342
+Health : 42.0572
+Health : 42.30006
+Health : 42.54292
+Health : 42.785778
+Health : 43.028637
+Health : 43.271496
+Health : 43.514355
+Health : 43.757214
+Health : 44.000072
+Health : 44.24293
+Health : 44.48579
+Health : 44.72865
+Health : 44.971508
+Health : 45.214367
+Health : 45.457226
+Health : 45.700085
+Health : 45.942944
+Health : 46.185802
+Health : 46.42866
+Health : 46.67152
+Health : 46.91438
+Health : 47.157238
+Health : 47.400097
+Health : 47.642956
+Health : 47.885815
+Health : 48.128674
+Health : 48.371532
+Health : 48.61439
+Health : 48.85725
+Health : 49.10011
+Health : 49.342968
+Health : 49.585827
+Health : 49.828686
+received string 10:2;850;702;8
+Setting aim of thing
+send false
+User input : 10:2;850;702;8
+received string 10:2;1233;582;8
+send false
+User input : 10:2;1233;582;8
+Setting aim of thing
+Hurt
+Hurt
+Hurt
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 49.885742
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 44.1286
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 36.37146
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 28.614317
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 20.857174
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 13.100031
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 7.342888
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 1.585745
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : -4.171398
+Killing...
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Removing sol
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Using default remove for 1
+Player removed, there are now 0 players.
+RUN ENDED, Removing Spin
+Server socket started.
+User input : game 1
+Model started
+new Spin started 0 6 1
+updateWarmup  to 1 - 2:10.0;1;0
+RUN STARTED 
+Spin started
+updateWarmup  to 1 - 2:9.5;1;
+0 choosing country
+Set country for player 0 to 0
+received string 0:0
+send false
+User input : 0:0
+updateWarmup  to 1 - 2:9.0;1;0
+updateWarmup  to 1 - 2:8.5;1;0
+updateWarmup  to 1 - 2:8.0;1;0
+updateWarmup  to 1 - 2:7.5;1;0
+updateWarmup  to 1 - 2:7.0;1;0
+updateWarmup  to 1 - 2:6.5;1;0
+updateWarmup  to 1 - 2:6.0;1;0
+updateWarmup  to 1 - 2:5.5;1;0
+updateWarmup  to 1 - 2:5.0;1;0
+updateWarmup  to 1 - 2:4.5;1;0
+updateWarmup  to 1 - 2:4.0;1;0
+updateWarmup  to 1 - 2:3.5;1;0
+updateWarmup  to 1 - 2:3.0;1;0
+updateWarmup  to 1 - 2:2.5;1;0
+updateWarmup  to 1 - 2:2.0;1;0
+updateWarmup  to 1 - 2:1.5;1;0
+updateWarmup  to 1 - 2:1.0;1;0
+updateWarmup  to 1 - 2:0.5;1;0
+updateWarmup  to 1 - 2:0.0;1;0
+Game starting
+received string 10:0;265;344;9;0
+send false
+User input : 10:0;265;344;9;0
+Health : 10.242857
+Health : 10.485714
+Health : 10.728571
+Health : 10.971428
+Health : 11.214285
+Health : 11.457142
+Health : 11.699999
+Health : 11.942856
+Health : 12.185713
+Health : 12.42857
+Health : 12.671427
+Health : 12.914284
+Health : 13.157141
+Health : 13.399998
+Health : 13.642855
+Health : 13.885712
+Health : 14.128569
+Health : 14.371426
+Health : 14.614283
+Health : 14.85714
+Health : 15.099997
+Health : 15.342854
+Health : 15.585711
+Health : 15.8285675
+Health : 16.071424
+Health : 16.314281
+Health : 16.557138
+Health : 16.799995
+Health : 17.042852
+Health : 17.28571
+Health : 17.528566
+Health : 17.771423
+Health : 18.01428
+Health : 18.257137
+Health : 18.499994
+Health : 18.742851
+Health : 18.985708
+Health : 19.228565
+Health : 19.471422
+Health : 19.71428
+Health : 19.957136
+Health : 20.199993
+Health : 20.44285
+Health : 20.685707
+Health : 20.928564
+Health : 21.171421
+Health : 21.414278
+Health : 21.657135
+Health : 21.899992
+Health : 22.142849
+Health : 22.385706
+Health : 22.628563
+Health : 22.87142
+Health : 23.114277
+Health : 23.357134
+Health : 23.59999
+Health : 23.842848
+Health : 24.085705
+Health : 24.328562
+Health : 24.571419
+Health : 24.814276
+Health : 25.057133
+Health : 25.29999
+Health : 25.542847
+Health : 25.785704
+Health : 26.02856
+Health : 26.271418
+Health : 26.514275
+Health : 26.757132
+Health : 26.999989
+Health : 27.242846
+Health : 27.485703
+Health : 27.72856
+Health : 27.971416
+Health : 28.214273
+Health : 28.45713
+Health : 28.699987
+Health : 28.942844
+Health : 29.185701
+Health : 29.428558
+Health : 29.671415
+Health : 29.914272
+Health : 30.15713
+Health : 30.399986
+Health : 30.642843
+Health : 30.8857
+Health : 31.128557
+Health : 31.371414
+Health : 31.614271
+Health : 31.857128
+Health : 32.099987
+Health : 32.342846
+Health : 32.585705
+Health : 32.828564
+Health : 33.071423
+Health : 33.31428
+Health : 33.55714
+Health : 33.8
+Health : 34.04286
+Health : 34.285717
+Health : 34.528576
+Health : 34.771435
+Health : 35.014294
+Health : 35.257153
+Health : 35.50001
+Health : 35.74287
+Health : 35.98573
+Health : 36.22859
+Health : 36.471447
+Health : 36.714306
+Health : 36.957165
+Health : 37.200024
+Health : 37.442883
+Health : 37.68574
+Health : 37.9286
+Health : 38.17146
+Health : 38.414318
+Health : 38.657177
+Health : 38.900036
+Health : 39.142895
+Health : 39.385754
+Health : 39.628613
+Health : 39.87147
+Health : 40.11433
+Health : 40.35719
+Health : 40.600048
+Health : 40.842907
+Health : 41.085766
+Health : 41.328625
+Health : 41.571484
+Health : 41.814342
+Health : 42.0572
+Health : 42.30006
+Health : 42.54292
+Health : 42.785778
+Health : 43.028637
+Health : 43.271496
+Health : 43.514355
+Health : 43.757214
+Health : 44.000072
+Health : 44.24293
+Health : 44.48579
+Health : 44.72865
+Health : 44.971508
+Health : 45.214367
+Health : 45.457226
+Health : 45.700085
+Health : 45.942944
+Health : 46.185802
+Health : 46.42866
+Health : 46.67152
+Health : 46.91438
+Health : 47.157238
+Health : 47.400097
+Health : 47.642956
+Health : 47.885815
+Health : 48.128674
+Health : 48.371532
+Health : 48.61439
+Health : 48.85725
+Health : 49.10011
+Health : 49.342968
+Health : 49.585827
+Health : 49.828686
+WOW
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+Setting aim of thing
+received string 10:2;655;794;9
+send false
+User input : 10:2;655;794;9
+Setting aim of thing
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Setting aim of thing
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 49.585754
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 45.828613
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 42.071472
+Hurt
+Hurt
+Hurt
+Hurt
+Health : 38.31433
+Hurt
+Hurt
+Health : 36.55719
+Hurt
+Hurt
+Health : 34.80005
+Hurt
+Hurt
+Health : 33.042908
+Hurt
+Hurt
+Health : 31.285765
+Hurt
+Hurt
+Health : 29.528622
+Hurt
+Hurt
+Health : 27.771479
+Hurt
+Hurt
+Health : 26.014336
+Health : 26.257193
+Health : 26.50005
+Health : 26.742907
+Health : 26.985764
+Health : 27.22862
+Health : 27.471478
+Health : 27.714334
+Health : 27.957191
+Health : 28.200048
+Health : 28.442905
+Health : 28.685762
+Health : 28.92862
+Health : 29.171476
+Health : 29.414333
+Health : 29.65719
+Health : 29.900047
+Health : 30.142904
+Health : 30.385761
+Health : 30.628618
+Health : 30.871475
+Health : 31.114332
+Health : 31.35719
+Health : 31.600046
+Health : 31.842903
+Health : 32.085762
+Health : 32.32862
+Health : 32.57148
+Health : 32.81434
+Health : 33.057198
+Health : 33.300056
+Health : 33.542915
+Health : 33.785774
+Health : 34.028633
+Health : 34.271492
+Health : 34.51435
+Health : 34.75721
+Health : 35.00007
+Health : 35.242928
+Health : 35.485786
+Health : 35.728645
+Health : 35.971504
+Health : 36.214363
+Health : 36.457222
+Health : 36.70008
+Health : 36.94294
+Health : 37.1858
+Health : 37.428658
+Health : 37.671516
+Health : 37.914375
+Health : 38.157234
+Health : 38.400093
+Health : 38.642952
+Health : 38.88581
+Health : 39.12867
+Health : 39.37153
+Health : 39.614388
+Health : 39.857246
+Health : 40.100105
+Health : 40.342964
+Health : 40.585823
+Health : 40.828682
+Health : 41.07154
+Health : 41.3144
+Health : 41.55726
+Health : 41.800117
+Health : 42.042976
+Health : 42.285835
+Health : 42.528694
+Health : 42.771553
+Health : 43.014412
+Health : 43.25727
+Health : 43.50013
+Health : 43.74299
+Health : 43.985847
+Health : 44.228706
+Health : 44.471565
+Health : 44.714424
+Health : 44.957283
+Health : 45.20014
+Health : 45.443
+Health : 45.68586
+Health : 45.92872
+Health : 46.171577
+Health : 46.414436
+Health : 46.657295
+Health : 46.900154
+Health : 47.143013
+Health : 47.38587
+Health : 47.62873
+Health : 47.87159
+Health : 48.11445
+Health : 48.357307
+Health : 48.600166
+Health : 48.843025
+Health : 49.085884
+Health : 49.328743
+Health : 49.5716
+Health : 49.81446
+received string 10:2;575;844;9
+send false
+User input : 10:2;575;844;9
+Setting aim of thing
+Using default remove for 1
+Player removed, there are now 0 players.
+RUN ENDED, Removing Spin
+Stopping server!
