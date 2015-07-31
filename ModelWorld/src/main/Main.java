@@ -52,7 +52,7 @@ import org.newdawn.slick.util.ResourceLoader;
 @SuppressWarnings("unused")
 public class Main {
 	
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 	public static int RWIDTH, RHEIGHT, twidth, theight, unlocked;
 	public static UnicodeFont FONT, FONT2;
 	public static boolean run = true, SOUND = true;

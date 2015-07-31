@@ -112,10 +112,12 @@ public class Receive extends Thread{
            				case 0:
            					//System.out.println("Building a mine");
            					Game.mthis.countries[country].AImineAdd(x, y);
+           					Game.mthis.countries[country].money += Country.mcost;
            					break;
            				case 1:
            					//System.out.println("Building an opium den");
            					Game.mthis.countries[country].AIopiumAdd(x, y);
+           					Game.mthis.countries[country].money += Country.ocost;
            					break;
            				}
            			} else {

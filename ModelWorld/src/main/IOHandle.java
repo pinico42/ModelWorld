@@ -13,6 +13,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import multiplayer.Country;
+
 
 public class IOHandle {
 	
@@ -91,8 +93,7 @@ public class IOHandle {
     	String[] keys = new String[]{"host", "port"};
     	String[] pairs = settings.split(";");
     	for(int i = 0; i != pairs.length; i++){
-    		System.out.println(pairs[i].trim().equals(""));
-    		String[] pair = pairs[i].trim().split(":");
+    		String[] pair = pairs[i].toLowerCase().trim().split(":");
     		boolean trip = false;
     		for(String key: keys){
     			if(pair[0].equals(key)){trip=true;}
@@ -101,6 +102,78 @@ public class IOHandle {
     		answers.put(pair[0], pair[1]);
     	}
     	return answers;
+    }
+    
+    public static Country[] getMCSettings(){
+    	Country[] countries = new Country[6];
+    	for(int i = 0; i != countries.length; i++){
+    		countries[i] = new Country(i);
+    	}
+    	String settings = null;
+    	try {
+			settings = slurp(new FileInputStream("res/multiplayer.settings"));
+		} catch (FileNotFoundException e) {
+			System.out.println("Failure!");
+		}
+    	if(settings.equals("")){
+    		return countries;
+    	}
+    	String[] keys = new String[]{"north america", "south america", "europe", "africa", "asia", "oceania"};
+		String[] keys2 = new String[]{"money", "income", "popularity", "reserves", "strength", "soldiers"};
+    	String[] pairs = settings.split(";");
+    	for(int i = 0; i != pairs.length; i++){
+    		String[] pair = pairs[i].toLowerCase().trim().split(":", 2);
+    		int number = -1;
+    		for(int i2 = 0; i2 != keys.length; i2++){
+    			String key = keys[i2];
+    			if(key.equals(pair[0])){
+    				number = i2;
+    				break;
+    			}
+    		}
+    		if(number == -1){
+    			System.out.println("Uh oh MCSettings error : "+pair[0]);
+    			return null;
+    		}
+    		Country country = countries[number];
+    		String[] pairs2 = pair[1].split(",");
+    		for(int a = 0; a != pairs2.length; a++){
+    			String[] pair2 = pairs2[a].split(":");
+    			if(pair2.equals(keys2[0])){
+    				country.money = Integer.parseInt(pair2[1]);
+    				continue;
+    			}
+    			if(pair2.equals(keys2[1])){
+    				country.income = Integer.parseInt(pair2[1]);
+    				country.bincome = country.income;
+    				continue;
+    			}
+    			if(pair2.equals(keys2[2])){
+    				country.popularity = Integer.parseInt(pair2[1]);
+    				country.bpop = country.popularity;
+    				continue;
+    			}
+    			if(pair2.equals(keys2[3])){
+    				country.reserves = Integer.parseInt(pairs[1]);
+    				continue;
+    			}
+    			if(pair2.equals(keys2[4])){
+    				country.armyStrength = Integer.parseInt(pairs[1]);
+    				continue;
+    			}
+    			if(pair2.equals(keys2[5])){
+    				int size = Integer.parseInt(pairs[1]);
+    				for(int count = 0; count != size; count++){
+    					country.armyAdd(country.home[0], country.home[1]);
+    				}
+    				continue;
+    			}
+/*    			if(pair2.equals(keys2[])){
+    				
+    			}*/
+    		}
+    	}
+    	return countries;
     }
     
     public static void writeSettings(int[] settings){
