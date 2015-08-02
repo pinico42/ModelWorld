@@ -4,9 +4,13 @@ import java.io.FileNotFoundException;
 
 public class Spin extends Thread{
 
+    public static float interval, baseWarmup;
+    public static int minPlayers;
+    public static boolean modded = false;
+
 	public Model[] players = new Model[Model.nInGame];
 	public int nPlayers = 0;
-	public float warmup = 10; //Seconds
+	public float warmup = baseWarmup; //Seconds
 	public boolean runb = true, gameStarted = false;
 	public int[] countries = new int[Model.nInGame];
 	public int[] playersc = new int[Model.nInGame];
@@ -84,6 +88,7 @@ public class Spin extends Thread{
         case 4:
             string = code+":"+strings[0];
             break;
+        case 5:
         case 10:
         case 11:
         case 13:
@@ -100,6 +105,7 @@ public class Spin extends Thread{
 				players[i].updateWarmup(warmup, nPlayers, string);
             break;
             case 4:
+            case 5:
             case 10:
             case 11:
             case 13:
@@ -115,16 +121,22 @@ public class Spin extends Thread{
 
 	public void run(){
 		System.out.println("Spin started");
-		float interval = 500;
 		try{
             sendAll(4, null, new String[]{IOHandle.slurp(new FileInputStream(IOHandle.COUNTRY_SETTINGS)).replaceAll("[\\t\\n\\x0B\\f\\r]","")});
 		} catch(FileNotFoundException e){
             System.out.println("oh no");
 		}
-		while(warmup > 0){
+		sendAll(5, new int[]{minPlayers}, null);
+		while(true){
 			warmup -= interval / 1000;
-			if(warmup<0){
-                warmup = (float)0.0;
+			if(!(warmup > 0)){
+                if(minPlayers <= nPlayers){
+                    warmup = (float)0.0;
+                    sendAll(2, null, null);
+                    break;
+                } else {
+                    warmup = baseWarmup;
+                }
 			}
 			sendAll(2, null, null);
 			try{

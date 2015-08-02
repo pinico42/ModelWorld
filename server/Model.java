@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 public class Model extends Thread implements GameI{
 
 	public static final int nInGame = 6;
+	public static int updateInterval;
 
 	public static int games = 0, clients = 0, id;
 	public int playern;
@@ -58,7 +59,6 @@ public class Model extends Thread implements GameI{
 	public void updateWarmup(double time, int players, String countries){
 		String string;
 		string = "2:"+time+";"+players+";"+countries;
-		System.out.println("updateWarmup  to "+id+ " - " + string);
 		out.println(string);
 	}
 
@@ -155,6 +155,10 @@ public class Model extends Thread implements GameI{
 	}
 
 	public static void main(String[] args){
+	    updateInterval = Integer.parseInt(Server.msettings.get("update_interval"));
+	    Spin.interval = Integer.parseInt(Server.msettings.get("warmup_interval"));
+	    Spin.baseWarmup = Integer.parseInt(Server.msettings.get("warmup_start"));
+	    Spin.minPlayers = Integer.parseInt(Server.msettings.get("min_players"));
 		System.out.println("Model game started");
 	}
 

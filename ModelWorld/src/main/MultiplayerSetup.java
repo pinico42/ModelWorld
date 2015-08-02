@@ -49,9 +49,11 @@ import org.newdawn.slick.opengl.TextureLoader;
 @SuppressWarnings("unused")
 public class MultiplayerSetup {
 	
+	public static int[] serverSettings = new int[]{1};
+	public static boolean modded = false;
 	public static MultiplayerSetup mthis;
 	public static Game game;
-	public static UnicodeFont FONT, FONT2;
+	public static UnicodeFont FONT, FONT2, FONT3;
 	public static boolean[] locked = new boolean[6];
 	public static float warmupTime;
 	public static int playersInGame = 1;
@@ -131,6 +133,22 @@ public class MultiplayerSetup {
         }
 	}
 	
+	@SuppressWarnings("unchecked")
+	public void init_fonts(){
+		Font font = new Font("Comic Sans MS", Font.BOLD, 30);
+	    FONT3 = new UnicodeFont(font);
+	    FONT3.addAsciiGlyphs();
+	    FONT3.addGlyphs(400, 600);
+	    FONT3.getEffects().add(new ColorEffect(java.awt.Color.white));
+	    try {
+	        FONT3.loadGlyphs();
+	    } catch (SlickException e) {
+		    System.out.println("something went wrong here!");
+		    e.printStackTrace();
+		    Display.destroy();
+	    }
+	}
+	
 	public void init_game(int[] settings){
 		texts2 = new String[]{"Back"};
 		text2 = new int[][]{{0, HEIGHT - Main.FONT.getHeight("Back")}};
@@ -180,6 +198,7 @@ public class MultiplayerSetup {
 	
 	public void init(boolean initi){
 		warmupTime = -1;
+		init_fonts();
 		int[] settings = IOHandle.getSettings();
 		if(initi){
 			init_LWJGL(settings);
@@ -362,11 +381,17 @@ public class MultiplayerSetup {
 			FONT.drawString(text2[i][0], text2[i][1], texts2[i]);
 		}
 		
-		FONT.drawString(0, 0, String.format("%.2f", warmupTime));
-		String string = ""+playersInGame;
-		FONT.drawString(WIDTH-FONT.getWidth(string), 0, string);
+		FONT3.drawString(0, 0, "Time left : "+String.format("%.2f", warmupTime));
+		String string = "Players: "+playersInGame;
+		int psh = 0;
+		FONT3.drawString(WIDTH-FONT3.getWidth(string), psh, string);
+		psh += FONT3.getHeight(string);
+		string = "Minium Players: "+serverSettings[0];
+		FONT3.drawString(WIDTH-FONT3.getWidth(string), psh, string);
+		psh += FONT3.getHeight(string);
+		string = "Modded: "+(modded?"Yes":"No");
+		FONT3.drawString(WIDTH-FONT3.getWidth(string), psh, string);
 		//Main.FONT.drawString(0, HEIGHT - Main.FONT.getHeight("Back"), "Back");
-		
 	}
 	
 	public void update(){

@@ -1,0 +1,8 @@
+Starting server...
+Setting up game classes...
+Unrecognized key - warmup_start:10!
+Echo game set up
+Exception in thread "main" java.lang.NullPointerException
+	at Model.main(Model.java:159)
+	at Server.main(Server.java:35)
+Stopping server!

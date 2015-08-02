@@ -1,0 +1,7 @@
+Starting server...
+Setting up game classes...
+Echo game set up
+Exception in thread "main" java.lang.NullPointerException
+	at Model.main(Model.java:159)
+	at Server.main(Server.java:34)
+Stopping server!

@@ -31,6 +31,15 @@ public class Receive extends Thread{
            		String[] strings = string.split(":");
            		int protocol = Integer.parseInt(strings[0]);
            		strings = strings[1].split(";");
+           		if(protocol > 9){
+           			while(Game.mthis.countries == null || Game.mthis.countries[5] == null){
+           				try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+           			}
+           		}
            		switch(protocol){
            		case 2:
            			main.MultiplayerSetup.warmupTime = Float.parseFloat(strings[0]);
@@ -66,9 +75,11 @@ public class Receive extends Thread{
            			}
            			break;
            		case 4:
-           			System.out.println("Received a 4 for "+string.split(":", 2)[1]);
+           			//System.out.println("Received a 4 for "+string.split(":", 2)[1]);
            			Game.mthis.countries = IOHandle.getMCSettings(string.split(":", 2)[1]);
-           			
+           			break;
+           		case 5:
+           			main.MultiplayerSetup.serverSettings[0] = Integer.parseInt(strings[0]);
            			break;
            		case 10:
            			action = Integer.parseInt(strings[0]);
@@ -195,6 +206,8 @@ public class Receive extends Thread{
 				e.printStackTrace();
 			} catch (IndexOutOfBoundsException e){
 				e.printStackTrace();
+			} catch(NumberFormatException e){
+				Game.mthis.texts[2] = "The server has disconnected!";
 			}
 		}
 		System.exit(0); //SOMETHING SHOULD PROBABLY HAPPEN HERE- IT'S WHEN THE CONNECTION IS LOST

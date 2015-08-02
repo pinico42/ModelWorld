@@ -53,7 +53,7 @@ public class IOHandle{
     	if(settings.equals("")){
     		return answers;
     	}
-    	String[] keys = new String[]{"port"};
+    	String[] keys = new String[]{"port", "update_interval", "warmup_interval", "warmup_start", "min_players"};
     	String[] pairs = settings.split(";");
     	for(int i = 0; i != pairs.length; i++){
     		String[] pair = pairs[i].toLowerCase().trim().split(":");
@@ -61,7 +61,7 @@ public class IOHandle{
     		for(String key: keys){
     			if(pair[0].equals(key)){trip=true;}
     		}
-    		if(!trip){System.out.println("Unrecognized key - "+pair[0]+":"+pair[1]+"!");return null;}
+    		if(!trip){System.out.println("Unrecognized key - "+pair[0]+":"+pair[1]+"!");continue;}
     		answers.put(pair[0], pair[1]);
     	}
     	return answers;

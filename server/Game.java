@@ -157,12 +157,12 @@ public class Game {
 
 		// Soldiers
 
-		if(time - last > 10000){
+		if(time - last > Model.updateInterval){
             spin.sendAll(12, null, null);
 			for(Country country: countries){
 				country.update();
 			}
-			last += 10000;
+			last += Model.updateInterval;
 		}
 
 		for(Country country: countries){

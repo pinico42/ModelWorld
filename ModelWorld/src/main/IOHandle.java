@@ -115,6 +115,7 @@ public class IOHandle {
     
     public static Country[] getMCSettings(String settings){
     	Country[] countries = new Country[6];
+    	boolean modded = false;
     	for(int i = 0; i != countries.length; i++){
     		countries[i] = new Country(i);
     	}
@@ -145,24 +146,29 @@ public class IOHandle {
     			String[] pair2 = pairs2[a].split(":");
     			if(pair2[0].equals(keys2[0])){
     				country.money = Integer.parseInt(pair2[1]);
+    				modded = true;
     				continue;
     			}
     			if(pair2[0].equals(keys2[1])){
     				country.income = Integer.parseInt(pair2[1]);
     				country.bincome = country.income;
+    				modded = true;
     				continue;
     			}
     			if(pair2[0].equals(keys2[2])){
     				country.popularity = Integer.parseInt(pair2[1]);
     				country.bpop = country.popularity;
+    				modded = true;
     				continue;
     			}
     			if(pair2[0].equals(keys2[3])){
     				country.reserves = Integer.parseInt(pairs[1]);
+    				modded = true;
     				continue;
     			}
     			if(pair2[0].equals(keys2[4])){
     				country.armyStrength = Integer.parseInt(pairs[1]);
+    				modded = true;
     				continue;
     			}
     			if(pair2[0].equals(keys2[5])){
@@ -170,6 +176,7 @@ public class IOHandle {
     				for(int count = 0; count != size; count++){
     					country.armyAdd(country.home[0], country.home[1]);
     				}
+    				modded = true;
     				continue;
     			}
     			System.out.println("Unrecognised key : "+pair2[0]);
@@ -179,6 +186,7 @@ public class IOHandle {
     			}*/
     		}
     	}
+    	MultiplayerSetup.modded = modded;
     	return countries;
     }
     

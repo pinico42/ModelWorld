@@ -8,6 +8,7 @@ import org.apache.commons.io.output.TeeOutputStream;
 public class Server extends Thread {
 
 	public static boolean run = true;
+	public static HashMap<String, String> msettings;
 
 	public static void main(String[] args) throws IOException {
 
@@ -28,14 +29,14 @@ public class Server extends Thread {
 		server.start();
 
 		System.out.println("Setting up game classes...");
+		msettings = IOHandle.getMultiSettings();
 
 		Echo.main(null);
 		Model.main(null);
 
 		System.out.println("Game classes set up");
-		HashMap<String, String> settings = IOHandle.getMultiSettings();
 
-        	int portNumber = Integer.parseInt(settings.get("port"));
+        	int portNumber = Integer.parseInt(msettings.get("port"));
 
         	ArrayList<Handler> echos = new ArrayList<Handler>();
         	int i = 0;
