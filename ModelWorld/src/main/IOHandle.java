@@ -144,7 +144,6 @@ public class IOHandle {
     		for(int a = 0; a != pairs2.length; a++){
     			String[] pair2 = pairs2[a].split(":");
     			if(pair2[0].equals(keys2[0])){
-    				System.out.println("Setting money of "+number+" to "+pair2[1]);
     				country.money = Integer.parseInt(pair2[1]);
     				continue;
     			}
@@ -176,6 +175,7 @@ public class IOHandle {
     			System.out.println("Unrecognised key : "+pair2[0]);
 /*    			if(pair2[0].equals(keys2[])){
     				
+    				continue
     			}*/
     		}
     	}

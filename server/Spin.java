@@ -104,7 +104,6 @@ public class Spin extends Thread{
             case 11:
             case 13:
             case 14:
-                //System.out.println("Updating building with: ["+string+"]");
                 players[i].send(string);
                 break;
             case 12:
@@ -135,11 +134,9 @@ public class Spin extends Thread{
 		gameStarted = true;
 		game = new Game(countries, this);
         game.run();
-		//while(runb){}
 	}
 
 	public void end(){
-        //runb = false;
         if(game != null){
             game.run = false;
             game = null;

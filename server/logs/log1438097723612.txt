@@ -1,7 +1,0 @@
-Starting server...
-Setting up game classes...
-Echo game set up
-Model game started
-Game classes set up
-Server socket started.
-Stopping server!
