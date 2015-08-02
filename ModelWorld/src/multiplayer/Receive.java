@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 
+import main.IOHandle;
 import main.MultiplayerSetup;
 
 public class Receive extends Thread{
@@ -63,6 +64,11 @@ public class Receive extends Thread{
            					break;
            				}
            			}
+           			break;
+           		case 4:
+           			System.out.println("Received a 4 for "+string.split(":", 2)[1]);
+           			Game.mthis.countries = IOHandle.getMCSettings(string.split(":", 2)[1]);
+           			
            			break;
            		case 10:
            			action = Integer.parseInt(strings[0]);

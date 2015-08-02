@@ -107,11 +107,11 @@ public class Init {
         	//Game.mthis.text[i] = new int[]{(int) (Game.WIDTH / 2.3 - MultiplayerSetup.FONT.getWidth(Game.mthis.texts[i]) / 2), Game.HEIGHT / (Game.mthis.text.length + 1) * (i + 1) - MultiplayerSetup.FONT.getHeight(Game.mthis.texts[i])};
         //}
         
-        for(int i = 0; i != 6; i++){
-        	Game.mthis.countries[i] = new Country(i);
-        }
+        //for(int i = 0; i != 6; i++){
+        //	Game.mthis.countries[i] = new Country(i);
+        //}
         
-        System.out.println("Created countries");
+        //System.out.println("Created countries");
 
 		names = new String[5];
 		Game.mthis.dcolours = new boolean[names.length];

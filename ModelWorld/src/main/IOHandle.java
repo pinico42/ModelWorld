@@ -15,7 +15,6 @@ import java.util.Scanner;
 
 import multiplayer.Country;
 
-
 public class IOHandle {
 	
 	public static Scanner getText(String path){
@@ -105,16 +104,20 @@ public class IOHandle {
     }
     
     public static Country[] getMCSettings(){
+    	String settings = null;
+    	try {
+			settings = slurp(new FileInputStream("res/countries.settings"));
+		} catch (FileNotFoundException e) {
+			System.out.println("Failure!");
+		}
+    	return getMCSettings(settings);
+    }
+    
+    public static Country[] getMCSettings(String settings){
     	Country[] countries = new Country[6];
     	for(int i = 0; i != countries.length; i++){
     		countries[i] = new Country(i);
     	}
-    	String settings = null;
-    	try {
-			settings = slurp(new FileInputStream("res/multiplayer.settings"));
-		} catch (FileNotFoundException e) {
-			System.out.println("Failure!");
-		}
     	if(settings.equals("")){
     		return countries;
     	}
@@ -136,39 +139,42 @@ public class IOHandle {
     			return null;
     		}
     		Country country = countries[number];
+    		pair[1] = pair[1].replaceAll("[{}]", "");
     		String[] pairs2 = pair[1].split(",");
     		for(int a = 0; a != pairs2.length; a++){
     			String[] pair2 = pairs2[a].split(":");
-    			if(pair2.equals(keys2[0])){
+    			if(pair2[0].equals(keys2[0])){
+    				System.out.println("Setting money of "+number+" to "+pair2[1]);
     				country.money = Integer.parseInt(pair2[1]);
     				continue;
     			}
-    			if(pair2.equals(keys2[1])){
+    			if(pair2[0].equals(keys2[1])){
     				country.income = Integer.parseInt(pair2[1]);
     				country.bincome = country.income;
     				continue;
     			}
-    			if(pair2.equals(keys2[2])){
+    			if(pair2[0].equals(keys2[2])){
     				country.popularity = Integer.parseInt(pair2[1]);
     				country.bpop = country.popularity;
     				continue;
     			}
-    			if(pair2.equals(keys2[3])){
+    			if(pair2[0].equals(keys2[3])){
     				country.reserves = Integer.parseInt(pairs[1]);
     				continue;
     			}
-    			if(pair2.equals(keys2[4])){
+    			if(pair2[0].equals(keys2[4])){
     				country.armyStrength = Integer.parseInt(pairs[1]);
     				continue;
     			}
-    			if(pair2.equals(keys2[5])){
+    			if(pair2[0].equals(keys2[5])){
     				int size = Integer.parseInt(pairs[1]);
     				for(int count = 0; count != size; count++){
     					country.armyAdd(country.home[0], country.home[1]);
     				}
     				continue;
     			}
-/*    			if(pair2.equals(keys2[])){
+    			System.out.println("Unrecognised key : "+pair2[0]);
+/*    			if(pair2[0].equals(keys2[])){
     				
     			}*/
     		}

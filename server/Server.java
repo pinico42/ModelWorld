@@ -1,4 +1,5 @@
 import java.net.*;
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
@@ -32,8 +33,9 @@ public class Server extends Thread {
 		Model.main(null);
 
 		System.out.println("Game classes set up");
+		HashMap<String, String> settings = IOHandle.getMultiSettings();
 
-        	int portNumber = 26656;
+        	int portNumber = Integer.parseInt(settings.get("port"));
 
         	ArrayList<Handler> echos = new ArrayList<Handler>();
         	int i = 0;

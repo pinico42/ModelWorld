@@ -1,4 +1,7 @@
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class Spin extends Thread{
 
 	public Model[] players = new Model[Model.nInGame];
@@ -78,6 +81,9 @@ public class Spin extends Thread{
                 string = string.substring(0,string.length()-1);
 			}
 			break;
+        case 4:
+            string = code+":"+strings[0];
+            break;
         case 10:
         case 11:
         case 13:
@@ -92,7 +98,8 @@ public class Spin extends Thread{
 			switch(code){
 			case 2:
 				players[i].updateWarmup(warmup, nPlayers, string);
-				break;
+            break;
+            case 4:
             case 10:
             case 11:
             case 13:
@@ -110,6 +117,11 @@ public class Spin extends Thread{
 	public void run(){
 		System.out.println("Spin started");
 		float interval = 500;
+		try{
+            sendAll(4, null, new String[]{IOHandle.slurp(new FileInputStream(IOHandle.COUNTRY_SETTINGS)).replaceAll("[\\t\\n\\x0B\\f\\r]","")});
+		} catch(FileNotFoundException e){
+            System.out.println("oh no");
+		}
 		while(warmup > 0){
 			warmup -= interval / 1000;
 			if(warmup<0){
